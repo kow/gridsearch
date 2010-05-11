@@ -1,0 +1,1444 @@
+Connecting to MySQL..
+Connection open
+https://login.agni.lindenlab.com/cgi-bin/login.cgi Roslyn Bleac sunny
+59 [XML-RPC Login] INFO  - No log configuration found, defaulting to console logging
+77 [XML-RPC Login] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.95:13002)
+Login procedure completed
+Requesting all sim parcels
+We are logged in ok, proceed to scrape
+Starting scrape
+Grid has regions -> found Milu
+System.Int64
+Get Next Region returned "Milu"
+Starting scrape loop for region Milu
+577 [1] INFO  - <Roslyn Bleac>: Already downloading parcels in Milu
+Recieved 2 AV names
+1990 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1108307721055488
+Teleport update :Teleport started
+Teleport finished
+Teleport update :Teleport finished
+2548 [2] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.136:13004)
+2549 [3] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.35:13006)
+2550 [4] INFO  - <Roslyn Bleac>: Connecting to (216.82.46.63:13000)
+New sim connection from Kane
+New sim connection from Hiaka
+New sim connection from Manua
+5684 [4] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Kane (216.82.41.35:13006)
+5685 [5] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Manua (216.82.46.63:13000)
+5687 [6] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Hiaka (216.82.41.136:13004)
+7285 [7] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.24:13002)
+7286 [6] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.49:13005)
+7286 [5] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.169:13000)
+7387 [8] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.123:13005)
+7388 [9] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.126:13003)
+7410 [10] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.74:13004)
+New sim connection from Ku
+New sim connection from Puea
+New sim connection from Olopue
+New sim connection from Tawhaki
+New sim connection from Palulop
+New sim connection from Kanaloa
+8673 [10] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Ku (216.82.45.169:13000)
+8954 [11] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Puea (216.82.41.126:13003)
+9126 [12] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Ku (216.82.45.169:13000)
+9126 [12] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Puea (216.82.41.126:13003)
+9228 [12] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Palulop (216.82.45.24:13002)
+9228 [12] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Tawhaki (216.82.41.49:13005)
+9515 [13] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Olopue (216.82.45.123:13005)
+9702 [14] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Kanaloa (216.82.41.74:13004)
+10426 [15] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.146:13006)
+10426 [16] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.69:13001)
+10743 [8] INFO  - <Roslyn Bleac>: Connecting to (216.82.42.172:13003)
+10743 [17] INFO  - <Roslyn Bleac>: Connecting to (216.82.42.10:13002)
+New sim connection from Nakaa
+New sim connection from Akea
+New sim connection from Alua
+New sim connection from Apukohai
+11025 [7] INFO  - <Roslyn Bleac>: Connecting to (216.82.42.93:13006)
+New sim connection from Sido
+11631 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Akea (216.82.41.69:13001)
+11672 [19] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Nakaa (216.82.41.146:13006)
+12014 [20] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Nakaa (216.82.41.146:13006)
+12198 [20] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Alua (216.82.42.172:13003)
+12210 [14] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Apukohai (216.82.42.10:13002)
+12364 [21] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Sido (216.82.42.93:13006)
+12591 [15] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Akea (216.82.41.69:13001)
+12773 [9] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Sido (216.82.42.93:13006)
+12826 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Apukohai (216.82.42.10:13002)
+ObjectPropTracker, sim 1108307721055488 remaining = 75
+Requesting prop data for prim 680271626
+Requesting prop data for prim 689272339
+Requesting prop data for prim 493414420
+Requesting prop data for prim 680271637
+Requesting prop data for prim 560707607
+Requesting prop data for prim 692845081
+Requesting prop data for prim 560754459
+Requesting prop data for prim 646878749
+Requesting prop data for prim 560751905
+Object propsfamily 1(0)
+Requesting family data for prim 92a851b0-7b82-87c6-e84f-6927f215b790
+Requesting family data for prim 06dc4337-57a8-632e-e866-74ebea67a91e
+Requesting family data for prim 3074d738-3cfb-e60f-9e4e-500281fec741
+Requesting family data for prim 8b244daa-6d18-2945-e234-93e3f5d9def9
+Requesting family data for prim 5e6a92a1-5fa2-3881-0807-68c014c2cab8
+Requesting family data for prim 0e838940-7668-7bc3-2964-d41171554b00
+Requesting family data for prim 9dffd961-16d9-c923-8ae8-94cf560dd05e
+Requesting family data for prim ce8d3f83-05f8-b6a6-b674-7e7dd1dfee36
+Requesting family data for prim 1ec82939-68e9-fa25-9547-d5dd16bee17b
+We got ObjectPropertiesFamily for 8b244daa-6d18-2945-e234-93e3f5d9def9 remaining 9
+We got ObjectPropertiesFamily for 0e838940-7668-7bc3-2964-d41171554b00 remaining 9
+We got ObjectPropertiesFamily for 9dffd961-16d9-c923-8ae8-94cf560dd05e remaining 9
+We got ObjectPropertiesFamily for ce8d3f83-05f8-b6a6-b674-7e7dd1dfee36 remaining 9
+We got ObjectPropertiesFamily for 3074d738-3cfb-e60f-9e4e-500281fec741 remaining 9
+We got ObjectPropertiesFamily for 92a851b0-7b82-87c6-e84f-6927f215b790 remaining 9
+We got ObjectPropertiesFamily for 5e6a92a1-5fa2-3881-0807-68c014c2cab8 remaining 9
+We got ObjectPropertiesFamily for 06dc4337-57a8-632e-e866-74ebea67a91e remaining 2
+We got ObjectProperties for 646878749 remaining 9
+Adding 5aa19dec-0a1c-4ed9-a9d3-35f395719437 to name request queue
+We got ObjectPropertiesFamily for 1ec82939-68e9-fa25-9547-d5dd16bee17b remaining 1
+Adding 5ae4f809-2952-4792-90b8-a072f1db6333 to name request queue
+We got ObjectProperties for 493414420 remaining 8
+Adding 195243a2-9214-4177-a9dc-b12fdac5f10e to name request queue
+Adding 5cc63d04-988f-44b3-be03-85ce8c9836df to name request queue
+We got ObjectProperties for 560707607 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560751905 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560754459 remaining 5
+not adding name request to queue, already in progress
+Adding 1f3cb4fd-46f5-422d-b535-0e09193bdcd0 to name request queue
+We got ObjectProperties for 680271626 remaining 4
+Adding 1ee73003-aee3-4c06-82a8-0c6066b499c8 to name request queue
+Adding f9852989-1aeb-4d63-b246-a358f4d3c8f6 to name request queue
+We got ObjectProperties for 680271637 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 689272339 remaining 2
+Adding 36be2ddb-0b3e-4c55-99d3-4fb3d287f6ef to name request queue
+Adding 4c47c723-0854-4987-bca8-05c3415ae5ef to name request queue
+We got ObjectProperties for 692845081 remaining 1
+Adding c6045082-5fea-4c1b-8c87-1330e08eec22 to name request queue
+not adding name request to queue, already in progress
+Names queue wait 10/0/0
+Requesting 10 AV names
+Recieved 10 AV names
+Got names for Jacqueline Oxberger
+Got names for Riann Maltese
+Got names for Debra Darcy
+Got names for Sugar Falta
+Got names for Cinde Fate
+Got names for Rosie Clowes
+Got names for Novocaine Islay
+Got names for Little Kit
+Got names for Kero Yifu
+Got names for otsootso Illios
+19983 [22] INFO  - <Roslyn Bleac>: Full simulator parcel information retrieved. Sent 128 parcel requests. Current outgoing queue: 2, Retry Count 17
+** GOT ALL SIM PARCELS **
+ObjectPropTracker, sim 1108307721055488 remaining = 66
+Requesting prop data for prim 560752174
+Requesting prop data for prim 686748975
+Requesting prop data for prim 680276820
+Requesting prop data for prim 680271704
+Requesting prop data for prim 560754015
+Requesting prop data for prim 493415523
+Requesting prop data for prim 691343722
+Requesting prop data for prim 560751727
+Requesting prop data for prim 681035129
+Object propsfamily 1(0)
+Requesting family data for prim af67eec6-5920-4dee-668a-1a5b3f04bef8
+Requesting family data for prim b5dd3f06-44db-aca7-4603-7f537b261387
+Requesting family data for prim 706ba2a9-467e-63d0-1a2e-c50913fecadf
+Requesting family data for prim 8804122e-15e3-9913-79e3-c00d154a4659
+Requesting family data for prim 40ebf580-93d0-9c00-74a5-23c54d0d5308
+Requesting family data for prim d1dd7122-0f6a-5ec0-a922-5fe677473a89
+Requesting family data for prim 4d3f8925-f1fd-8af2-bc64-a59e4755cbb7
+Requesting family data for prim de20f770-3a31-5e7d-29c9-faa5e8fdd10f
+Requesting family data for prim 9b804808-3e93-373e-6c12-e124c6f63d2b
+We got ObjectPropertiesFamily for af67eec6-5920-4dee-668a-1a5b3f04bef8 remaining 9
+We got ObjectPropertiesFamily for b5dd3f06-44db-aca7-4603-7f537b261387 remaining 8
+We got ObjectPropertiesFamily for 706ba2a9-467e-63d0-1a2e-c50913fecadf remaining 7
+We got ObjectPropertiesFamily for 8804122e-15e3-9913-79e3-c00d154a4659 remaining 6
+We got ObjectPropertiesFamily for 4d3f8925-f1fd-8af2-bc64-a59e4755cbb7 remaining 5
+We got ObjectPropertiesFamily for 40ebf580-93d0-9c00-74a5-23c54d0d5308 remaining 4
+We got ObjectPropertiesFamily for d1dd7122-0f6a-5ec0-a922-5fe677473a89 remaining 3
+We got ObjectPropertiesFamily for de20f770-3a31-5e7d-29c9-faa5e8fdd10f remaining 2
+We got ObjectPropertiesFamily for 9b804808-3e93-373e-6c12-e124c6f63d2b remaining 1
+We got ObjectProperties for 493415523 remaining 9
+not adding name request to queue, already in progress
+Adding 121ba634-0198-4a40-98b8-11ac78705a29 to name request queue
+We got ObjectProperties for 560751727 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560752174 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271704 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680276820 remaining 5
+not adding name request to queue, already in progress
+Adding be7d2a47-064f-42f8-b951-091e929be06e to name request queue
+We got ObjectProperties for 681035129 remaining 4
+not adding name request to queue, already in progress
+Adding 1f3832e9-f473-41dc-9c34-9b06f5acffc3 to name request queue
+We got ObjectProperties for 686748975 remaining 3
+Adding ec880b62-9601-48fd-9889-e54f34aee805 to name request queue
+Adding 5de51137-e12b-4a73-9ca4-bc6ded21fee8 to name request queue
+We got ObjectProperties for 691343722 remaining 2
+Adding 30731f1c-ef0a-4601-ad3c-ef191144f442 to name request queue
+not adding name request to queue, already in progress
+We got ObjectProperties for 560754015 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 6/0/10
+Requesting 6 AV names
+Recieved 6 AV names
+Got names for Kelar Jensen
+Got names for Loosey Demonia
+Got names for xdarkx Pertwee
+Got names for Sea Warcliffe
+Got names for Pandora Wrigglesworth
+Got names for NikoKito Aries
+ObjectPropTracker, sim 1108307721055488 remaining = 57
+Requesting prop data for prim 560752763
+Requesting prop data for prim 493414029
+Requesting prop data for prim 493330574
+Requesting prop data for prim 493330576
+Requesting prop data for prim 680271766
+Requesting prop data for prim 680271772
+Requesting prop data for prim 680271776
+Requesting prop data for prim 493330603
+Requesting prop data for prim 493330606
+Object propsfamily 1(0)
+Requesting family data for prim 06cf0611-da5d-167f-acb9-6d8e9b484ab0
+Requesting family data for prim f89db075-dce9-c0eb-6cb4-ef5808e9c087
+Requesting family data for prim 8caf825c-c931-886f-7bd5-780a37683650
+Requesting family data for prim 1552b07b-0a81-ca3f-1f5b-fe0abd3b183c
+Requesting family data for prim 3e09eb29-90ae-06b4-9819-71eedaa6b3a2
+Requesting family data for prim c013e531-dd1a-fd4a-d8f0-b97bc1709167
+Requesting family data for prim 0afd9440-2c14-fecb-670b-13b2bfd65d7b
+Requesting family data for prim d43d1167-dbff-7560-22b8-544482a7e771
+Requesting family data for prim feb255ea-5082-3428-494b-fd090f2451d4
+We got ObjectPropertiesFamily for 06cf0611-da5d-167f-acb9-6d8e9b484ab0 remaining 9
+We got ObjectPropertiesFamily for f89db075-dce9-c0eb-6cb4-ef5808e9c087 remaining 8
+We got ObjectPropertiesFamily for 8caf825c-c931-886f-7bd5-780a37683650 remaining 7
+We got ObjectPropertiesFamily for 1552b07b-0a81-ca3f-1f5b-fe0abd3b183c remaining 6
+We got ObjectPropertiesFamily for 3e09eb29-90ae-06b4-9819-71eedaa6b3a2 remaining 5
+We got ObjectPropertiesFamily for c013e531-dd1a-fd4a-d8f0-b97bc1709167 remaining 4
+We got ObjectPropertiesFamily for d43d1167-dbff-7560-22b8-544482a7e771 remaining 3
+We got ObjectPropertiesFamily for feb255ea-5082-3428-494b-fd090f2451d4 remaining 2
+We got ObjectPropertiesFamily for 0afd9440-2c14-fecb-670b-13b2bfd65d7b remaining 1
+We got ObjectProperties for 493330574 remaining 9
+not adding name request to queue, already in progress
+Adding 4dee0066-4142-44e3-b835-8e4fd2337d7a to name request queue
+We got ObjectProperties for 493330576 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 493330603 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 493330606 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 493414029 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560752763 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271766 remaining 3
+not adding name request to queue, already in progress
+Adding 2258bad3-a38a-49d9-b6fd-bdd9af84169a to name request queue
+We got ObjectProperties for 680271772 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271776 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got an ObjectProperties for an object we were not expecting.. ignoring
+The given key was not present in the dictionary.
+Names queue wait 2/0/16
+Requesting 2 AV names
+Recieved 2 AV names
+Got names for Insky Jedburgh
+Got names for Research Projects
+ObjectPropTracker, sim 1108307721055488 remaining = 48
+Requesting prop data for prim 493330607
+Requesting prop data for prim 560753584
+Requesting prop data for prim 634502836
+Requesting prop data for prim 680273855
+Requesting prop data for prim 680271807
+Requesting prop data for prim 493330642
+Requesting prop data for prim 493330644
+Requesting prop data for prim 560754656
+Requesting prop data for prim 560708064
+Object propsfamily 1(0)
+Requesting family data for prim 724cec2a-ba21-e078-0c4f-51fcc8cda1e1
+Requesting family data for prim 2561418e-eeb8-a1d8-8bfc-adb66e6c4fdb
+Requesting family data for prim c81a602c-a313-82a7-618e-03246d698569
+Requesting family data for prim 2a4cfe03-a590-b6b4-1ea8-6160767f96b9
+Requesting family data for prim 8dd0fb26-a617-d118-93a1-e5bca0df07cf
+Requesting family data for prim ce7c9540-b192-5919-0df0-7c63a75bc82d
+Requesting family data for prim e781ff60-e037-c0c4-ae46-392e4b933daf
+Requesting family data for prim bf6c76c1-2d7c-a0c2-e87a-b2e640d43550
+Requesting family data for prim 7dd2b17b-f691-1f60-84ca-54f04cce2aba
+We got ObjectPropertiesFamily for 724cec2a-ba21-e078-0c4f-51fcc8cda1e1 remaining 9
+We got ObjectPropertiesFamily for 2561418e-eeb8-a1d8-8bfc-adb66e6c4fdb remaining 8
+We got ObjectPropertiesFamily for c81a602c-a313-82a7-618e-03246d698569 remaining 7
+We got ObjectPropertiesFamily for 2a4cfe03-a590-b6b4-1ea8-6160767f96b9 remaining 6
+We got ObjectPropertiesFamily for ce7c9540-b192-5919-0df0-7c63a75bc82d remaining 5
+We got ObjectPropertiesFamily for e781ff60-e037-c0c4-ae46-392e4b933daf remaining 4
+We got ObjectPropertiesFamily for bf6c76c1-2d7c-a0c2-e87a-b2e640d43550 remaining 4
+We got ObjectPropertiesFamily for 7dd2b17b-f691-1f60-84ca-54f04cce2aba remaining 4
+We got ObjectPropertiesFamily for 8dd0fb26-a617-d118-93a1-e5bca0df07cf remaining 4
+We got ObjectProperties for 493330607 remaining 9
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 493330642 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 493330644 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560708064 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560753584 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560754656 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 634502836 remaining 3
+not adding name request to queue, already in progress
+Adding 14c7acd5-0520-44a1-a910-589247e4e6f7 to name request queue
+We got ObjectProperties for 680271807 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680273855 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 1/0/18
+Requesting 1 AV names
+Recieved 1 AV names
+Got names for Vivian Rail
+ObjectPropTracker, sim 1108307721055488 remaining = 39
+Requesting prop data for prim 286210789
+Requesting prop data for prim 493329410
+Requesting prop data for prim 692878087
+Requesting prop data for prim 600486533
+Requesting prop data for prim 560133255
+Requesting prop data for prim 560124296
+Requesting prop data for prim 560119959
+Requesting prop data for prim 684736924
+Requesting prop data for prim 684736926
+Object propsfamily 1(0)
+Requesting family data for prim 56745745-5a9b-10ef-b170-ebefee3c29c1
+Requesting family data for prim 94df1c24-6325-f7d2-9d90-6f04761f6b94
+Requesting family data for prim 7bd27253-c93e-70e0-5397-1ce94672b493
+Requesting family data for prim 9d9c5a3a-09cd-8ffc-5a1f-9d8e9e705da3
+Requesting family data for prim 37688b4c-259c-84ee-bfc9-50b30308af0d
+Requesting family data for prim f7e24b59-4ab0-12e6-abf6-a69e3894bee3
+Requesting family data for prim 93bb6052-b62c-297c-e7cb-535ab37fa662
+Requesting family data for prim 627472fb-2743-53af-ce92-c83f6f04680e
+Requesting family data for prim ebd513b7-b7c3-0746-a92c-aa47f4fd14cc
+We got ObjectPropertiesFamily for 56745745-5a9b-10ef-b170-ebefee3c29c1 remaining 9
+We got ObjectPropertiesFamily for 94df1c24-6325-f7d2-9d90-6f04761f6b94 remaining 8
+We got ObjectPropertiesFamily for 93bb6052-b62c-297c-e7cb-535ab37fa662 remaining 7
+We got ObjectPropertiesFamily for 7bd27253-c93e-70e0-5397-1ce94672b493 remaining 8
+We got ObjectPropertiesFamily for 9d9c5a3a-09cd-8ffc-5a1f-9d8e9e705da3 remaining 8
+We got ObjectPropertiesFamily for ebd513b7-b7c3-0746-a92c-aa47f4fd14cc remaining 4
+We got ObjectPropertiesFamily for 37688b4c-259c-84ee-bfc9-50b30308af0d remaining 8
+We got ObjectPropertiesFamily for f7e24b59-4ab0-12e6-abf6-a69e3894bee3 remaining 8
+We got ObjectPropertiesFamily for 627472fb-2743-53af-ce92-c83f6f04680e remaining 8
+We got ObjectProperties for 286210789 remaining 9
+Adding d7d96a73-d694-42a6-abde-2aec34e49ea2 to name request queue
+not adding name request to queue, already in progress
+We got ObjectProperties for 493329410 remaining 8
+not adding name request to queue, already in progress
+Adding 7d4314d7-f4e3-49e9-9eba-2522570295b2 to name request queue
+We got ObjectProperties for 560119959 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560124296 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 692878087 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 560133255 remaining 4
+not adding name request to queue, already in progress
+Adding fc13877e-59b2-4497-893c-1aa7085a2e84 to name request queue
+We got ObjectProperties for 600486533 remaining 3
+Adding 957c6e17-cd34-4a5e-8f0b-f23471b4ca01 to name request queue
+Adding bade0deb-45ab-47be-be1b-c5f8f3417e66 to name request queue
+We got ObjectProperties for 684736924 remaining 2
+Adding 8ccf537f-3b1b-47be-a631-91891d8bc8bd to name request queue
+Adding 594d674e-98ec-405d-902c-800f915a3100 to name request queue
+We got ObjectProperties for 684736926 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 7/0/19
+Requesting 7 AV names
+Recieved 7 AV names
+Got names for TxKatie Curie
+Got names for Lex Neva
+Got names for Ariane Bleac
+Got names for Rudolfo Rotaru
+Got names for Song Desideri
+Got names for Kavita Carnell
+Got names for Charlotte Bartlett
+ObjectPropTracker, sim 1108307721055488 remaining = 30
+Requesting prop data for prim 686228149
+Requesting prop data for prim 686228150
+Requesting prop data for prim 676858295
+Requesting prop data for prim 688273624
+Requesting prop data for prim 684736742
+Requesting prop data for prim 686230761
+Requesting prop data for prim 686230762
+Requesting prop data for prim 686225898
+Requesting prop data for prim 686230763
+Object propsfamily 1(0)
+Requesting family data for prim 3c1036a9-7bd8-628f-c5bf-22bdec3cd49a
+Requesting family data for prim 2b0d93ea-717a-b321-63ff-43566f4cea68
+Requesting family data for prim 05c86347-85a1-463b-4f3e-d5b4e7bccb30
+Requesting family data for prim 54c5c419-93e7-4870-e87d-003a6752ec8b
+Requesting family data for prim 8b140510-9cc8-dcd2-f29a-abc7c8f75c0e
+Requesting family data for prim cb43c612-3cf2-90c1-afc5-0f9a30067678
+Requesting family data for prim f233fd3f-dc5d-3592-4a5a-724e490ddd47
+Requesting family data for prim e4fef5a6-7b41-1985-660d-2a3b42914344
+Requesting family data for prim 175d68c5-bf5c-1f3e-eb18-adb8e411c8bc
+We got ObjectPropertiesFamily for 3c1036a9-7bd8-628f-c5bf-22bdec3cd49a remaining 9
+We got ObjectPropertiesFamily for 2b0d93ea-717a-b321-63ff-43566f4cea68 remaining 8
+We got ObjectPropertiesFamily for 8b140510-9cc8-dcd2-f29a-abc7c8f75c0e remaining 7
+We got ObjectPropertiesFamily for 54c5c419-93e7-4870-e87d-003a6752ec8b remaining 6
+We got ObjectPropertiesFamily for cb43c612-3cf2-90c1-afc5-0f9a30067678 remaining 5
+We got ObjectPropertiesFamily for f233fd3f-dc5d-3592-4a5a-724e490ddd47 remaining 4
+We got ObjectPropertiesFamily for e4fef5a6-7b41-1985-660d-2a3b42914344 remaining 3
+We got ObjectProperties for 676858295 remaining 9
+Adding 282309e3-9397-4d5a-89b4-bbc36e064a49 to name request queue
+We got ObjectPropertiesFamily for 05c86347-85a1-463b-4f3e-d5b4e7bccb30 remaining 2
+Adding fb1e7511-7f6e-4165-a9ce-0c25621e181b to name request queue
+We got ObjectProperties for 684736742 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686230761 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686230762 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686230763 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 688273624 remaining 4
+not adding name request to queue, already in progress
+Adding 1ba2f01c-4257-4b10-b97f-bb2fdf5b6875 to name request queue
+We got ObjectProperties for 686225898 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686228149 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686228150 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectPropertiesFamily for 175d68c5-bf5c-1f3e-eb18-adb8e411c8bc remaining 1
+Names queue wait 3/0/26
+Requesting 3 AV names
+Recieved 3 AV names
+Got names for Melodi Mills
+Got names for Sergio Upshaw
+Got names for Tigger Genira
+ObjectPropTracker, sim 1108307721055488 remaining = 21
+Requesting prop data for prim 675715083
+Requesting prop data for prim 675715101
+Requesting prop data for prim 684741664
+Requesting prop data for prim 684736805
+Requesting prop data for prim 686224211
+Requesting prop data for prim 686224212
+Requesting prop data for prim 686342740
+Requesting prop data for prim 649857369
+Requesting prop data for prim 684736857
+Object propsfamily 1(0)
+Requesting family data for prim acf8dc15-24b1-a726-d091-b153137f3ea4
+Requesting family data for prim cf50d356-345c-e352-1635-f751b62486d8
+Requesting family data for prim 5eb790f8-5cad-426f-5250-47d8597e7835
+Requesting family data for prim bcfd85fb-b205-4675-c40a-b9f4f4ab1599
+Requesting family data for prim 7331422a-baac-75f3-e39e-d9099df3f8be
+Requesting family data for prim 397544e6-7f05-17db-1b86-d48218a92bda
+Requesting family data for prim 0fa08f57-d6e4-8778-adc0-f96c37872081
+Requesting family data for prim daf8904b-3968-5285-5840-13ad6f093abc
+Requesting family data for prim 77d7bf05-ed42-c729-36d7-38d218c2570e
+We got ObjectProperties for 675715083 remaining 9
+Adding 7017c641-b185-424a-ab45-1bf3943010f5 to name request queue
+Adding a992285b-8dcd-4f4e-ab20-5799fb0ff8f9 to name request queue
+We got ObjectProperties for 675715101 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectPropertiesFamily for acf8dc15-24b1-a726-d091-b153137f3ea4 remaining 9
+We got ObjectPropertiesFamily for cf50d356-345c-e352-1635-f751b62486d8 remaining 8
+We got ObjectPropertiesFamily for 5eb790f8-5cad-426f-5250-47d8597e7835 remaining 7
+We got ObjectPropertiesFamily for bcfd85fb-b205-4675-c40a-b9f4f4ab1599 remaining 6
+We got ObjectPropertiesFamily for 7331422a-baac-75f3-e39e-d9099df3f8be remaining 5
+We got ObjectPropertiesFamily for 397544e6-7f05-17db-1b86-d48218a92bda remaining 4
+We got ObjectPropertiesFamily for daf8904b-3968-5285-5840-13ad6f093abc remaining 3
+We got ObjectPropertiesFamily for 0fa08f57-d6e4-8778-adc0-f96c37872081 remaining 2
+We got ObjectPropertiesFamily for 77d7bf05-ed42-c729-36d7-38d218c2570e remaining 1
+We got ObjectProperties for 649857369 remaining 7
+not adding name request to queue, already in progress
+Adding 547b3a09-c411-4dab-937b-2c874a423d84 to name request queue
+We got ObjectProperties for 684736805 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736857 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686224211 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686224212 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686342740 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684741664 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 3/0/29
+Requesting 3 AV names
+Recieved 3 AV names
+Got names for Tamu Anton
+Got names for vitrail Illios
+Got names for Damanios Thetan
+ObjectPropTracker, sim 1108307721055488 remaining = 12
+Requesting prop data for prim 684845915
+Requesting prop data for prim 666409822
+Requesting prop data for prim 666408801
+Requesting prop data for prim 684739176
+Requesting prop data for prim 684845931
+Requesting prop data for prim 385319540
+Requesting prop data for prim 684740490
+Requesting prop data for prim 684736909
+Requesting prop data for prim 684736911
+Object propsfamily 1(0)
+Requesting family data for prim baaf0e81-2a34-bd93-85c3-67d3d0cd59dc
+Requesting family data for prim 286f3e6d-8c9f-72c1-2cf6-7f9306d7b704
+Requesting family data for prim 8adcfbf6-077d-8abd-793a-e46f8f879a56
+Requesting family data for prim bc51fd05-bd13-8264-3235-3eb86a66754c
+Requesting family data for prim 9102e964-73e7-7140-f9cf-9dd289b7e1ed
+Requesting family data for prim 7b3410a3-ac40-9d11-160b-8bba9c7dbcde
+Requesting family data for prim 496acd50-c9c1-88eb-7d48-7c88400f42eb
+Requesting family data for prim 38d2f622-a384-fd5d-82c9-5e32a2d30594
+Requesting family data for prim 0cceecb4-9f2a-237e-7f2e-3fa2f45458c4
+We got ObjectPropertiesFamily for baaf0e81-2a34-bd93-85c3-67d3d0cd59dc remaining 9
+We got ObjectPropertiesFamily for 286f3e6d-8c9f-72c1-2cf6-7f9306d7b704 remaining 8
+We got ObjectPropertiesFamily for 8adcfbf6-077d-8abd-793a-e46f8f879a56 remaining 7
+We got ObjectPropertiesFamily for bc51fd05-bd13-8264-3235-3eb86a66754c remaining 6
+We got ObjectPropertiesFamily for 9102e964-73e7-7140-f9cf-9dd289b7e1ed remaining 5
+We got ObjectPropertiesFamily for 496acd50-c9c1-88eb-7d48-7c88400f42eb remaining 4
+We got ObjectPropertiesFamily for 7b3410a3-ac40-9d11-160b-8bba9c7dbcde remaining 3
+We got ObjectPropertiesFamily for 38d2f622-a384-fd5d-82c9-5e32a2d30594 remaining 2
+We got ObjectPropertiesFamily for 0cceecb4-9f2a-237e-7f2e-3fa2f45458c4 remaining 1
+We got ObjectProperties for 385319540 remaining 9
+Adding 495f428c-b46d-40e9-a26b-6c3ee8edc8b9 to name request queue
+Adding 19a30811-86c1-4982-8ae5-0f87b73cc7e1 to name request queue
+We got ObjectProperties for 666408801 remaining 8
+not adding name request to queue, already in progress
+Adding 1e1c6c05-063a-4cbf-8e9c-0668b5503c24 to name request queue
+We got ObjectProperties for 684845931 remaining 7
+not adding name request to queue, already in progress
+Adding 59ea17c1-6989-49a2-8836-062d20ab01f7 to name request queue
+We got ObjectProperties for 684736911 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684739176 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684740490 remaining 4
+not adding name request to queue, already in progress
+Adding 099804be-dbd3-4c60-88e7-2c7a4cca7e19 to name request queue
+We got ObjectProperties for 684845915 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 666409822 remaining 2
+not adding name request to queue, already in progress
+Adding e0a075f7-f94d-439c-b927-d92064ded3d6 to name request queue
+We got ObjectProperties for 684736909 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 6/0/32
+Requesting 6 AV names
+Recieved 6 AV names
+Got names for Kristin Zimer
+Got names for ScaryMary Spitz
+Got names for Maiko Taurog
+Got names for Annapurna Onomatopoeia
+Got names for Bill Stirling
+Got names for TerdNerd Barbosa
+ObjectPropTracker, sim 1108307721055488 remaining = 3
+Requesting prop data for prim 371132048
+Requesting prop data for prim 684736913
+Requesting prop data for prim 686348692
+Object propsfamily 1(0)
+Requesting family data for prim 7aabeb1f-bcca-5a9d-2a45-12e6f157e298
+Requesting family data for prim 1048cb1f-e823-e8bc-6558-05b715426a17
+Requesting family data for prim 8a0e571a-d6f2-a767-b88c-38eb2e9da0d2
+We got ObjectPropertiesFamily for 7aabeb1f-bcca-5a9d-2a45-12e6f157e298 remaining 3
+We got ObjectPropertiesFamily for 1048cb1f-e823-e8bc-6558-05b715426a17 remaining 2
+We got ObjectPropertiesFamily for 8a0e571a-d6f2-a767-b88c-38eb2e9da0d2 remaining 1
+We got ObjectProperties for 371132048 remaining 3
+Adding f858cd4d-8c71-477c-9682-b5736439c289 to name request queue
+Adding 7cd48dd3-70ea-4e0c-ab8b-d3566fb91d89 to name request queue
+We got ObjectProperties for 684736913 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686348692 remaining 1
+not adding name request to queue, already in progress
+Adding 0a2bf01a-b8cc-4390-b9d8-b043eba2f646 to name request queue
+Names queue wait 3/0/38
+Requesting 3 AV names
+Recieved 3 AV names
+Got names for Adz Childs
+Got names for Siggy Romulus
+Got names for Babe Daligdig
+Object track, and wait time satisified breaking loop
+154627 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1108307721055488
+Teleport update :Teleport started
+Teleport finished
+Teleport update :Teleport finished
+Object track, and wait time satisified breaking loop
+274697 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1108307721055488
+Teleport update :Teleport started
+Teleport finished
+Teleport update :Teleport finished
+275524 [12] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.6:12035)
+New sim connection from Paikea
+276764 [13] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Paikea (216.82.45.6:12035)
+ObjectPropTracker, sim 1108307721055488 remaining = 40
+Requesting prop data for prim 692536431
+Requesting prop data for prim 287168634
+Requesting prop data for prim 680277383
+Requesting prop data for prim 686348688
+Requesting prop data for prim 684740249
+Requesting prop data for prim 687104668
+Requesting prop data for prim 684736932
+Requesting prop data for prim 684736938
+Requesting prop data for prim 680271788
+Object propsfamily 1(0)
+Requesting family data for prim e73ab675-2980-4c70-c938-dd80ff4f9462
+Requesting family data for prim 2ec961fa-c156-05cf-9b37-0e89f3945216
+Requesting family data for prim 7d64cc82-593f-186f-9312-bb131eb15b30
+Requesting family data for prim 2e3fb8bf-c29e-68fc-a942-bba204cd6d7b
+Requesting family data for prim b88ced1a-f847-3e79-9895-c6476aa7a870
+Requesting family data for prim 35981cee-6f8a-d943-7d24-76fcd818f744
+Requesting family data for prim ca00389e-2398-07c9-ea2d-8f41923cd4fa
+Requesting family data for prim ac86bbb3-6fe5-20de-1225-a098b975f9ce
+Requesting family data for prim 9f02ebfc-efad-49c0-db58-5235f5ab1a50
+We got ObjectProperties for 692536431 remaining 9
+not adding name request to queue, already in progress
+Adding cb7e1434-9ca8-4c35-afb3-fd6cf7f4bfd3 to name request queue
+We got ObjectPropertiesFamily for e73ab675-2980-4c70-c938-dd80ff4f9462 remaining 9
+We got ObjectPropertiesFamily for 2ec961fa-c156-05cf-9b37-0e89f3945216 remaining 8
+We got ObjectPropertiesFamily for 7d64cc82-593f-186f-9312-bb131eb15b30 remaining 7
+We got ObjectPropertiesFamily for b88ced1a-f847-3e79-9895-c6476aa7a870 remaining 6
+We got ObjectPropertiesFamily for 35981cee-6f8a-d943-7d24-76fcd818f744 remaining 6
+We got ObjectPropertiesFamily for ca00389e-2398-07c9-ea2d-8f41923cd4fa remaining 6
+We got ObjectPropertiesFamily for ac86bbb3-6fe5-20de-1225-a098b975f9ce remaining 6
+We got ObjectPropertiesFamily for 2e3fb8bf-c29e-68fc-a942-bba204cd6d7b remaining 6
+We got ObjectPropertiesFamily for 9f02ebfc-efad-49c0-db58-5235f5ab1a50 remaining 1
+We got ObjectProperties for 287168634 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271788 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680277383 remaining 6
+not adding name request to queue, already in progress
+Adding 066f8a91-8395-441f-b6f6-118fd69abda6 to name request queue
+We got ObjectProperties for 684736938 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684740249 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 686348688 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 687104668 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736932 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 2/0/41
+Requesting 2 AV names
+Recieved 2 AV names
+Got names for Earalia Nolan
+Got names for Lionna Dumouriez
+ObjectPropTracker, sim 1108307721055488 remaining = 31
+Requesting prop data for prim 680271789
+Requesting prop data for prim 684736944
+Requesting prop data for prim 684736950
+Requesting prop data for prim 680271799
+Requesting prop data for prim 680271800
+Requesting prop data for prim 676858296
+Requesting prop data for prim 684736956
+Requesting prop data for prim 684736962
+Requesting prop data for prim 629703108
+Object propsfamily 1(0)
+Requesting family data for prim 800b7ce2-5e22-f98b-c560-8608d94303e0
+Requesting family data for prim e2c26bfa-bdb6-d39f-3516-68862d7505ee
+Requesting family data for prim 3800b47f-20bf-68ac-46c8-6b4fbfb86557
+Requesting family data for prim e5b3077f-063c-50a7-554a-243b2ea5cfb1
+Requesting family data for prim 5853f3d9-0599-b3fb-b636-68c1b5145f03
+Requesting family data for prim b18e3d7f-832b-455e-5df5-4cac15c2ceb4
+Requesting family data for prim a56b100e-741b-8463-53cd-cd0142e4a30f
+Requesting family data for prim ef34260c-6b4a-6c7a-dd56-7db2f47125cb
+Requesting family data for prim 4fd55cc8-0b3c-3110-6fc0-af1ff9d1605f
+We got ObjectPropertiesFamily for 800b7ce2-5e22-f98b-c560-8608d94303e0 remaining 9
+We got ObjectPropertiesFamily for e2c26bfa-bdb6-d39f-3516-68862d7505ee remaining 8
+We got ObjectPropertiesFamily for e5b3077f-063c-50a7-554a-243b2ea5cfb1 remaining 8
+We got ObjectPropertiesFamily for 3800b47f-20bf-68ac-46c8-6b4fbfb86557 remaining 8
+We got ObjectPropertiesFamily for b18e3d7f-832b-455e-5df5-4cac15c2ceb4 remaining 5
+We got ObjectPropertiesFamily for a56b100e-741b-8463-53cd-cd0142e4a30f remaining 4
+We got ObjectPropertiesFamily for ef34260c-6b4a-6c7a-dd56-7db2f47125cb remaining 4
+We got ObjectPropertiesFamily for 4fd55cc8-0b3c-3110-6fc0-af1ff9d1605f remaining 4
+We got ObjectPropertiesFamily for 5853f3d9-0599-b3fb-b636-68c1b5145f03 remaining 1
+We got ObjectProperties for 629703108 remaining 9
+not adding name request to queue, already in progress
+Adding 945f8d17-2f62-4b31-bd0d-5a7bbf2a8c0f to name request queue
+We got ObjectProperties for 676858296 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736944 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736950 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736956 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736962 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271789 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271799 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271800 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 1/0/43
+Requesting 1 AV names
+Recieved 1 AV names
+Got names for Misao Nakamura
+ObjectPropTracker, sim 1108307721055488 remaining = 23
+Requesting prop data for prim 692899836
+Requesting prop data for prim 676858310
+Requesting prop data for prim 692899789
+Requesting prop data for prim 684736977
+Requesting prop data for prim 684736979
+Requesting prop data for prim 684736981
+Requesting prop data for prim 633710807
+Requesting prop data for prim 684736983
+Requesting prop data for prim 680271839
+Object propsfamily 1(0)
+Requesting family data for prim 32c99a28-99f4-de77-4597-fa97d1564d2c
+Requesting family data for prim 62bcbd74-83b5-36b4-c501-bc8ff06fc614
+Requesting family data for prim 6073f45a-6909-431a-e7ac-1fbb1c08557b
+Requesting family data for prim 9cb09d20-2f9c-bf49-3641-6d3afa8695e6
+Requesting family data for prim cfc1eaeb-fba9-6cdc-c6e1-41944478c6a4
+Requesting family data for prim 92a28a92-7ca5-4c6e-c59f-6dce4a7d6eda
+Requesting family data for prim 7591ec7c-f230-e6b8-c05b-0b7f207fe644
+Requesting family data for prim 1e5b0bdb-ec01-ed49-cd91-34311d2f3a0a
+Requesting family data for prim fbc39add-6d2f-85ff-d420-94ab9b062add
+We got ObjectPropertiesFamily for 32c99a28-99f4-de77-4597-fa97d1564d2c remaining 9
+We got ObjectPropertiesFamily for 6073f45a-6909-431a-e7ac-1fbb1c08557b remaining 8
+We got ObjectPropertiesFamily for 9cb09d20-2f9c-bf49-3641-6d3afa8695e6 remaining 7
+We got ObjectPropertiesFamily for 62bcbd74-83b5-36b4-c501-bc8ff06fc614 remaining 6
+We got ObjectPropertiesFamily for cfc1eaeb-fba9-6cdc-c6e1-41944478c6a4 remaining 5
+We got ObjectPropertiesFamily for 92a28a92-7ca5-4c6e-c59f-6dce4a7d6eda remaining 4
+We got ObjectPropertiesFamily for 7591ec7c-f230-e6b8-c05b-0b7f207fe644 remaining 3
+We got ObjectPropertiesFamily for 1e5b0bdb-ec01-ed49-cd91-34311d2f3a0a remaining 2
+We got ObjectPropertiesFamily for fbc39add-6d2f-85ff-d420-94ab9b062add remaining 1
+We got ObjectProperties for 633710807 remaining 9
+not adding name request to queue, already in progress
+Adding e69be162-4da9-4ab0-b504-c5a3e6e9bd9f to name request queue
+We got ObjectProperties for 676858310 remaining 8
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680271839 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736981 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736983 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 692899789 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 692899836 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736977 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684736979 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 1/0/44
+Requesting 1 AV names
+Recieved 1 AV names
+Got names for nightlife Overlord
+300590 [23] DEBUG - Cache size is 10 KB, file deletion not needed
+ObjectPropTracker, sim 1108307721055488 remaining = 14
+Requesting prop data for prim 680277990
+Requesting prop data for prim 680277239
+Requesting prop data for prim 684791291
+Requesting prop data for prim 662637313
+Requesting prop data for prim 662637314
+Requesting prop data for prim 560117507
+Requesting prop data for prim 662637315
+Requesting prop data for prim 662637316
+Requesting prop data for prim 662637317
+Object propsfamily 1(0)
+Requesting family data for prim c5ec66a1-68ce-5b54-a85f-34bc75e2fb76
+Requesting family data for prim e2fc2360-edde-17f4-6c7d-f756f6828f6d
+Requesting family data for prim 59775ed0-37e5-a853-804b-7ccd34fb72b9
+Requesting family data for prim a3bfb94a-5f38-f23d-d245-7034141e5a4e
+Requesting family data for prim d59a43f7-28c8-f474-ae6b-aa6d5b095e6d
+Requesting family data for prim 1caedf04-3a37-9365-5261-8f15cdd6cfcc
+Requesting family data for prim 054062c0-9627-5d8b-a0df-eef42b75a0d0
+Requesting family data for prim cb17bdcd-5b39-9b29-c283-c74dd5934212
+Requesting family data for prim 52a16637-bf89-27f8-7ee5-13e1f9aca337
+We got ObjectPropertiesFamily for c5ec66a1-68ce-5b54-a85f-34bc75e2fb76 remaining 9
+We got ObjectPropertiesFamily for e2fc2360-edde-17f4-6c7d-f756f6828f6d remaining 9
+We got ObjectPropertiesFamily for 59775ed0-37e5-a853-804b-7ccd34fb72b9 remaining 9
+We got ObjectPropertiesFamily for a3bfb94a-5f38-f23d-d245-7034141e5a4e remaining 9
+We got ObjectPropertiesFamily for d59a43f7-28c8-f474-ae6b-aa6d5b095e6d remaining 5
+We got ObjectPropertiesFamily for 1caedf04-3a37-9365-5261-8f15cdd6cfcc remaining 4
+We got ObjectPropertiesFamily for 054062c0-9627-5d8b-a0df-eef42b75a0d0 remaining 3
+We got ObjectPropertiesFamily for cb17bdcd-5b39-9b29-c283-c74dd5934212 remaining 2
+We got ObjectPropertiesFamily for 52a16637-bf89-27f8-7ee5-13e1f9aca337 remaining 1
+We got ObjectProperties for 560117507 remaining 9
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 662637313 remaining 8
+Adding 6bc42904-8261-471a-90e5-80f43a4cf07b to name request queue
+not adding name request to queue, already in progress
+We got ObjectProperties for 662637314 remaining 7
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 684791291 remaining 6
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 662637316 remaining 5
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 662637317 remaining 4
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680277239 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 680277990 remaining 2
+not adding name request to queue, already in progress
+Adding bd774c86-95c8-4d6c-9ef4-e643b2f7abaa to name request queue
+We got ObjectProperties for 662637315 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 2/0/45
+Requesting 2 AV names
+Recieved 2 AV names
+Got names for Fenom Gasparini
+Got names for Kiku Yokosuka
+ObjectPropTracker, sim 1108307721055488 remaining = 5
+Requesting prop data for prim 662637318
+Requesting prop data for prim 691946504
+Requesting prop data for prim 371579145
+Requesting prop data for prim 306439700
+Requesting prop data for prim 630658841
+Object propsfamily 1(0)
+Requesting family data for prim 7de18b61-88ec-f9f4-51f1-92c6e37204a8
+Requesting family data for prim a22ad6cc-3196-bc2d-7d59-c23f45058de8
+Requesting family data for prim 264383cc-04d5-11b3-e189-6d74045d3ed1
+Requesting family data for prim 37f28549-c5ce-09d7-8f2c-4fa45e613199
+Requesting family data for prim 5f33cd37-21dc-2fbc-8179-e66622990d18
+We got ObjectPropertiesFamily for 7de18b61-88ec-f9f4-51f1-92c6e37204a8 remaining 5
+We got ObjectPropertiesFamily for a22ad6cc-3196-bc2d-7d59-c23f45058de8 remaining 4
+We got ObjectPropertiesFamily for 264383cc-04d5-11b3-e189-6d74045d3ed1 remaining 3
+We got ObjectPropertiesFamily for 37f28549-c5ce-09d7-8f2c-4fa45e613199 remaining 2
+We got ObjectPropertiesFamily for 5f33cd37-21dc-2fbc-8179-e66622990d18 remaining 1
+We got ObjectProperties for 306439700 remaining 5
+not adding name request to queue, already in progress
+Adding 61ca7d87-2316-4c98-b3dc-c7e29e4666b7 to name request queue
+We got ObjectProperties for 371579145 remaining 4
+not adding name request to queue, already in progress
+Adding 3bca575a-0818-424f-b51b-04014a6b0ff7 to name request queue
+We got ObjectProperties for 691946504 remaining 3
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 630658841 remaining 2
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+We got ObjectProperties for 662637318 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Names queue wait 2/0/47
+Requesting 2 AV names
+Recieved 2 AV names
+Got names for Escort DeFarge
+Got names for Seagel Neville
+326762 [24] INFO  - <Roslyn Bleac>: Caps system for Paikea (216.82.45.6:12035) is aborting
+Sim disconnected from Paikea Reason NetworkTimeout
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692899883
+Object propsfamily 1(0)
+Requesting family data for prim aeaff4a4-ece2-c033-9945-996a52d522ed
+We got ObjectPropertiesFamily for aeaff4a4-ece2-c033-9945-996a52d522ed remaining 1
+We got ObjectProperties for 692899883 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692899955
+Object propsfamily 1(0)
+Requesting family data for prim ced26b14-a920-ed27-cfa4-4f5681b30b12
+We got ObjectPropertiesFamily for ced26b14-a920-ed27-cfa4-4f5681b30b12 remaining 1
+We got ObjectProperties for 692899955 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692900002
+Object propsfamily 1(0)
+Requesting family data for prim 6b75caa6-30df-4f9e-a891-32fc0913dca9
+We got ObjectPropertiesFamily for 6b75caa6-30df-4f9e-a891-32fc0913dca9 remaining 1
+We got ObjectProperties for 692900002 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Object track, and wait time satisified breaking loop
+482751 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1108307721055488
+Teleport update :Teleport started
+Teleport finished
+Teleport update :Teleport finished
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692900050
+Object propsfamily 1(0)
+Requesting family data for prim ca13d220-6798-292e-95ce-cd9b20ab6492
+We got ObjectPropertiesFamily for ca13d220-6798-292e-95ce-cd9b20ab6492 remaining 1
+We got ObjectProperties for 692900050 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692900123
+Object propsfamily 1(0)
+Requesting family data for prim 6151a11c-56f1-b284-d672-ee6310642723
+We got ObjectPropertiesFamily for 6151a11c-56f1-b284-d672-ee6310642723 remaining 1
+We got ObjectProperties for 692900123 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692900170
+Object propsfamily 1(0)
+Requesting family data for prim f67541b3-abca-45a5-c856-528b257c0ba1
+We got ObjectPropertiesFamily for f67541b3-abca-45a5-c856-528b257c0ba1 remaining 1
+We got ObjectProperties for 692900170 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+600569 [25] DEBUG - Cache size is 10 KB, file deletion not needed
+ObjectPropTracker, sim 1108307721055488 remaining = 1
+Requesting prop data for prim 692900242
+Object propsfamily 1(0)
+Requesting family data for prim bf67e49e-b82b-bd94-6d78-364591aeb38a
+We got ObjectPropertiesFamily for bf67e49e-b82b-bd94-6d78-364591aeb38a remaining 1
+We got ObjectProperties for 692900242 remaining 1
+not adding name request to queue, already in progress
+not adding name request to queue, already in progress
+Object track, and wait time satisified breaking loop
+Scan complete waiting parcel update before saving
+All Properties recieved, saving data
+Grid has regions -> found Gurley
+System.Int64
+Get Next Region returned "Gurley"
+Starting scrape loop for region Gurley
+687542 [26] INFO  - <Roslyn Bleac>: Full simulator parcel information retrieved. Sent 0 parcel requests. Current outgoing queue: 0, Retry Count 0
+687915 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1106108697799168
+Teleport update :Teleport started
+Teleport update :resolving
+Teleport update :Sending to destination.
+689047 [27] INFO  - <Roslyn Bleac>: Connecting to (216.82.43.229:12035)
+689709 [27] INFO  - <Roslyn Bleac>: Moved to new sim Gurley (216.82.43.229:12035)
+Teleport finished
+Teleport update :Teleport finished
+** GOT ALL SIM PARCELS **
+691504 [28] INFO  - <Roslyn Bleac>: Connecting to (216.82.33.108:13009)
+691505 [13] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.6:12035)
+691507 [14] INFO  - <Roslyn Bleac>: Connecting to (216.82.32.92:13012)
+691508 [18] INFO  - <Roslyn Bleac>: Connecting to (216.82.46.37:13003)
+New sim connection from Harvey
+New sim connection from Hawthorne
+New sim connection from Paikea
+New sim connection from Eldridge
+693596 [29] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.148:13005)
+693679 [30] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Harvey (216.82.33.108:13009)
+694233 [6] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Hawthorne (216.82.46.37:13003)
+694237 [31] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Paikea (216.82.45.6:12035)
+694238 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Eldridge (216.82.32.92:13012)
+New sim connection from Quat
+695544 [31] INFO  - <Roslyn Bleac>: Connecting to (216.82.42.7:13006)
+695545 [10] INFO  - <Roslyn Bleac>: Connecting to (216.82.43.172:13009)
+New sim connection from Shipley
+695828 [28] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Quat (216.82.45.148:13005)
+New sim connection from Kagle
+696018 [30] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.26:13000)
+696067 [32] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Shipley (216.82.42.7:13006)
+696115 [17] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.34:13000)
+696116 [10] INFO  - <Roslyn Bleac>: Connecting to (216.82.45.60:13004)
+696149 [33] INFO  - <Roslyn Bleac>: Connecting to (216.82.38.77:13001)
+New sim connection from Marunogere
+696891 [11] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Kagle (216.82.43.172:13009)
+New sim connection from Clyde
+New sim connection from Dunlevie
+New sim connection from Stanford
+697485 [34] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Marunogere (216.82.41.26:13000)
+697550 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Clyde (216.82.45.34:13000)
+697551 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Shipley (216.82.42.7:13006)
+697739 [33] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Marunogere (216.82.41.26:13000)
+697799 [6] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.144:13002)
+697809 [30] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.28:12035)
+New sim connection from Federal
+New sim connection from Kiha
+698151 [35] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Dunlevie (216.82.38.77:13001)
+698196 [17] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Stanford (216.82.45.60:13004)
+698898 [21] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Clyde (216.82.45.34:13000)
+699179 [12] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Kiha (216.82.41.144:13002)
+699180 [12] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Federal (216.82.41.28:12035)
+699468 [36] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.163:13004)
+699677 [21] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Kiha (216.82.41.144:13002)
+700016 [37] INFO  - <Roslyn Bleac>: Connecting to (216.82.41.230:12035)
+700017 [28] INFO  - <Roslyn Bleac>: Connecting to (216.82.46.47:12035)
+729468 [36] WARN  - <Roslyn Bleac>: Giving up on waiting for RegionHandshake for (216.82.41.163:13004)
+New sim connection from Jessie
+New sim connection from Welsh
+730768 [11] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Vaoetere (216.82.41.163:13004)
+Object track, and wait time satisified breaking loop
+869808 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1106108697799168
+Teleport to Gurley failed
+916808 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1106108697799168
+Teleport to Gurley failed
+963808 [1] INFO  - <Roslyn Bleac>: Requesting teleport to region handle 1106108697799168
+970792 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Jessie (216.82.46.47:12035)
+970793 [18] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Welsh (216.82.41.230:12035)
+971292 [17] INFO  - <Roslyn Bleac>: Caps system for Hiaka (216.82.41.136:13004) is aborting
+Sim disconnected from Hiaka Reason NetworkTimeout
+971516 [15] INFO  - <Roslyn Bleac>: Caps system for Kane (216.82.41.35:13006) is aborting
+Sim disconnected from Kane Reason NetworkTimeout
+971520 [4] INFO  - <Roslyn Bleac>: Caps system for Olopue (216.82.45.123:13005) is aborting
+971521 [15] INFO  - <Roslyn Bleac>: Caps system for Puea (216.82.41.126:13003) is aborting
+971521 [28] INFO  - <Roslyn Bleac>: Caps system for Manua (216.82.46.63:13000) is aborting
+Sim disconnected from Manua Reason NetworkTimeout
+971525 [28] INFO  - <Roslyn Bleac>: Caps system for Tawhaki (216.82.41.49:13005) is aborting
+Sim disconnected from Tawhaki Reason NetworkTimeout
+971526 [28] INFO  - <Roslyn Bleac>: Caps system for Milu (216.82.41.95:13002) is aborting
+Sim disconnected from Milu Reason NetworkTimeout
+971526 [28] INFO  - <Roslyn Bleac>: Caps system for Palulop (216.82.45.24:13002) is aborting
+Sim disconnected from Puea Reason NetworkTimeout
+971527 [15] INFO  - <Roslyn Bleac>: Caps system for Sido (216.82.42.93:13006) is aborting
+Sim disconnected from Palulop Reason NetworkTimeout
+Sim disconnected from Sido Reason NetworkTimeout
+971534 [28] INFO  - <Roslyn Bleac>: Caps system for Alua (216.82.42.172:13003) is aborting
+Sim disconnected from Olopue Reason NetworkTimeout
+971536 [4] INFO  - <Roslyn Bleac>: Caps system for Apukohai (216.82.42.10:13002) is aborting
+Sim disconnected from Apukohai Reason NetworkTimeout
+Sim disconnected from Alua Reason NetworkTimeout
+Teleport to Gurley failed
+Scan complete waiting parcel update before saving
+All Properties recieved, saving data
+Grid has regions -> found Shipley
+System.Int64
+Get Next Region returned "Shipley"
+Starting scrape loop for region Shipley
+1010813 [38] INFO  - <Roslyn Bleac>: Full simulator parcel information retrieved. Sent 0 parcel requests. Current outgoing queue: 0, Retry Count 0
+1015812 [1] WARN  - <Roslyn Bleac>: Couldn't find region Shipley
+Teleport to Shipley failed
+1027812 [1] WARN  - <Roslyn Bleac>: Couldn't find region Shipley
+Teleport to Shipley failed
+1034036 [3] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Vaoetere (216.82.41.163:13004)
+1034036 [3] INFO  - <Roslyn Bleac>: Got EstablishAgentCommunication for Welsh (216.82.41.230:12035)
+1034038 [13] WARN  - Unrecognized caps exception from https://sim8850.agni.lindenlab.com:12043/cap/218eab7d-343f-cd8a-ba2d-0d1d13aef6f9: The object was used after being disposed.
+1034038 [36] WARN  - Unrecognized caps exception from https://sim9921.agni.lindenlab.com:12043/cap/cfe3dfa7-dde8-53cf-2067-734fd872aec4: The object was used after being disposed.
+1034038 [19] WARN  - Unrecognized caps exception from https://sim9789.agni.lindenlab.com:12043/cap/ea8d3ef3-f3cf-8aaf-4375-5cb7c2046913: The object was used after being disposed.
+1034038 [14] WARN  - Unrecognized caps exception from https://sim9726.agni.lindenlab.com:12043/cap/0549b521-935e-037d-5577-143dac9c56f4: The object was used after being disposed.
+1034038 [31] WARN  - Unrecognized caps exception from https://sim9074.agni.lindenlab.com:12043/cap/df48d3e4-129d-4268-bd08-ff8e198115c7: The object was used after being disposed.
+1034040 [33] WARN  - Unrecognized caps exception from https://sim9526.agni.lindenlab.com:12043/cap/8ebdde2e-f095-72ef-9e78-1221f1294fb5: The object was used after being disposed.
+1034040 [8] WARN  - Unrecognized caps exception from https://sim9672.agni.lindenlab.com:12043/cap/8e108b99-764a-7538-e737-b5e63c3e95ca: The object was used after being disposed.
+1034040 [27] WARN  - Unrecognized caps exception from https://sim8893.agni.lindenlab.com:12043/cap/0ced4e30-aa9a-06ee-3136-7f1575b8cb72: The object was used after being disposed.
+1034040 [12] WARN  - Unrecognized caps exception from https://sim8919.agni.lindenlab.com:12043/cap/ef6a392a-a681-64f7-d01c-be0da76f2067: The object was used after being disposed.
+1034040 [2] WARN  - Unrecognized caps exception from https://sim8898.agni.lindenlab.com:12043/cap/a797cbb9-7606-7538-78ec-c3fb337f04fb: The object was used after being disposed.
+1034040 [9] WARN  - Unrecognized caps exception from https://sim8960.agni.lindenlab.com:12043/cap/bee4392f-b572-7531-a14a-3653a09f885e: The object was used after being disposed.
+1034041 [37] WARN  - Unrecognized caps exception from https://sim9690.agni.lindenlab.com:12043/cap/0fb818ec-f8a1-c6a8-ef5a-261ad4ef86e4: The object was used after being disposed.
+1034042 [6] WARN  - Unrecognized caps exception from https://sim8859.agni.lindenlab.com:12043/cap/cc02fad4-0dd3-5ee3-bd57-97236a4bb5a0: The object was used after being disposed.
+1034042 [16] WARN  - Unrecognized caps exception from https://sim8873.agni.lindenlab.com:12043/cap/9aaa79cc-d3fe-be10-e56b-a275eeabff5b: The object was used after being disposed.
+1034042 [39] WARN  - Unrecognized caps exception from https://sim9236.agni.lindenlab.com:12043/cap/db8b94e6-2f4b-0b4a-a313-3f3426282e56: The object was used after being disposed.
+1034042 [29] WARN  - Unrecognized caps exception from https://sim9157.agni.lindenlab.com:12043/cap/0c365352-a845-4274-ea13-34d2efcf74b8: The object was used after being disposed.
+1034043 [35] WARN  - Unrecognized caps exception from https://sim8950.agni.lindenlab.com:12043/cap/f7aeb481-8a52-83b9-8dd2-63ff24985353: The object was used after being disposed.
+1034045 [30] WARN  - Unrecognized caps exception from https://sim9814.agni.lindenlab.com:12043/cap/0c779be8-9173-c0d1-a3ab-20731bd29165: The object was used after being disposed.
+1034045 [7] WARN  - Unrecognized caps exception from https://sim9835.agni.lindenlab.com:12043/cap/d441cf6f-ab93-88c5-d340-155bebeb8639: The object was used after being disposed.
+1034045 [21] WARN  - Unrecognized caps exception from https://sim8685.agni.lindenlab.com:12043/cap/de2b7d87-b0e5-b84e-58bc-5fdaaef67bc5: The object was used after being disposed.
+1034045 [5] WARN  - Unrecognized caps exception from https://sim9895.agni.lindenlab.com:12043/cap/a02bef22-f563-1cca-cc8f-f90d7dc0181b: The object was used after being disposed.
+1034045 [40] WARN  - Unrecognized caps exception from https://sim8970.agni.lindenlab.com:12043/cap/21d3cecc-f0bc-b1f7-d0d3-2c1af4aec46b: The object was used after being disposed.
+1034045 [24] WARN  - Unrecognized caps exception from https://sim8852.agni.lindenlab.com:12043/cap/b09bef24-7e97-a26e-2fa6-07edbdf66060: The object was used after being disposed.
+1034045 [20] WARN  - Unrecognized caps exception from https://sim7090.agni.lindenlab.com:12043/cap/44922af7-8c4b-d10e-1304-c2269876cf30: The object was used after being disposed.
+1034058 [39] INFO  - Closing event queue at https://sim9700.agni.lindenlab.com:12043/cap/0205d9bc-3530-da62-ef07-5289849c3a4e due to missing caps URI
+1034070 [41] DEBUG - Cache size is 10 KB, file deletion not needed
+1034096 [39] WARN  - <Roslyn Bleac>: Network timeout for the current simulator (Gurley (216.82.43.229:12035)), logging out
+1034097 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+1034097 [39] INFO  - <Roslyn Bleac>: Caps system for Ku (216.82.45.169:13000) is aborting
+Sim disconnected from Ku Reason NetworkTimeout
+1034162 [39] INFO  - <Roslyn Bleac>: Caps system for Kanaloa (216.82.41.74:13004) is aborting
+Sim disconnected from Kanaloa Reason NetworkTimeout
+1034162 [39] INFO  - <Roslyn Bleac>: Caps system for Nakaa (216.82.41.146:13006) is aborting
+Sim disconnected from Nakaa Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Akea (216.82.41.69:13001) is aborting
+Sim disconnected from Akea Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Harvey (216.82.33.108:13009) is aborting
+Sim disconnected from Harvey Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Paikea (216.82.45.6:12035) is aborting
+Sim disconnected from Paikea Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Eldridge (216.82.32.92:13012) is aborting
+Sim disconnected from Eldridge Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Hawthorne (216.82.46.37:13003) is aborting
+Sim disconnected from Hawthorne Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Quat (216.82.45.148:13005) is aborting
+Sim disconnected from Quat Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Kagle (216.82.43.172:13009) is aborting
+Sim disconnected from Kagle Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Shipley (216.82.42.7:13006) is aborting
+Sim disconnected from Shipley Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Marunogere (216.82.41.26:13000) is aborting
+Sim disconnected from Marunogere Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Clyde (216.82.45.34:13000) is aborting
+Sim disconnected from Clyde Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Stanford (216.82.45.60:13004) is aborting
+Sim disconnected from Stanford Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Dunlevie (216.82.38.77:13001) is aborting
+Sim disconnected from Dunlevie Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Kiha (216.82.41.144:13002) is aborting
+Sim disconnected from Kiha Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Federal (216.82.41.28:12035) is aborting
+Sim disconnected from Federal Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Vaoetere (216.82.41.163:13004) is aborting
+Sim disconnected from Vaoetere Reason NetworkTimeout
+1034163 [39] INFO  - <Roslyn Bleac>: Caps system for Welsh (216.82.41.230:12035) is aborting
+Sim disconnected from Welsh Reason NetworkTimeout
+1034164 [39] INFO  - <Roslyn Bleac>: Caps system for Jessie (216.82.46.47:12035) is aborting
+Sim disconnected from Jessie Reason NetworkTimeout
+1034164 [39] INFO  - <Roslyn Bleac>: Caps system for Gurley (216.82.43.229:12035) is aborting
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1034164 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1035973 [18] INFO  - Closing event queue at https://sim9071.agni.lindenlab.com:12043/cap/7c8cfc1f-cd6d-d3bd-464a-a79022b2a485 due to missing caps URI
+1035974 [31] INFO  - Closing event queue at https://sim9469.agni.lindenlab.com:12043/cap/6111ce9f-8f98-bde2-f9d3-960d4da44c50 due to missing caps URI
+1035975 [18] INFO  - Closing event queue at https://sim8898.agni.lindenlab.com:12043/cap/a797cbb9-7606-7538-78ec-c3fb337f04fb due to missing caps URI
+1035976 [29] INFO  - Closing event queue at https://sim8264.agni.lindenlab.com:12043/cap/22a29575-a33a-06b1-6836-fff2b7f6b2d5 due to missing caps URI
+1036118 [2] INFO  - Closing event queue at https://sim8893.agni.lindenlab.com:12043/cap/0ced4e30-aa9a-06ee-3136-7f1575b8cb72 due to missing caps URI
+1036135 [29] INFO  - Closing event queue at https://sim9835.agni.lindenlab.com:12043/cap/d441cf6f-ab93-88c5-d340-155bebeb8639 due to missing caps URI
+1036173 [10] INFO  - Closing event queue at https://sim8970.agni.lindenlab.com:12043/cap/21d3cecc-f0bc-b1f7-d0d3-2c1af4aec46b due to missing caps URI
+1036214 [9] INFO  - Closing event queue at https://sim9814.agni.lindenlab.com:12043/cap/0c779be8-9173-c0d1-a3ab-20731bd29165 due to missing caps URI
+1036237 [42] INFO  - Closing event queue at https://sim9672.agni.lindenlab.com:12043/cap/8e108b99-764a-7538-e737-b5e63c3e95ca due to missing caps URI
+1036248 [8] INFO  - Closing event queue at https://sim9895.agni.lindenlab.com:12043/cap/a02bef22-f563-1cca-cc8f-f90d7dc0181b due to missing caps URI
+1036317 [36] INFO  - Closing event queue at https://sim8850.agni.lindenlab.com:12043/cap/218eab7d-343f-cd8a-ba2d-0d1d13aef6f9 due to missing caps URI
+1036329 [7] INFO  - Closing event queue at https://sim8852.agni.lindenlab.com:12043/cap/b09bef24-7e97-a26e-2fa6-07edbdf66060 due to missing caps URI
+1036341 [24] INFO  - Closing event queue at https://sim9726.agni.lindenlab.com:12043/cap/0549b521-935e-037d-5577-143dac9c56f4 due to missing caps URI
+1036358 [17] INFO  - Closing event queue at https://sim9526.agni.lindenlab.com:12043/cap/8ebdde2e-f095-72ef-9e78-1221f1294fb5 due to missing caps URI
+1036369 [33] INFO  - Closing event queue at https://sim8685.agni.lindenlab.com:12043/cap/de2b7d87-b0e5-b84e-58bc-5fdaaef67bc5 due to missing caps URI
+1036397 [21] INFO  - Closing event queue at https://sim7090.agni.lindenlab.com:12043/cap/44922af7-8c4b-d10e-1304-c2269876cf30 due to missing caps URI
+1039166 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1039166 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1044166 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1044166 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1049166 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1049166 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1054166 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1054166 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1059167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1059167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1064167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1064167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1069167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1069167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1074167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1074167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1079167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1079167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1084167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1084167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1089167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1089167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1094167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1094167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1099167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1099167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1104167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1104167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1109167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1109167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1114167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1114167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1119167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1119167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1124167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1124167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1129167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1129167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1134167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1134167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1139167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1139167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1144167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1144167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1149167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1149167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1154167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1154167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1159167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1159167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1164167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1164167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1169167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1169167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1174167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1174167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1179167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1179167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1184167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1184167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1189167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1189167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1194167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1194167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1199167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1199167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1204167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1204167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1209167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1209167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1214167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1214167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1219167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1219167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1224167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1224167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1229167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1229167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1234167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1234167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1239167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1239167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1244167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1244167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1249167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1249167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1254167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1254167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1259167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1259167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1264167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1264167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1269167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1269167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1270996 [43] DEBUG - Cache size is 10 KB, file deletion not needed
+1274167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1274167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1279167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1279167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1284167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1284167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1289167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1289167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1294167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1294167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1299167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1299167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1304167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1304167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1309167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1309167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1314167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1314167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1319167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1319167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1324167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1324167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1329167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1329167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1334167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1334167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1339167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1339167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1344167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1344167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1349167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1349167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1354167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1354167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1359167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1359167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1364167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1364167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1369167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1369167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1374167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1374167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1379167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1379167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out
+1384167 [39] INFO  - <Roslyn Bleac>: NetworkManager shutdown initiated
+Sim disconnected from Gurley Reason NetworkTimeout
+*** BONED WE HAVE BEEN BOOTED ***
+1384167 [39] WARN  - <Roslyn Bleac>: Ignoring RequestLogout(), client is already logged out

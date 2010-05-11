@@ -1,0 +1,52 @@
+LLWearable version 22
+SKIN by OPIUM - FREE tintable skin (light) dramatic makeup
+
+	permissions 0
+	{
+		base_mask	7fff3fff
+		owner_mask	7fff3fff
+		group_mask	00002000
+		everyone_mask	7fff3fff
+		next_owner_mask	7fff3fff
+		creator_id	00000000-0000-0000-0000-000000000000
+		owner_id	74a94602-33b9-4d69-8be9-7d08c2df7a6e
+		last_owner_id	c4d5aa82-a9b2-41a1-a27c-fa6f8ae6fc60
+		group_id	00000000-0000-0000-0000-000000000000
+	}
+	sale_info	0
+	{
+		sale_type	not
+		sale_price	10
+	}
+type 1
+parameters 26
+108 .01
+110 .08
+111 .42
+116 1
+117 0
+150 0
+162 0
+163 0
+165 .53
+700 0
+701 0
+702 1
+703 0
+704 0
+705 0
+706 .43
+707 .38
+708 .32
+709 .55
+710 1
+711 0
+712 1
+713 .75
+714 0
+715 0
+775 0
+textures 3
+0 d371f3c3-35b5-6be3-0e97-80ec2ba6cae7
+5 25134da7-aa6d-eb05-2a1a-199455fbf087
+6 b06f3d0e-3390-4fbe-da5c-e418470508bc

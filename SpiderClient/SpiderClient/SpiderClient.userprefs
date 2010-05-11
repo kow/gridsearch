@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" ctype="Workspace" />
+  <MonoDevelop.Ide.DebuggingService>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService>
+  <MonoDevelop.Ide.Workbench ActiveDocument="GridConn.cs" ctype="Workbench">
+    <Files>
+      <File FileName="ObjectPropTracker.cs" Line="57" Column="4" />
+      <File FileName="GridConn.cs" Line="67" Column="51" />
+      <File FileName="main.cs" Line="96" Column="9" />
+      <File FileName="NameTracker.cs" Line="136" Column="77" />
+      <File FileName="Scraper.cs" Line="102" Column="40" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="SpiderClient" expanded="True">
+            <Node name="ExternalFiles" expanded="True">
+              <Node name="GridConn.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
