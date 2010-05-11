@@ -87,8 +87,8 @@ namespace spider
 
                 if (connected == true)
                 {
+					connected = false;
                     client.Network.Logout(); //force logout to clean up libomv
-                    connected = false;
                 }
 				
             }
@@ -131,17 +131,7 @@ namespace spider
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
             
-            if (e.Status == TeleportStatus.Finished)
-            {
-                Console.WriteLine("Teleport finished");
-
-                if (e.Flags == TeleportFlags.FinishedViaNewSim)
-                {
-                    Console.WriteLine("Requesting all sim parcels");
-                    gotallparcels = false;
-                    client.Parcels.RequestAllSimParcels(client.Network.CurrentSim);
-                }
-            }
+	           Console.WriteLine("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString());
         }
 
 

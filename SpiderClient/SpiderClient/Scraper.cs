@@ -85,7 +85,7 @@ namespace spider
         {
             // The state object is the Timer object.
 
-            MainClass.conn.rotate();
+            //MainClass.conn.rotate();
 
         }
 
@@ -95,12 +95,18 @@ namespace spider
 			TimeSpan wait=new TimeSpan(0);	
 			DateTime start=DateTime.Now;
 			
+			
+			
+			
+			
 			if(!client.Self.Teleport(simname,position))
 			{
 				Console.WriteLine("Teleport to "+simname+" failed");
-				
+				MainClass.NameTrack.active=false;
+				MainClass.ObjTrack.active=false;
+			
 				//Sleep 7 seconds to cool off
-				System.Threading.Thread.Sleep(7000);
+				System.Threading.Thread.Sleep(15000);
 				return false;
 			}
 			
@@ -118,15 +124,17 @@ namespace spider
 					break;
 				}
 			
+				Console.WriteLine("dowork Objects :"+MainClass.ObjTrack.complete().ToString()+MainClass.ObjTrack.requested_props.Count.ToString()+"/"+MainClass.ObjTrack.requested_propsfamily.Count.ToString()+" Names :"+MainClass.NameTrack.complete().ToString()+" : "+MainClass.NameTrack.requests.ToString()+" time :"+wait.Minutes.ToString()+":"+wait.Seconds.ToString());
+				
 				//Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
-				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && wait.Seconds>15) || wait.Minutes>5 )
+				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && wait.Minutes >=1 && MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
 				{
 					Console.WriteLine("Object track, and wait time satisified breaking loop");
 					return true;
 					break;	
 				}
 				
-				System.Threading.Thread.Sleep(100);
+				System.Threading.Thread.Sleep(2000);
 			}
 			
 			return true;
@@ -168,26 +176,31 @@ namespace spider
 				
 				bool anyok=false;
 				
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(128, 128, 25));
+				MainClass.ObjTrack.flush_for_new_sim();
+			    MainClass.conn.gotallparcels = false;
+			    MainClass.NameTrack.active=true;
+			    MainClass.ObjTrack.active=true;
+				
+				
+				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(340,170, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-                /*
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(340, 340, 0));
+                
+				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(340, 340, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(170, 170, 0));
+				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(170, 170, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(170, 340, 0));
+				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(170, 340, 25));
 				
-                 */
-                 
+                
 				if (MainClass.conn.connected == false)
                     break;
 				
@@ -210,7 +223,10 @@ namespace spider
 
                 Console.WriteLine("All Properties recieved, saving data");
 
+				MainClass.NameTrack.active=false;
+				MainClass.ObjTrack.active=false;
                 MainClass.ObjTrack.saveallprims();
+				MainClass.NameTrack.savenamestodb();
 
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 Dictionary<string, string> conditions = new Dictionary<string, string>();
@@ -221,12 +237,6 @@ namespace spider
                 parameters.Add("Status", (0).ToString());
 
                 MainClass.db.genericUpdate("Region", parameters, conditions);
-
-				//Fix me i should be based on teleport and sim name tracking
-                MainClass.conn.gotallparcels = false;
-             
-				//Fix me i should be based on teleport
-                MainClass.ObjTrack.flush_for_new_sim();
 
             }
         }

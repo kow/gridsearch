@@ -97,13 +97,18 @@ namespace spider
         NameTrack = new NameTracker(conn.client);
         Scraper scrape = new Scraper(conn.client);
 
+			
+
 		
-		System.Threading.Thread.Sleep(1000*60*5);
+		//System.Threading.Thread.Sleep(1000*60*5);
 		}
       
-       // conn.Logout();
-        System.Threading.Thread.Sleep(50000);
+        conn.Logout();
         db.CloseDatabase();
+    
+		Console.WriteLine("We all go byebye");
+			
+		System.Threading.Thread.Sleep(50000);
         
 	    }
 

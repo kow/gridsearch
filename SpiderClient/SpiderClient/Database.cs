@@ -288,8 +288,8 @@ namespace spider
         }
 
         public bool ExecuteSQL(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints)
-        {
-			lock(thelock)
+        {	
+			//lock(thelock)
 			{
 	            try
 	            {
@@ -310,9 +310,9 @@ namespace spider
 
         }
 
-        public bool ExecuteQuery(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints, out MySqlDataReader rdr)
+        public bool ExecuteQuersy(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints, out MySqlDataReader rdr)
         {
-			lock(thelock)
+			//lock(thelock)
 			{
 	            try
 	            {
