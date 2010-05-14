@@ -18,7 +18,9 @@ namespace spider
 		List<int> thelock;
 
 
-        string connStr = "server=cornelius.demon.co.uk;user=spiderer;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
+        //string connStr = "server=cornelius.demon.co.uk;user=spiderer;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
+        string connStr = "server=192.168.0.3;user=root;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
+        
         MySqlConnection conn;
 
         public bool OpenDatabase()
@@ -49,12 +51,13 @@ namespace spider
 
         public LoginParams getlogin(string gridname)
         {
+            LoginParams data = new LoginParams();
            
             string sql = "SELECT LoginURI, First, Last, Password, PKey from Grid where name ='" + gridname + "';";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
 
-            LoginParams data=new LoginParams();
+           
 
             // FIXME this is shit
             if (rdr.Read())

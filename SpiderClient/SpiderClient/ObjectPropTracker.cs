@@ -17,7 +17,7 @@ namespace spider
         
          int timer_interval=5000;
 
-         List<UUID> intereset_list;
+         public List<UUID> intereset_list;
 		
 		 public List<UUID> requested_propsfamily;
 		 public List<UUID> requested_props;
@@ -71,8 +71,10 @@ namespace spider
              if (e.Prim.ParentID == 0)
              {
                  intereset_list.Add(e.Prim.ID);
-				 requested_props.Add(e.Prim.ID);
-				 requested_propsfamily.Add(e.Prim.ID);
+                 lock(requested_props)
+				    requested_props.Add(e.Prim.ID);
+                 lock(requested_propsfamily)
+				    requested_propsfamily.Add(e.Prim.ID);
 				 client.Objects.RequestObjectPropertiesFamily(e.Simulator,e.Prim.ID);
 				 client.Objects.SelectObject(e.Simulator,e.Prim.LocalID);
 			}
@@ -83,16 +85,15 @@ namespace spider
 			if(active==false)
 				return;
 
-			try
-			{
-			    requested_props.Remove(e.Properties.ObjectID);
-				MainClass.NameTrack.processagentID(e.Properties.OwnerID);
-               	MainClass.NameTrack.processagentID(e.Properties.CreatorID);
-			}
-			catch(Exception ex)
-			{
-				//Oh well it was not there, but that saved a check in the first place	
-			}
+            lock (requested_props)
+            {
+                if (requested_props.Contains(e.Properties.ObjectID))
+                {
+                    requested_props.Remove(e.Properties.ObjectID);
+                    MainClass.NameTrack.processagentID(e.Properties.OwnerID);
+                    MainClass.NameTrack.processagentID(e.Properties.CreatorID);
+                }
+            }
          }
 
          void Objects_ObjectPropertiesFamily(object sender, ObjectPropertiesFamilyEventArgs e)
@@ -101,15 +102,13 @@ namespace spider
 			if(active==false)
 				return;
 
-			
-			try
-			{
-				requested_propsfamily.Remove(e.Properties.ObjectID);
-			}
-			catch(Exception ex)
-			{
-				
-			}       
+            lock (requested_propsfamily)
+            {
+                if (requested_propsfamily.Contains(e.Properties.ObjectID))
+                {
+                    requested_propsfamily.Remove(e.Properties.ObjectID);
+                }
+            }
          }
          
 		public void saveallprims()

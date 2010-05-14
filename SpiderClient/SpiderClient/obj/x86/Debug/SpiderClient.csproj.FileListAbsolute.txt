@@ -26,3 +26,17 @@ C:\code\spiderclient\test\SpiderClient\SpiderClient\bin\Debug\OpenMetaverse.Util
 C:\code\spiderclient\test\SpiderClient\SpiderClient\bin\Debug\OpenMetaverseTypes.dll
 C:\code\spiderclient\test\SpiderClient\SpiderClient\bin\Debug\XMLRPC.dll
 C:\code\spiderclient\test\SpiderClient\SpiderClient\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\SpiderClient.exe.config
+C:\code\spider\SpiderClient\SpiderClient\obj\x86\Debug\SpiderClient.exe
+C:\code\spider\SpiderClient\SpiderClient\obj\x86\Debug\SpiderClient.pdb
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\SpiderClient.exe
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\SpiderClient.pdb
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\log4net.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\MySql.Data.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\OpenMetaverse.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\OpenMetaverse.Http.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\OpenMetaverse.StructuredData.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\OpenMetaverse.Utilities.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\OpenMetaverseTypes.dll
+C:\code\spider\SpiderClient\SpiderClient\bin\Debug\XMLRPC.dll
+C:\code\spider\SpiderClient\SpiderClient\obj\x86\Debug\ResolveAssemblyReference.cache

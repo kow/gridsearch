@@ -17,9 +17,7 @@ namespace spider
         {
 			
 			client=theclient;
-		    TimerCallback timerDelegate = new TimerCallback(TimerProc);
-			timer = new Timer(timerDelegate, null, 1000, 1000);
-
+		    
             Console.WriteLine("Starting scrape");
             scraperlogic();
 
@@ -81,14 +79,6 @@ namespace spider
 
         }
 
-        private static void TimerProc(object state)
-        {
-            // The state object is the Timer object.
-
-            //MainClass.conn.rotate();
-
-        }
-
 		bool doscrapeloop(string simname,Vector3 position)
 		{
 			
@@ -123,8 +113,8 @@ namespace spider
 					return false;
 					break;
 				}
-			
-				Console.WriteLine("dowork Objects :"+MainClass.ObjTrack.complete().ToString()+MainClass.ObjTrack.requested_props.Count.ToString()+"/"+MainClass.ObjTrack.requested_propsfamily.Count.ToString()+" Names :"+MainClass.NameTrack.complete().ToString()+" : "+MainClass.NameTrack.requests.ToString()+" time :"+wait.Minutes.ToString()+":"+wait.Seconds.ToString());
+
+                Console.WriteLine("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString());
 				
 				//Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
 				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && wait.Minutes >=1 && MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
@@ -134,7 +124,8 @@ namespace spider
 					break;	
 				}
 				
-				System.Threading.Thread.Sleep(2000);
+				System.Threading.Thread.Sleep(10000);
+                MainClass.conn.rotate();
 			}
 			
 			return true;

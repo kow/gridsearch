@@ -75,6 +75,9 @@ namespace spider
 				//Logger.Log("message",Helpers.LogLevel.Info);
 				
             }
+
+            Console.WriteLine("Status is "+client.Network.LoginStatusCode.ToString());
+            Console.WriteLine(client.Network.LoginMessage);
         }
 		
 		void Network_SimDisconnected(object sender, SimDisconnectedEventArgs e)
@@ -206,10 +209,8 @@ namespace spider
         }
 
         public void rotate()
-        {
-			return;
-			
-            angle = angle + (3.1415926 / 64.0);
+        {		
+            angle = angle + (3.1415926 / 4);
 
             if (angle > 2.0 * 3.1415926)
                 angle = 0;

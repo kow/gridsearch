@@ -81,7 +81,7 @@ namespace spider
 
         conn = new GridConn(db.getlogin("Agni"));
 
-        if (conn.isConnected())
+        if (conn.client.Network.LoginStatusCode==LoginStatus.Success)
         {
             Console.WriteLine("We are logged in ok, proceed to scrape");
         }
@@ -89,8 +89,8 @@ namespace spider
         {
             System.Threading.Thread.Sleep(1000*60*5);
             Console.WriteLine("Login failed, we should log this and move on");
-            db.CloseDatabase();		
-          
+            db.CloseDatabase();
+            return;
         }
 
         ObjTrack = new ObjectPropTracker(conn.client);
