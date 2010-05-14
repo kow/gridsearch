@@ -11,7 +11,7 @@ namespace spider
     {
         GridClient client;
 
-        List<UUID> agent_names_recieved;
+        Dictionary<UUID,String> agent_names_recieved;
         public Dictionary<UUID, DateTime> agent_names_requested;
 
 		public bool active;
@@ -20,7 +20,7 @@ namespace spider
         {
             client = conn;
             client.Avatars.UUIDNameReply += new EventHandler<UUIDNameReplyEventArgs>(Avatars_UUIDNameReply);
-            agent_names_recieved = new List<UUID>();
+            agent_names_recieved = new Dictionary<UUID,String>();
             agent_names_requested = new Dictionary<UUID, DateTime>();
 		}
 
@@ -31,10 +31,10 @@ namespace spider
 			
 			foreach (KeyValuePair<UUID, string> kvp in e.Names)
 			{
-				 agent_names_recieved.Add(kvp.Key);
 
                  if(agent_names_requested.ContainsKey(kvp.Key))
                  {
+                     agent_names_recieved.Add(kvp.Key, kvp.Value);
                      agent_names_requested.Remove(kvp.Key);
                  }
 			}
@@ -50,7 +50,7 @@ namespace spider
             if (id == UUID.Zero)
                 return;
 
-            if (agent_names_recieved.Contains(id) == false && agent_names_requested.ContainsKey(id)==false)
+            if (agent_names_recieved.ContainsKey(id) == false && agent_names_requested.ContainsKey(id)==false)
 				{
                     lock (agent_names_requested)
                     {
@@ -89,12 +89,13 @@ namespace spider
 		public void savenamestodb()
 		{
 			
-			foreach(UUID id in agent_names_recieved)
+			foreach(KeyValuePair<UUID,string> kvp in agent_names_recieved)
 			{
-				 Console.WriteLine("Adding " + id.ToString() + " to name request queue");
+				 Console.WriteLine("Adding " + kvp.Key.ToString() + " to name request queue");
                  Dictionary<string, string> parameters = new Dictionary<string, string>();
-                 parameters.Add("AgentID", MainClass.db.compressUUID(id));
+                 parameters.Add("AgentID", MainClass.db.compressUUID(kvp.Key));
                  parameters.Add("Grid", MainClass.db.gridKey.ToString());
+                 parameters.Add("Name", kvp.Value);
                  MainClass.db.genericInsertIgnore("Agent", parameters);
  	
 			}

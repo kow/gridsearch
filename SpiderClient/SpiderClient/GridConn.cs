@@ -58,7 +58,8 @@ namespace spider
             client.Network.EventQueueRunning += new EventHandler<EventQueueRunningEventArgs>(Network_EventQueueRunning);
             client.Parcels.SimParcelsDownloaded += new EventHandler<SimParcelsDownloadedEventArgs>(Parcels_SimParcelsDownloaded);
             client.Self.TeleportProgress += new EventHandler<TeleportEventArgs>(Self_TeleportProgress);
-			
+            client.Network.Disconnected += new EventHandler<DisconnectedEventArgs>(Network_Disconnected);
+
 			client.Network.LoggedOut +=	new EventHandler<LoggedOutEventArgs>(Network_LoggedOut);
 			client.Network.SimDisconnected += new EventHandler<SimDisconnectedEventArgs>(Network_SimDisconnected);
 			
@@ -78,6 +79,15 @@ namespace spider
 
             Console.WriteLine("Status is "+client.Network.LoginStatusCode.ToString());
             Console.WriteLine(client.Network.LoginMessage);
+        }
+
+        void Network_Disconnected(object sender, DisconnectedEventArgs e)
+        {
+            Console.WriteLine("*** BONED WE HAVE BEEN BOOTED ***");
+            Console.WriteLine(e.Message);
+            Console.WriteLine(e.Reason);
+            connected = false;
+            client.Network.Logout(); //force logout to clean up libomv
         }
 		
 		void Network_SimDisconnected(object sender, SimDisconnectedEventArgs e)
@@ -119,7 +129,6 @@ namespace spider
                 parameters.Add("Handle", e.Simulator.Handle.ToString());
                 parameters.Add("Name", e.Simulator.Name);
                 parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
-
 
                 ThreadPool.QueueUserWorkItem(sync =>
                 {
