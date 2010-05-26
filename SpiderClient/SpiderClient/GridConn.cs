@@ -93,7 +93,7 @@ namespace spider
 			ThreadPool.QueueUserWorkItem(sync =>
                 {
 				
-					lock(discovered_sims)
+				lock(discovered_sims)
 				{
 					if(!discovered_sims.Contains(handle))
 					{
@@ -193,19 +193,13 @@ namespace spider
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
             
-	           Console.WriteLine("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString());
-		
-				
-		
+	           Console.WriteLine("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString());	
         }
-
 
         void Parcels_SimParcelsDownloaded(object sender, SimParcelsDownloadedEventArgs e)
         {
             if (gotallparcels == true)
                 return;
-			
-			Console.WriteLine("Got all sim parcels");
 
             gotallparcels = true;
 
@@ -245,13 +239,6 @@ namespace spider
 
 						Console.WriteLine("Got all sim parcels complete");
 
-        }
-
-
-
-        void Network_EventQueueRunning(object sender, EventQueueRunningEventArgs e)
-        {
-           
         }
 
         public void rotate()
