@@ -28,10 +28,12 @@ namespace spider
            
         }
 
-        public string getNextRegion()
+        public string getNextRegion(out ulong regionhandle)
         {
             string region = "";
             Int64 handle;
+			regionhandle=0;
+			
             region = MainClass.db.getNextRegionForGrid(out handle);
             Console.WriteLine("Get Next Region returned \"" + region+"\"");
 
@@ -48,7 +50,9 @@ namespace spider
 
                 MainClass.db.genericReplaceInto("Region", parameters, false);
                 region = MainClass.conn.getRegion().Name;
+				
                 MainClass.db.regionsremaining = true;
+				regionhandle=(ulong)handle;
                 return client.Network.CurrentSim.Name;
             }
             
@@ -69,6 +73,8 @@ namespace spider
 
             }
 			
+			regionhandle=(ulong)handle;
+			
 			if (region != "")
             {
 				return region;                
@@ -79,17 +85,27 @@ namespace spider
 
         }
 
-		bool doscrapeloop(string simname,Vector3 position)
+		bool doscrapeloop(string simname,ulong handle, Vector3 position)
 		{
 			
 			TimeSpan wait=new TimeSpan(0);	
 			DateTime start=DateTime.Now;
 			
+			bool result;
 			
+			Console.WriteLine(String.Format("Trying to teleport to {0} {1}",simname,handle));
 			
+			if(handle==0)
+			{
+				Console.WriteLine("Handle is 0 using simname");
+				result=client.Self.Teleport(simname,position);
+			}
+			else
+			{
+				result=client.Self.Teleport(handle,position);
+			}
 			
-			
-			if(!client.Self.Teleport(simname,position))
+			if(!result)
 			{
 				Console.WriteLine("Teleport to "+simname+" failed");
 				MainClass.NameTrack.active=false;
@@ -117,7 +133,7 @@ namespace spider
                 Console.WriteLine("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString());
 				
 				//Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
-				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && wait.Minutes >=1 && MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
+				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && (wait.Minutes >=1 ||wait.Seconds >= 20 )&& MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
 				{
 					Console.WriteLine("Object track, and wait time satisified breaking loop");
 					return true;
@@ -149,13 +165,13 @@ namespace spider
         {
             //Get a region from the top of the stack for this grid
 
-            while (MainClass.db.regionsremaining)
+            while (MainClass.db.regionsremaining && MainClass.conn.connected)
             {
 
 				// Are we still connected
                 
-
-				string region=getNextRegion();
+				ulong handle;
+				string region=getNextRegion(out handle);
 				
 				if(region=="")
 				{
@@ -173,23 +189,23 @@ namespace spider
 			    MainClass.ObjTrack.active=true;
 				
 				
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(340,170, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(340,170, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
                 
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(340, 340, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(340, 340, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(170, 170, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 170, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,new OpenMetaverse.Vector3(170, 340, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 340, 25));
 				
                 
 				if (MainClass.conn.connected == false)

@@ -56,11 +56,11 @@
         <echo message="Deleting all builds from all configurations" />
         <delete dir="${bin.dir}" failonerror="false" />
         <delete dir="${obj.dir}" failonerror="false" />
-        <nant buildfile="../test/SpiderClient/SpiderClient.exe.build" target="clean" />
+        <nant buildfile="../spidergit/SpiderClient/SpiderClient.exe.build" target="clean" />
     </target>
 
     <target name="build" depends="init" description="">
-        <nant buildfile="../test/SpiderClient/SpiderClient.exe.build" target="build" />
+        <nant buildfile="../spidergit/SpiderClient/SpiderClient.exe.build" target="build" />
     </target>
 
     <target name="build-release" depends="Release, init, build" description="Builds in Release mode" />
@@ -71,7 +71,7 @@
 
     <target name="doc" depends="build-release">
         <echo message="Generating all documentation from all builds" />
-        <nant buildfile="../test/SpiderClient/SpiderClient.exe.build" target="doc" />
+        <nant buildfile="../spidergit/SpiderClient/SpiderClient.exe.build" target="doc" />
     </target>
 
 </project>

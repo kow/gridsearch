@@ -32,11 +32,14 @@ namespace spider
 			foreach (KeyValuePair<UUID, string> kvp in e.Names)
 			{
 
-                 if(agent_names_requested.ContainsKey(kvp.Key))
-                 {
-                     agent_names_recieved.Add(kvp.Key, kvp.Value);
-                     agent_names_requested.Remove(kvp.Key);
-                 }
+				lock(agent_names_requested)
+				{
+	                 if(agent_names_requested.ContainsKey(kvp.Key))
+	                 {
+	                     agent_names_recieved.Add(kvp.Key, kvp.Value);
+	                     agent_names_requested.Remove(kvp.Key);
+	                 }
+				}
 			}
         }
 
@@ -50,14 +53,14 @@ namespace spider
             if (id == UUID.Zero)
                 return;
 
-            if (agent_names_recieved.ContainsKey(id) == false && agent_names_requested.ContainsKey(id)==false)
+			lock(agent_names_requested)
+			{
+            	if (agent_names_recieved.ContainsKey(id) == false && agent_names_requested.ContainsKey(id)==false)
 				{
-                    lock (agent_names_requested)
-                    {
-                        agent_names_requested.Add(id, DateTime.Now);
-                    }
+                    agent_names_requested.Add(id, DateTime.Now);
 				}
-        }
+        	}
+		}
 
         public bool complete()
         {

@@ -52,12 +52,14 @@ namespace spider
 			start=DateTime.Now;
          }
 
+		
+		
          void Objects_ObjectUpdate(object sender, PrimEventArgs e)
          {
 			if(active==false)
 				return;
-
 			
+	
              if(e.IsAttachment)
                  return;
 
@@ -73,8 +75,10 @@ namespace spider
                  intereset_list.Add(e.Prim.ID);
                  lock(requested_props)
 				    requested_props.Add(e.Prim.ID);
+				
                  lock(requested_propsfamily)
 				    requested_propsfamily.Add(e.Prim.ID);
+				
 				 client.Objects.RequestObjectPropertiesFamily(e.Simulator,e.Prim.ID);
 				 client.Objects.SelectObject(e.Simulator,e.Prim.LocalID);
 			}

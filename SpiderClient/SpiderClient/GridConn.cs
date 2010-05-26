@@ -25,7 +25,7 @@ namespace spider
         public Dictionary<UUID, DateTime> agent_properties_queue;
         public List<UUID> agent_properties_recieved;
 
-       
+        List<ulong> discovered_sims;
         
 
         public bool gotallparcels = false;
@@ -35,7 +35,7 @@ namespace spider
             client = new GridClient();
             prop_request = new List<UUID>();
 
-          
+          	discovered_sims = new List<ulong>();
 
             agent_properties_recieved = new List<UUID>();
             agent_properties_queue = new Dictionary<UUID, DateTime>();
@@ -51,17 +51,22 @@ namespace spider
             client.Settings.PARCEL_TRACKING = true;
             client.Settings.ALWAYS_REQUEST_OBJECTS = false;
             client.Settings.SEND_AGENT_UPDATES = true;
-            client.Settings.MULTIPLE_SIMS = true;
+            client.Settings.MULTIPLE_SIMS = false;
          
 
+			client.Network.OnSimDiscovered += HandleClientNetworkOnSimDiscovered;
             client.Network.SimConnected += new EventHandler<SimConnectedEventArgs>(Network_SimConnected);
-            client.Network.EventQueueRunning += new EventHandler<EventQueueRunningEventArgs>(Network_EventQueueRunning);
+            //client.Network.EventQueueRunning += new EventHandler<EventQueueRunningEventArgs>(Network_EventQueueRunning);
             client.Parcels.SimParcelsDownloaded += new EventHandler<SimParcelsDownloadedEventArgs>(Parcels_SimParcelsDownloaded);
             client.Self.TeleportProgress += new EventHandler<TeleportEventArgs>(Self_TeleportProgress);
             client.Network.Disconnected += new EventHandler<DisconnectedEventArgs>(Network_Disconnected);
 
 			client.Network.LoggedOut +=	new EventHandler<LoggedOutEventArgs>(Network_LoggedOut);
 			client.Network.SimDisconnected += new EventHandler<SimDisconnectedEventArgs>(Network_SimDisconnected);
+			
+			client.Self.ChatFromSimulator += HandleClientSelfChatFromSimulator;	
+			client.Self.IM += HandleClientSelfIM;
+		
 			
             client.Network.Login(login);
 
@@ -80,14 +85,53 @@ namespace spider
             Console.WriteLine("Status is "+client.Network.LoginStatusCode.ToString());
             Console.WriteLine(client.Network.LoginMessage);
         }
+		
+
+        void HandleClientNetworkOnSimDiscovered (ulong handle)
+        {
+			
+			ThreadPool.QueueUserWorkItem(sync =>
+                {
+				
+					lock(discovered_sims)
+				{
+					if(!discovered_sims.Contains(handle))
+					{
+					
+					discovered_sims.Add(handle);
+					Console.WriteLine("!!! Sim discovered :"+handle.ToString());
+	                Dictionary<string, string> parameters = new Dictionary<string, string>();
+	                parameters.Add("Grid", MainClass.db.gridKey.ToString());
+	                parameters.Add("Handle", handle.ToString());
+                    MainClass.db.genericInsertIgnore("Region", parameters);
+					}
+				}
+                });
+    
+        	
+        }
+
+        void HandleClientSelfIM (object sender, InstantMessageEventArgs e)
+        {
+        	Console.WriteLine("IM : "+e.IM.FromAgentName+" : "+e.IM.Message);	
+        }
+
+        void HandleClientSelfChatFromSimulator (object sender, ChatEventArgs e)
+        {
+     		Console.WriteLine("CHAT : "+e.FromName+" :"+e.Message);   	
+        }
 
         void Network_Disconnected(object sender, DisconnectedEventArgs e)
         {
             Console.WriteLine("*** BONED WE HAVE BEEN BOOTED ***");
             Console.WriteLine(e.Message);
             Console.WriteLine(e.Reason);
-            connected = false;
-            client.Network.Logout(); //force logout to clean up libomv
+			
+			if (connected == true)
+            {
+            	connected = false;
+            	client.Network.Logout(); //force logout to clean up libomv
+			}
         }
 		
 		void Network_SimDisconnected(object sender, SimDisconnectedEventArgs e)
@@ -116,25 +160,31 @@ namespace spider
 
         void Network_SimConnected(object sender, SimConnectedEventArgs e)
         {
-            if (e.Simulator.Name != client.Network.CurrentSim.Name)
+			 Console.WriteLine("New sim connection from " + e.Simulator.Name);
+			
+            //if (e.Simulator.Name != client.Network.CurrentSim.Name)
             {
 				
 			    if(e.Simulator.Name=="")
 					return;
 			
-                Console.WriteLine("New sim connection from " + e.Simulator.Name);
-
-                Dictionary<string, string> parameters = new Dictionary<string, string>();
-                parameters.Add("Grid", MainClass.db.gridKey.ToString());
-                parameters.Add("Handle", e.Simulator.Handle.ToString());
-                parameters.Add("Name", e.Simulator.Name);
-                parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
-
-                ThreadPool.QueueUserWorkItem(sync =>
+				ThreadPool.QueueUserWorkItem(sync =>
                 {
-                    MainClass.db.genericInsertIgnore("Region", parameters);
+					Console.WriteLine("Updating sim DB info for " + e.Simulator.Name);
+	                Dictionary<string, string> parameters = new Dictionary<string, string>();
+				    Dictionary<string, string> conditions = new Dictionary<string, string>();
+	                conditions.Add("Grid", MainClass.db.gridKey.ToString());
+	                conditions.Add("Handle", e.Simulator.Handle.ToString());
+	                parameters.Add("Name", e.Simulator.Name);
+	                parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
+				    
+                    MainClass.db.genericUpdate("Region", parameters,conditions);
+					
+					Console.WriteLine("SM DB update complete");
                 });
             }
+			
+			Console.WriteLine("Sim connect complete");
         }
 
        
@@ -144,6 +194,9 @@ namespace spider
         {
             
 	           Console.WriteLine("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString());
+		
+				
+		
         }
 
 
@@ -151,6 +204,8 @@ namespace spider
         {
             if (gotallparcels == true)
                 return;
+			
+			Console.WriteLine("Got all sim parcels");
 
             gotallparcels = true;
 
@@ -183,10 +238,12 @@ namespace spider
 				        }
 				
                         MainClass.db.genericReplaceInto("Parcel", parameters, true);
+						Console.WriteLine("Got all sim parcels THREAD COMPLETE");
 
                     });
                 });
 
+						Console.WriteLine("Got all sim parcels complete");
 
         }
 
@@ -194,27 +251,7 @@ namespace spider
 
         void Network_EventQueueRunning(object sender, EventQueueRunningEventArgs e)
         {
-            if (e.Simulator.Name != client.Network.CurrentSim.Name)
-            {
-				if(e.Simulator.Name=="")
-					return;
-				
-                ThreadPool.QueueUserWorkItem(sync =>
-                {
-                    Dictionary<string, string> parameters = new Dictionary<string, string>();
-                    parameters.Add("Grid", MainClass.db.gridKey.ToString());
-                    parameters.Add("Handle", e.Simulator.Handle.ToString());
-                    parameters.Add("Name", e.Simulator.Name);
-                    parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
-
-                    MainClass.db.genericInsertIgnore("Region", parameters);
-                });
-            }
-            else
-            {
-               
- 
-            }
+           
         }
 
         public void rotate()
@@ -229,7 +266,6 @@ namespace spider
             newDirection.Y = (float)Math.Cos(angle);
             newDirection.Z = (float)0;
             client.Self.Movement.TurnToward(newDirection);
-            client.Self.Movement.SendUpdate(false);
  
         }
 

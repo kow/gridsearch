@@ -15,7 +15,14 @@
 			  <resources prefix="SpiderClient" dynamicprefix="true" >
 			  </resources>
 			  <sources failonempty="true">
-				  <include name="main.cs" />
+				  <include name="SpiderClient/CommandLine.cs" />
+				  <include name="SpiderClient/Database.cs" />
+				  <include name="SpiderClient/GridConn.cs" />
+				  <include name="SpiderClient/NameTracker.cs" />
+				  <include name="SpiderClient/ObjectPropTracker.cs" />
+				  <include name="SpiderClient/Scraper.cs" />
+				  <include name="SpiderClient/main.cs" />
+				  <include name="SpiderClient/Properties/AssemblyInfo.cs" />
 			  </sources>
 			  <references basedir="${project::get-base-directory()}">
 				  <lib>
@@ -26,12 +33,12 @@
 				  <include name="System.Xml.dll" />
 				  <include name="System.Web.dll" />
 				  <include name="System.Drawing.dll" />
-				  <include name="../bin/OpenMetaverse.dll" />
-				  <include name="../bin/OpenMetaverseTypes.dll" />
+				  <include name="OpenMetaverse.dll" />
+				  <include name="OpenMetaverseTypes.dll" />
 				  <include name="OpenMetaverse.Utilities.dll" />
-				  <include name="../bin/OpenMetaverse.StructuredData.dll" />
+				  <include name="OpenMetaverse.StructuredData.dll" />
 				  <include name="OpenMetaverse.Http.dll" />
-				  <include name="../bin/MySql.Data.dll" />
+				  <include name="MySql.Data.dll" />
 			  </references>
             <nowarn>
                 <warning number="1591" />

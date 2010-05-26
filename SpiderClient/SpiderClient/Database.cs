@@ -15,11 +15,11 @@ namespace spider
         public bool regionsremaining = true;
         public bool gridhasregions = false;
 		
-		List<int> thelock;
+		object thelock;
 
 
-        //string connStr = "server=cornelius.demon.co.uk;user=spiderer;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
-        string connStr = "server=192.168.0.3;user=root;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
+        string connStr = "server=cornelius.demon.co.uk;user=spiderer;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
+        //string connStr = "server=192.168.0.3;user=root;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
         
         MySqlConnection conn;
 
@@ -292,7 +292,7 @@ namespace spider
 
         public bool ExecuteSQL(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints)
         {	
-			//lock(thelock)
+			lock(thelock)
 			{
 	            try
 	            {
@@ -315,7 +315,7 @@ namespace spider
 
         public bool ExecuteQuersy(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints, out MySqlDataReader rdr)
         {
-			//lock(thelock)
+			lock(thelock)
 			{
 	            try
 	            {
