@@ -11,6 +11,9 @@ namespace spider
     class Database
     {
 
+        // This must be unique for each spider
+        int myid = 754758;
+
         public int gridKey;
         public bool regionsremaining = true;
         public bool gridhasregions = false;
@@ -52,12 +55,15 @@ namespace spider
         public LoginParams getlogin(string gridname)
         {
             LoginParams data = new LoginParams();
-           
-            string sql = "SELECT LoginURI, First, Last, Password, PKey from Grid where name ='" + gridname + "';";
+
+            string sql = "LOCK TABLES Grid WRITE; ";
+            sql+= "UPDATE Grid SET LockID='0' WHERE LockID='" + myid.ToString() + "'; ";
+            sql += "UPDATE Grid SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND name='" + gridname + "' LIMIT 1;\n ";
+            sql += "SELECT LoginURI, First, Last, Password, PKey from Grid where LockID ='" + myid.ToString() + "';";
+            sql += "UNLOCK TABLES; ";
+      
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
-
-           
 
             // FIXME this is shit
             if (rdr.Read())
@@ -114,8 +120,7 @@ namespace spider
 
             }
             
-            // This must be unique for each spider
-            int myid = 754758;
+
 
             // Lock the Region table then grab a lock on a region we would like to work with
             string sql="";
