@@ -48,7 +48,13 @@ namespace spider
         Scraper scrape = new Scraper(conn.client);
         conn.Logout();
 
-exitloop:
+    exitloop:
+
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
+        Dictionary<string, string> conditions = new Dictionary<string, string>();
+
+        MainClass.db.ExecuteSQL("UPDATE Logins SET LockID='0' WHERE LockID='" + db.myid.ToString() + "';", null, null);
+        MainClass.db.ExecuteSQL("UPDATE Region SET LockID='0' WHERE LockID='" + db.myid.ToString() + "';", null, null);
 
         db.CloseDatabase();
 

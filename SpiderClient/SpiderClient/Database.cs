@@ -224,6 +224,21 @@ namespace spider
             
             return ExecuteSQL(sql, parameters, conditions);
         }
+
+        public bool genericUpdate2(string table, Dictionary<String, String> parameters, Dictionary<String, String> conditions)
+        {
+            string sql = "";
+
+            sql = String.Format("UPDATE " + table + " SET ");
+            
+            sql = sql + addparams(parameters, ",");
+            sql = sql + " WHERE ";
+            sql = sql + addparams(conditions, "AND");
+            sql = sql + ";";
+
+            return ExecuteSQL(sql, parameters, conditions);
+        }
+
         
         public bool updatescrape(string table, Dictionary<String,String>conditions)
         {
