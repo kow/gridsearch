@@ -140,7 +140,7 @@ namespace spider
 					break;	
 				}
 				
-				System.Threading.Thread.Sleep(10000);
+				System.Threading.Thread.Sleep(5000);
                 MainClass.conn.rotate();
 			}
 			
@@ -245,6 +245,11 @@ namespace spider
 
                 MainClass.db.genericUpdate("Region", parameters, conditions);
 
+                parameters.Clear();
+                conditions.Clear();
+
+                conditions.Add("LockID",MainClass.db.myid.ToString());
+                MainClass.db.genericUpdate("Logins", parameters, conditions);
             }
         }
     }

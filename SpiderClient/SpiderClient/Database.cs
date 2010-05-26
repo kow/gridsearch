@@ -12,14 +12,13 @@ namespace spider
     {
 
         // This must be unique for each spider
-        int myid = 754758;
+        public int myid;
 
         public int gridKey;
         public bool regionsremaining = true;
         public bool gridhasregions = false;
-		
-		object thelock;
 
+        object thelock = new Object();
 
         string connStr = "server=cornelius.demon.co.uk;user=spiderer;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
         //string connStr = "server=192.168.0.3;user=root;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
@@ -28,8 +27,9 @@ namespace spider
 
         public bool OpenDatabase()
         {
-            
-			thelock=new List<int>();
+            Random random = new Random();
+            myid = random.Next();
+
             conn = new MySqlConnection(connStr);
         
             try
@@ -73,9 +73,12 @@ namespace spider
 
             rdr.Close();
 
+
+            // Remove any stale login locks, any over 30 minutes are quite dead
+
             sql = "LOCK TABLES Logins WRITE, Grid READ; ";
-            sql+= "UPDATE Logins SET LockID='0' WHERE LockID='" + myid.ToString() + "'; ";
-            sql += "UPDATE Logins SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
+            sql += "UPDATE Logins SET LockID='0' WHERE (UNIX_TIMESTAMP(LastScrape)+1800) < UNIX_TIMESTAMP(NOW()); ";
+            sql += "UPDATE Logins SET LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
             sql += "SELECT LoginURI, First, Last, Password, grid from Grid,Logins where Grid.PKey=Logins.grid and LockID ='" + myid.ToString() + "';";
             sql += "UNLOCK TABLES; ";
       
@@ -91,6 +94,12 @@ namespace spider
                 data.LastName = (string)rdr[2];
                 data.Password = (string)rdr[3];
                 gridKey = (int)rdr[4];
+            }
+            else
+            {
+                // There are no free login slots to use on this grid
+                Console.WriteLine("No free login slots left on grid " + gridname);
+                data=null;
             }
 
             rdr.Close();
@@ -143,6 +152,7 @@ namespace spider
             string sql="";
             sql =  "LOCK TABLES Region WRITE;\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
+            sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n";
             sql += "UPDATE Region SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND Grid='" + gridKey.ToString() + "' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC LIMIT 1;\n";            
             sql += "SELECT Name, Handle FROM Region WHERE LockID='" + myid.ToString()+"';\n";
             sql += "UNLOCK TABLES; ";
@@ -278,6 +288,9 @@ namespace spider
         public string addparams(Dictionary<String, String> parameters,string delimiter)
         {
             string sql="";
+
+            if (parameters.Count == 0)
+                return "";
 
             foreach (KeyValuePair<String, String> kvp in parameters)
             {

@@ -18,68 +18,18 @@ namespace spider
 
 	    static void Main()
 	    {
-            /*
-            Console.WriteLine("As ulong "+x.GetULong().ToString());
-            byte[] by= new byte[16];
-            x.ToBytes(by,0);
 
-            int a=0;
-            for (a = 0; a < 16; a++)
-            {
-                String meh;
-                meh=String.Format("{0:x} ",(int)by[a]);
-                Console.Write(meh);
-            }
-
-            Console.WriteLine("As ulong " + by[0].ToString());
-
-        System.Threading.Thread.Sleep(50000);
-        return;
-            */
-             
-        
-
-        /*
-               db.getlogin("Aditi");
-               Int64 handle;
-
-        
-               string region= db.getNextRegionForGrid(out handle);
-            */
-         /*
-               db.purgeobjects();
-               db.purgeagents();
-               db.purgeparcels();
-               db.purgeregions();
-            
-               return;
-            
-             */
-
-             
-                   /*
-                   UUID x = new UUID("21726045-e8f7-4b09-abd8-4bcc926e9e28");
-               Console.WriteLine("UUID is " + x.ToString());
-
-               string comp = db.compressUUID(x);
-               Console.WriteLine("UUID Compressed is " + comp);
-               Console.WriteLine("UUID UnCompressed is " + db.decompressUUID(comp).ToString());
-
-
-               System.Threading.Thread.Sleep(50000);
-               return;
-                   /*
-        
-        
-              */
-			
-		//while(true)
+		while(true)
 		{
 				
 		db = new Database();
         db.OpenDatabase();
+        LoginParams login = db.getlogin("Agni");
 
-        conn = new GridConn(db.getlogin("Agni"));
+        if (login == null)
+            goto exitloop;
+
+        conn = new GridConn(login);
 
         if (conn.client.Network.LoginStatusCode==LoginStatus.Success)
         {
@@ -96,19 +46,19 @@ namespace spider
         ObjTrack = new ObjectPropTracker(conn.client);
         NameTrack = new NameTracker(conn.client);
         Scraper scrape = new Scraper(conn.client);
+        conn.Logout();
 
-			
+exitloop:
 
-		
-		//System.Threading.Thread.Sleep(1000*60*5);
+        db.CloseDatabase();
+
+        Console.WriteLine("We all go bye bye, backing off for 60 seconds");
+
+        // Back off for 1 minute
+        System.Threading.Thread.Sleep(60000);
 		}
       
-        conn.Logout();
-        db.CloseDatabase();
-    
-		Console.WriteLine("We all go byebye");
-			
-		System.Threading.Thread.Sleep(50000);
+        
         
 	    }
 
