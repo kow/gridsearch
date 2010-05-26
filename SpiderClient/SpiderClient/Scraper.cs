@@ -173,7 +173,7 @@ namespace spider
 				ulong handle;
 				string region=getNextRegion(out handle);
 				
-				if(region=="")
+				if(region=="" && handle==0)
 				{
 					Console.WriteLine("Got bad region from database");
 					continue;

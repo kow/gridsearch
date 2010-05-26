@@ -88,18 +88,21 @@ namespace spider
                 string sqlt = "SELECT Name FROM Region WHERE Grid='" + gridKey.ToString() + "';";
                 try
                 {
-                    MySqlCommand cmd = new MySqlCommand(sqlt, conn);
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    if (rdr.Read())
+                    lock (thelock)
                     {
-                        gridhasregions = true;
-                    }
-                    else
-                    {
-                        gridhasregions = false;
-                    }
+                        MySqlCommand cmd = new MySqlCommand(sqlt, conn);
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+                        if (rdr.Read())
+                        {
+                            gridhasregions = true;
+                        }
+                        else
+                        {
+                            gridhasregions = false;
+                        }
 
-                    rdr.Close();
+                        rdr.Close();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -124,15 +127,29 @@ namespace spider
 
             try
             {
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                lock (thelock)
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                
 
                 if (rdr.Read())
                 {
-                    Console.WriteLine("Grid has regions -> found "+(string)rdr[0]);
-                    region=(string)rdr[0];
+                    object name = rdr[0];
+                    if (name.GetType() == typeof(System.DBNull))
+                    {
+                        object rhandle = rdr[1];
+                        Console.WriteLine("Grid has unnamed regions -> found " + rhandle.ToString());
+                        region = "";
+                    }
+                    else
+                    {
+                        Console.WriteLine("Grid has regions -> found " + (string)rdr[0]);
+                        region = (string)rdr[0];
+                    }
+
                     object x = rdr[1];
-                    Console.WriteLine(x.GetType().ToString());
+
                     handle = (Int64)x;
                     regionsremaining = true;
               
@@ -144,6 +161,8 @@ namespace spider
                 }
 
                 rdr.Close();
+
+                }
                
 
             }
