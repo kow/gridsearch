@@ -55,15 +55,32 @@ namespace spider
         public LoginParams getlogin(string gridname)
         {
             LoginParams data = new LoginParams();
+            //string sql;
+             //sql+= "UPDATE Logins SET LockID='0'; ";
+             //sql = "SELECT LoginURI from Grid,Logins where Logins.name='" + gridname + "' and Grid.PKey=Logins.grid";
 
-            string sql = "LOCK TABLES Grid WRITE; ";
-            sql+= "UPDATE Grid SET LockID='0' WHERE LockID='" + myid.ToString() + "'; ";
-            sql += "UPDATE Grid SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND name='" + gridname + "' LIMIT 1;\n ";
-            sql += "SELECT LoginURI, First, Last, Password, PKey from Grid where LockID ='" + myid.ToString() + "';";
-            sql += "UNLOCK TABLES; ";
-      
+            string sql;
+
+            sql="SELECT PKey from Grid where name='" + gridname + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
+            int gridkey=0;
+            //FIX ME ERROR CHECKING
+            if (rdr.Read())
+            {
+                gridkey = (int)rdr[0];
+            }
+
+            rdr.Close();
+
+            sql = "LOCK TABLES Logins WRITE, Grid READ; ";
+            sql+= "UPDATE Logins SET LockID='0' WHERE LockID='" + myid.ToString() + "'; ";
+            sql += "UPDATE Logins SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
+            sql += "SELECT LoginURI, First, Last, Password, grid from Grid,Logins where Grid.PKey=Logins.grid and LockID ='" + myid.ToString() + "';";
+            sql += "UNLOCK TABLES; ";
+      
+            cmd = new MySqlCommand(sql, conn);
+            rdr = cmd.ExecuteReader();
 
             // FIXME this is shit
             if (rdr.Read())
