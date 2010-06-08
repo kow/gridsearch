@@ -33,16 +33,16 @@ namespace spider
         
             try
 		    {
-		        Console.WriteLine("Connecting to MySQL..");
+                Logger.Log("Connecting to MySQL..", Helpers.LogLevel.Info);
 		        conn.Open();
 		    }
 		    catch (Exception e)
 		    {
-		        Console.WriteLine(e.ToString());
+                Logger.Log(e.ToString(), Helpers.LogLevel.Error);
                 return false;
 		    }
 
-            Console.WriteLine("Connection open");
+            Logger.Log("Connection open",Helpers.LogLevel.Info);
             return true;
         }
 
@@ -69,7 +69,7 @@ namespace spider
 
             if (rdr.Read())
             {
-                Console.WriteLine(rdr[0] + " " + rdr[1] + " " + rdr[2] + " " + rdr[3]);
+                //Console.WriteLine(rdr[0] + " " + rdr[1] + " " + rdr[2] + " " + rdr[3]);
                 data.URI = (string)rdr[0];
                 data.FirstName = (string)rdr[1];
                 data.LastName = (string)rdr[2];
@@ -220,12 +220,12 @@ namespace spider
                     if (name.GetType() == typeof(System.DBNull))
                     {
                         object rhandle = rdr[1];
-                        Console.WriteLine("Grid has unnamed regions -> found " + rhandle.ToString());
+                        Logger.Log("Grid has unnamed regions -> found " + rhandle.ToString(), Helpers.LogLevel.Info);
                         region = "";
                     }
                     else
                     {
-                        Console.WriteLine("Grid has regions -> found " + (string)rdr[0]);
+                        Logger.Log("Grid has regions -> found " + (string)rdr[0], Helpers.LogLevel.Info);
                         region = (string)rdr[0];
                     }
 
@@ -237,7 +237,7 @@ namespace spider
                 }
                 else
                 {
-                    Console.WriteLine("Grid has no regions yet");
+                    Logger.Log("Grid has no regions yet", Helpers.LogLevel.Info);
                     regionsremaining = false;
                 }
 
@@ -390,20 +390,15 @@ namespace spider
 
         public void dumpErrMsg(Exception e, string sql, Dictionary<String, String> parameters)
         {
-            Console.WriteLine("*********************************************");
-            Console.WriteLine("\nSql failed " + e.Message);
-            Console.WriteLine(sql + "\n");
+            Logger.Log("SQL FAILED -> " + e.Message, Helpers.LogLevel.Error);
+            Logger.Log("SQL was -> " + sql, Helpers.LogLevel.Error);
             if (parameters != null)
             {
                 foreach (KeyValuePair<String, String> kvp in parameters)
                 {
-                    Console.WriteLine(kvp.Key + "=" + kvp.Value);
+                    Logger.Log(kvp.Key + " ==> " + kvp.Value, Helpers.LogLevel.Error);
                 }
             }
-            Console.WriteLine("\n");
-            Console.WriteLine("*********************************************");
-
-            
 
             System.Threading.Thread.Sleep(500000);
         }

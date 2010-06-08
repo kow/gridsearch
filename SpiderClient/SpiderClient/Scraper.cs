@@ -35,11 +35,12 @@ namespace spider
 			regionhandle=0;
 			
             region = MainClass.db.getNextRegionForGrid(out handle);
-            Console.WriteLine("Get Next Region returned \"" + region+"\"");
+            Logger.Log("Get Next Region returned \"" + region + "\"", Helpers.LogLevel.Info);
 
             if (MainClass.db.gridhasregions == false)
             {
-                Console.WriteLine("The grid has no registered regions, just logging in and learning from there");
+                Logger.Log("The grid has no registered regions, just logging in and learning from there", Helpers.LogLevel.Info);
+
                 //just insert current region then and proceed from there
                 Simulator sim = MainClass.conn.getRegion();
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -58,8 +59,7 @@ namespace spider
             
             if(handle==0)
             {
-                Console.WriteLine("Moving to a newly entered region");
-              
+                    Logger.Log("Moving to a newly entered region", Helpers.LogLevel.Info);
                 
                     Dictionary<string, string> parameters = new Dictionary<string, string>();
                     Dictionary<string, string> conditions = new Dictionary<string, string>();
@@ -93,11 +93,11 @@ namespace spider
 			
 			bool result;
 			
-			Console.WriteLine(String.Format("Trying to teleport to {0} {1}",simname,handle));
-			
+            Logger.Log(String.Format("Trying to teleport to {0} {1}", simname, handle), Helpers.LogLevel.Info);
+
 			if(handle==0)
 			{
-				Console.WriteLine("Handle is 0 using simname");
+                Logger.Log("Handle is 0 using simname", Helpers.LogLevel.Info);
 				result=client.Self.Teleport(simname,position);
 			}
 			else
@@ -107,7 +107,7 @@ namespace spider
 			
 			if(!result)
 			{
-				Console.WriteLine("Teleport to "+simname+" failed");
+                Logger.Log("Teleport to " + simname + " failed", Helpers.LogLevel.Warning);
 				MainClass.NameTrack.active=false;
 				MainClass.ObjTrack.active=false;
 			
@@ -125,17 +125,19 @@ namespace spider
 				wait=DateTime.Now- start;
 				if(MainClass.conn.connected==false)
 				{
-					Console.WriteLine("Breaking scrape loop disconnected");
+					Console.WriteLine();
+                    Logger.Log("Breaking scrape loop disconnected", Helpers.LogLevel.Warning);
+
 					return false;
 					break;
 				}
 
-                Console.WriteLine("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString());
-				
+                Logger.Log("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString(), Helpers.LogLevel.Warning);
+
 				//Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
 				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && (wait.Minutes >=1 ||wait.Seconds >= 20 )&& MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
 				{
-					Console.WriteLine("Object track, and wait time satisified breaking loop");
+                    Logger.Log("Object track, and wait time satisified breaking loop",Helpers.LogLevel.Info);
 					return true;
 					break;	
 				}
@@ -175,11 +177,11 @@ namespace spider
 				
 				if(region=="" && handle==0)
 				{
-					Console.WriteLine("Got bad region from database");
+                    Logger.Log("Got bad region from database", Helpers.LogLevel.Error);
 					continue;
 				}
-				
-				Console.WriteLine("Starting scrape loop for region "+region);
+
+                Logger.Log("Starting scrape loop for region " + region, Helpers.LogLevel.Info);
 				
 				bool anyok=false;
 				
@@ -217,7 +219,8 @@ namespace spider
 					continue;
 				}
 				
-                Console.WriteLine("Scan complete waiting parcel update before saving");
+                Console.WriteLine();
+                Logger.Log("Scan complete waiting parcel update before saving", Helpers.LogLevel.Info);
 
 				DateTime start=DateTime.Now;
 				TimeSpan timeout=new TimeSpan(0);
@@ -228,7 +231,7 @@ namespace spider
 					timeout=DateTime.Now-start;
                 }
 
-                Console.WriteLine("All Properties recieved, saving data");
+                Logger.Log("All Properties recieved, saving data", Helpers.LogLevel.Info);
 
 				MainClass.NameTrack.active=false;
 				MainClass.ObjTrack.active=false;

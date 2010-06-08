@@ -94,13 +94,11 @@ namespace spider
 			
 			foreach(KeyValuePair<UUID,string> kvp in agent_names_recieved)
 			{
-				 Console.WriteLine("Adding " + kvp.Key.ToString() + " to name request queue");
                  Dictionary<string, string> parameters = new Dictionary<string, string>();
                  parameters.Add("AgentID", MainClass.db.compressUUID(kvp.Key));
                  parameters.Add("Grid", MainClass.db.gridKey.ToString());
                  parameters.Add("Name", kvp.Value);
                  MainClass.db.genericInsertIgnore("Agent", parameters);
- 	
 			}
 			
 			agent_names_recieved.Clear();

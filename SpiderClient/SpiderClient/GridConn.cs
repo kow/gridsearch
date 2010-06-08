@@ -62,12 +62,12 @@ namespace spider
 
             if (client.Network.LoginStatusCode == LoginStatus.Success)
             {
-                Console.WriteLine("Login procedure completed");
+                Logger.Log("Login procedure completed", Helpers.LogLevel.Info);
 				connected=true;
             }
+            Logger.Log("Status is " + client.Network.LoginStatusCode.ToString(), Helpers.LogLevel.Info);
+            Logger.Log(client.Network.LoginMessage, Helpers.LogLevel.Info);
 
-            Console.WriteLine("Status is "+client.Network.LoginStatusCode.ToString());
-            Console.WriteLine(client.Network.LoginMessage);
         }
 		
 
@@ -80,7 +80,7 @@ namespace spider
 					if(!discovered_sims.Contains(handle))
 					{
 					    discovered_sims.Add(handle);
-					    Console.WriteLine("!!! Sim discovered :"+handle.ToString());
+                        Logger.Log("Sim discovered :" + handle.ToString(), Helpers.LogLevel.Info);
 	                    Dictionary<string, string> parameters = new Dictionary<string, string>();
 	                    parameters.Add("Grid", MainClass.db.gridKey.ToString());
 	                    parameters.Add("Handle", handle.ToString());
@@ -92,20 +92,20 @@ namespace spider
 
         void HandleClientSelfIM (object sender, InstantMessageEventArgs e)
         {
-        	Console.WriteLine("IM : "+e.IM.FromAgentName+" : "+e.IM.Message);	
+        	
         }
 
         void HandleClientSelfChatFromSimulator (object sender, ChatEventArgs e)
         {
-     		Console.WriteLine("CHAT : "+e.FromName+" :"+e.Message);   	
+     		 	
         }
 
         void Network_Disconnected(object sender, DisconnectedEventArgs e)
         {
-            Console.WriteLine("*** BONED WE HAVE BEEN BOOTED ***");
-            Console.WriteLine(e.Message);
-            Console.WriteLine(e.Reason);
-			
+            Logger.Log("*** BONED WE HAVE BEEN BOOTED ***", Helpers.LogLevel.Error);
+            Logger.Log(e.Message, Helpers.LogLevel.Error);
+            Logger.Log(e.Reason, Helpers.LogLevel.Error);
+
 			if (connected == true)
             {
             	connected = false;
@@ -115,10 +115,10 @@ namespace spider
 		
 		void Network_SimDisconnected(object sender, SimDisconnectedEventArgs e)
 		{
-			Console.WriteLine("Sim disconnected from "+e.Simulator.Name+" Reason "+e.Reason);
+            Logger.Log("Sim disconnected from " + e.Simulator.Name + " Reason " + e.Reason, Helpers.LogLevel.Info);
 			if(client.Network.CurrentSim==e.Simulator)
 			{
-				Console.WriteLine("*** BONED WE HAVE BEEN BOOTED ***");
+                Logger.Log("*** BONED WE HAVE BEEN BOOTED ***", Helpers.LogLevel.Error);
 
                 if (connected == true)
                 {
@@ -130,20 +130,19 @@ namespace spider
 		
 		void Network_LoggedOut(object sender, LoggedOutEventArgs e)
 		{
-			Console.WriteLine("***** LOGOUT RECIEVED ITS ALL OVER ********");
+            Logger.Log("***** LOGOUT RECIEVED ITS ALL OVER ********", Helpers.LogLevel.Error);
 			connected=false;
 		}
 
         void Network_SimConnected(object sender, SimConnectedEventArgs e)
         {
-			 Console.WriteLine("New sim connection from " + e.Simulator.Name);
+             Logger.Log("New sim connection from " + e.Simulator.Name, Helpers.LogLevel.Info);
 			
 			 if(e.Simulator.Name=="")
 				return;
 			
 			ThreadPool.QueueUserWorkItem(sync =>
             {
-				Console.WriteLine("Updating sim DB info for " + e.Simulator.Name);
 	            Dictionary<string, string> parameters = new Dictionary<string, string>();
 			    Dictionary<string, string> conditions = new Dictionary<string, string>();
 	            conditions.Add("Grid", MainClass.db.gridKey.ToString());
@@ -152,16 +151,12 @@ namespace spider
 	            parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
 				    
                 MainClass.db.genericUpdate("Region", parameters,conditions);
-					
-			    Console.WriteLine("SM DB update complete");
             });
- 
-			Console.WriteLine("Sim connect complete");
         }
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
-	           Console.WriteLine("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString());	
+               Logger.Log("TP Update --> " + e.Message.ToString() + " : " + e.Status.ToString(), Helpers.LogLevel.Info);
         }
 
         void Parcels_SimParcelsDownloaded(object sender, SimParcelsDownloadedEventArgs e)
@@ -170,11 +165,10 @@ namespace spider
                 return;
 
              gotallparcels = true;
+             Logger.Log("Got all parcels, writing to db", Helpers.LogLevel.Info);
 
                 ThreadPool.QueueUserWorkItem(sync =>
                 {
-                    Console.WriteLine("** GOT ALL SIM PARCELS writing to db ......");
-        
                     e.Parcels.ForEach(delegate(KeyValuePair<int, Parcel> kvp)
                     {
                         Dictionary<string, string> parameters = new Dictionary<string, string>();
@@ -200,11 +194,7 @@ namespace spider
 				
                         MainClass.db.genericReplaceInto("Parcel", parameters, true);
                     });
-
-                    Console.WriteLine(".... db update complete for sim parcels");
                 });
-
-			Console.WriteLine("Got all sim parcels complete");
         }
 
         public void rotate()
@@ -249,9 +239,10 @@ namespace spider
 
         public void localteleport(Vector3 pos)
         {
-            Console.WriteLine("Trying to teleport intersim on "+client.Network.CurrentSim.Name+" to "+pos.ToString());
+            Logger.Log("Trying to teleport intersim on " + client.Network.CurrentSim.Name + " to " + pos.ToString(), Helpers.LogLevel.Info);
+            Console.WriteLine();
             bool status=client.Self.Teleport(client.Network.CurrentSim.Handle, pos);
-            Console.WriteLine("Teleport status is " + status.ToString());
+            Logger.Log("Teleport status is " + status.ToString(),Helpers.LogLevel.Info);
         }
 
         public Simulator getRegion()
