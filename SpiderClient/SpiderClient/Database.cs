@@ -10,7 +10,6 @@ namespace spider
 {
     class Database
     {
-
         // This must be unique for each spider
         public int myid;
 
@@ -52,40 +51,22 @@ namespace spider
             conn.Close();	
         }
 
-        public LoginParams getlogin(string gridname)
+        public LoginParams getlogin(int gridkey)
         {
             LoginParams data = new LoginParams();
-            //string sql;
-             //sql+= "UPDATE Logins SET LockID='0'; ";
-             //sql = "SELECT LoginURI from Grid,Logins where Logins.name='" + gridname + "' and Grid.PKey=Logins.grid";
-
-            string sql;
-
-            sql="SELECT PKey from Grid where name='" + gridname + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            int gridkey=0;
-            //FIX ME ERROR CHECKING
-            if (rdr.Read())
-            {
-                gridkey = (int)rdr[0];
-            }
-
-            rdr.Close();
-
-
+           
             // Remove any stale login locks, any over 30 minutes are quite dead
 
+            string sql;
             sql = "LOCK TABLES Logins WRITE, Grid READ; ";
             sql += "UPDATE Logins SET LockID='0' WHERE (UNIX_TIMESTAMP(LastScrape)+1800) < UNIX_TIMESTAMP(NOW()); ";
             sql += "UPDATE Logins SET LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
             sql += "SELECT LoginURI, First, Last, Password, grid from Grid,Logins where Grid.PKey=Logins.grid and LockID ='" + myid.ToString() + "';";
             sql += "UNLOCK TABLES; ";
-      
-            cmd = new MySqlCommand(sql, conn);
-            rdr = cmd.ExecuteReader();
 
-            // FIXME this is shit
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
             if (rdr.Read())
             {
                 Console.WriteLine(rdr[0] + " " + rdr[1] + " " + rdr[2] + " " + rdr[3]);
@@ -98,7 +79,7 @@ namespace spider
             else
             {
                 // There are no free login slots to use on this grid
-                Console.WriteLine("No free login slots left on grid " + gridname);
+                Logger.Log("No free login slots left on grid id " + gridkey.ToString(),Helpers.LogLevel.Warning);
                 data=null;
             }
 
@@ -106,6 +87,74 @@ namespace spider
 
             return data;
         }
+
+        public void clearlocks()
+        {
+            string sql = "";
+            sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
+            sql += "UPDATE Login SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
+
+            lock (thelock)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    Logger.Log("Error executing SQL when clearing locks " + e.Message, Helpers.LogLevel.Error);
+                }
+            }
+        }
+
+        public List<int> getFirstRegionGrid()
+        {
+            int grid = -1;
+            List<int> possiblegrids = new List<int>();
+
+            // This function needs to select a region that is older than the required threshold, the grid does not matter at this point because
+            // what ever grid this returns will be used for the spider operation
+
+            string sql = "";
+            sql = "LOCK TABLES Region WRITE;\n";
+            sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
+            sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n";
+            sql += "UPDATE Region SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC UNIQUE(Grid);\n";
+            sql += "SELECT Grid FROM Region WHERE LockID='" + myid.ToString() + "';\n";
+            sql += "UNLOCK TABLES; ";
+
+            try
+            {
+                lock (thelock)
+                {
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+
+                    while(rdr.Read())
+                    {
+                        object data=rdr[0];
+                        if (data.GetType() != typeof(System.DBNull))
+                        {
+                            grid=(int)data;
+                            possiblegrids.Add(grid);
+                        }
+                    }
+                    
+
+                    rdr.Close();
+                }
+            }
+            catch(Exception e)
+            {
+
+
+            }
+
+            return possiblegrids;
+        }
+
+
 
   
         public string getNextRegionForGrid(out Int64 handle)
@@ -425,30 +474,5 @@ namespace spider
             }
             return new UUID(bc, 0);
         }
-
-        /*
-        public TimeSpan agentexists(UUID key)
-        {
-            MySqlDataReader rdr;
-            string sql = "SELECT LastScrape FROM Agent WHERE AgentID='" + compressUUID(key) + "';\n";
-            ExecuteQuery(sql,null,null,out rdr);
-
-            if (rdr.Read())
-            {
-                TimeSpan ret;
-               
-                ret = (TimeSpan)rdr[0];
-                rdr.Close();
-                return ret;
-            }
-            else
-            {
-                rdr.Close();
-                return new DateTime(1970, 1, 1, 12, 0, 0, 0); ;
-            }
-        }
-         * */
-
-    
     }
 }
