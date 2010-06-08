@@ -9,18 +9,14 @@ namespace spider
 {
     class Scraper
     {
-		
 		GridClient client;
-        Timer timer;
-
+       
         public Scraper(GridClient theclient)
-        {
-			
+        {		
 			client=theclient;
 		    
             Console.WriteLine("Starting scrape");
             scraperlogic();
-
         }
 
         public void terminate()

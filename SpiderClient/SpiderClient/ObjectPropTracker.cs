@@ -14,19 +14,12 @@ namespace spider
     class ObjectPropTracker
     {
          GridClient client;
-        
-         int timer_interval=5000;
 
          public List<UUID> intereset_list;
 		
 		 public List<UUID> requested_propsfamily;
 		 public List<UUID> requested_props;
 		 public bool active=false;
-
-         static int MAX_NO_REQUESTS=50;
-         static int MAX_WAIT_TIME = 60;
-
-         int itterations=0;
 		
 		 DateTime start;
 

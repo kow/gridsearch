@@ -156,7 +156,8 @@ namespace spider
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
-               Logger.Log("TP Update --> " + e.Message.ToString() + " : " + e.Status.ToString(), Helpers.LogLevel.Info);
+	           Console.WriteLine();
+	           Logger.Log("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString(),Helpers.LogLevel.Info);
         }
 
         void Parcels_SimParcelsDownloaded(object sender, SimParcelsDownloadedEventArgs e)
