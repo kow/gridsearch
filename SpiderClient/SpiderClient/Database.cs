@@ -64,8 +64,18 @@ namespace spider
             sql += "SELECT LoginURI, First, Last, Password, grid from Grid,Logins where Grid.PKey=Logins.grid and LockID ='" + myid.ToString() + "';";
             sql += "UNLOCK TABLES; ";
 
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
+            MySqlDataReader rdr=null;
+
+            try
+            {
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                rdr = cmd.ExecuteReader();
+            }
+            catch (Exception e)
+            {
+                Logger.Log(e.Message, Helpers.LogLevel.Error);
+            }
 
             if (rdr.Read())
             {
@@ -117,10 +127,10 @@ namespace spider
             // what ever grid this returns will be used for the spider operation
 
             string sql = "";
-            sql = "LOCK TABLES Region WRITE;\n";
+            sql = "LOCK TABLES Region WRITE, Region as r1 WRITE, Region as r2 WRITE; \n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n";
-            sql += "UPDATE Region SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC UNIQUE(Grid);\n";
+            sql += "UPDATE Region r1 LEFT JOIN Region r2 on r1.Handle = r2.Handle AND r1.Grid <> r2.Grid SET r2.LockID='" + myid.ToString() + "' WHERE r2.LockID='0' AND UNIX_TIMESTAMP(r2.LastScrape)+604800 < UNIX_TIMESTAMP(NOW());\n";
             sql += "SELECT Grid FROM Region WHERE LockID='" + myid.ToString() + "';\n";
             sql += "UNLOCK TABLES; ";
 
@@ -147,7 +157,7 @@ namespace spider
             }
             catch(Exception e)
             {
-
+                Logger.Log(e.Message, Helpers.LogLevel.Error);
 
             }
 

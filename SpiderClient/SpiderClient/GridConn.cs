@@ -42,7 +42,7 @@ namespace spider
             client.Settings.PARCEL_TRACKING = true;
             client.Settings.ALWAYS_REQUEST_OBJECTS = false;
             client.Settings.SEND_AGENT_UPDATES = true;
-            client.Settings.MULTIPLE_SIMS = false;
+            client.Settings.MULTIPLE_SIMS = false; // <-------------- very important
          
 			client.Network.OnSimDiscovered += HandleClientNetworkOnSimDiscovered;
             client.Network.SimConnected += new EventHandler<SimConnectedEventArgs>(Network_SimConnected);
