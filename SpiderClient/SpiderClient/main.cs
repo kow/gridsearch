@@ -42,7 +42,7 @@ namespace spider
                     while (logingrids.Count != 0)
                     {
                         logingrid = logingrids[0];
-                        logingrids.Remove(0);
+                        logingrids.Remove(logingrid);
 
                         Logger.Log("We got inital login grid of " + logingrid.ToString(), Helpers.LogLevel.Info);
 
@@ -83,6 +83,7 @@ namespace spider
                     }
 
                     db.clearlocks();
+                    System.Threading.Thread.Sleep(60000);
                 }
                 db.CloseDatabase();
                 System.Threading.Thread.Sleep(60000);

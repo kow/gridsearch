@@ -19,9 +19,8 @@ namespace spider
 
         object thelock = new Object();
 
-        string connStr = "server=cornelius.demon.co.uk;user=spiderer;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
-        //string connStr = "server=192.168.0.3;user=root;database=spider;port=3306;password=louise42;Allow Zero Datetime=True;";
-        
+        string connStr = "server=myserver.co.uk;user=dbuser;database=spiderdb;port=3306;password=mypass;Allow Zero Datetime=True;";
+         
         MySqlConnection conn;
 
         public bool OpenDatabase()
@@ -102,7 +101,7 @@ namespace spider
         {
             string sql = "";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
-            sql += "UPDATE Login SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
+            sql += "UPDATE Logins SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
 
             lock (thelock)
             {
@@ -127,12 +126,12 @@ namespace spider
             // what ever grid this returns will be used for the spider operation
 
             string sql = "";
-            sql = "LOCK TABLES Region WRITE, Region as r1 WRITE, Region as r2 WRITE; \n";
-            sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
-            sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n";
-            sql += "UPDATE Region r1 LEFT JOIN Region r2 on r1.Handle = r2.Handle AND r1.Grid <> r2.Grid SET r2.LockID='" + myid.ToString() + "' WHERE r2.LockID='0' AND UNIX_TIMESTAMP(r2.LastScrape)+604800 < UNIX_TIMESTAMP(NOW());\n";
-            sql += "SELECT Grid FROM Region WHERE LockID='" + myid.ToString() + "';\n";
-            sql += "UNLOCK TABLES; ";
+            sql = "LOCK TABLES Region WRITE;\n";
+            sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n"; // clean my lockids
+            sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n"; //clean stale lockids
+            sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW()) ;\n"; //2 weeks?
+            sql += "SELECT Grid FROM candidates; \n";
+           
 
             try
             {
@@ -147,12 +146,20 @@ namespace spider
                         if (data.GetType() != typeof(System.DBNull))
                         {
                             grid=(int)data;
-                            possiblegrids.Add(grid);
+                            if (!possiblegrids.Contains(grid))
+                            {
+                                possiblegrids.Add(grid);
+                            }
                         }
                     }
-                    
-
+                   
                     rdr.Close();
+
+                    sql = "DROP TABLE candidates;";
+                    sql += "UNLOCK TABLES; ";
+                    cmd = new MySqlCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+
                 }
             }
             catch(Exception e)
