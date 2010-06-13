@@ -19,8 +19,19 @@ namespace spider
         {
             while (true)
             {
+				
+				CommandLine cl= new CommandLine();
+				cl.addRequiredCLP("host");
+				cl.addRequiredCLP("user");
+				cl.addRequiredCLP("database");
+
+				if(!cl.parsecommandline())
+				{
+					return;	
+				}
+				
                 db = new Database();
-                bool dbopen = db.OpenDatabase();
+                bool dbopen = db.OpenDatabase(cl.getopt("host"),cl.getopt("user"),cl.getopt("database"),cl.getopt("port"),cl.getopt("password"));
                 if (!dbopen)
                 {
                     Logger.Log("Cannot connect to database, going to sleep and trying later", Helpers.LogLevel.Error);

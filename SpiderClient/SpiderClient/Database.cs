@@ -19,12 +19,44 @@ namespace spider
 
         object thelock = new Object();
 
-        string connStr = "server=myserver.co.uk;user=dbuser;database=spiderdb;port=3306;password=mypass;Allow Zero Datetime=True;";
+        string connStr;
          
         MySqlConnection conn;
 
-        public bool OpenDatabase()
+        public bool OpenDatabase(string dbhost,string dbuser,string dbdatabase,string dbport,string dbpass)
         {
+			
+			if(dbhost==null)
+			{
+				Logger.Log("Host cannout be null for database",Helpers.LogLevel.Error);
+				return false;
+			}
+
+			if(dbuser==null)
+			{
+				Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
+				return false;
+			}
+
+			if(dbuser==null)
+			{
+				Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
+				return false;
+			}
+			
+			if(dbpass==null)
+			{
+				dbpass=""; //empty password	
+			}
+			
+			if(dbport==null)
+			{
+				dbport="3306"; //mysql default	
+			}
+			
+			
+			connStr=string.Format("server={0};user={1};database={2};port={3};password={4};Allow Zero Datetime=True;",dbhost,dbuser,dbdatabase,dbport,dbpass);
+			
             Random random = new Random();
             myid = random.Next();
 
