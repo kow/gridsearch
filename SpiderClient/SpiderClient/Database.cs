@@ -54,7 +54,6 @@ namespace spider
 				dbport="3306"; //mysql default	
 			}
 			
-			
 			connStr=string.Format("server={0};user={1};database={2};port={3};password={4};Allow Zero Datetime=True;",dbhost,dbuser,dbdatabase,dbport,dbpass);
 			
             Random random = new Random();
@@ -158,13 +157,13 @@ namespace spider
             // what ever grid this returns will be used for the spider operation
 
             string sql = "";
-            sql = "LOCK TABLES Region WRITE;\n";
+            sql = "LOCK TABLES Region WRITE, Grid READ;\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n"; // clean my lockids
             sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n"; //clean stale lockids
             sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW()) ;\n"; //2 weeks?
-            sql += "SELECT Grid FROM candidates; \n";
+            sql += "INSERT INTO candidates SELECT * FROM Grid WHERE new='1';\n";
+			sql += "SELECT Grid FROM candidates; \n";
            
-
             try
             {
                 lock (thelock)
