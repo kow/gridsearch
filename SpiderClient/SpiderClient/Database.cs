@@ -148,6 +148,18 @@ namespace spider
             }
         }
 
+	/*	public List<int> getAnyNewGrids()
+		{
+			int grid = -1;
+            List<int> possiblegrids = new List<int>();
+			string sql = "";
+            sql = "LOCK TABLES Region WRITE;\n";
+            sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region,Grid WHERE LockID='0' AND Grid.PKey<>Region.Grid) ;\n"; //2 weeks?
+            sql += "SELECT Grid FROM candidates; \n";
+			
+		}
+	*/	
+		
         public List<int> getFirstRegionGrid()
         {
             int grid = -1;
@@ -156,13 +168,14 @@ namespace spider
             // This function needs to select a region that is older than the required threshold, the grid does not matter at this point because
             // what ever grid this returns will be used for the spider operation
 
-            string sql = "";
-            sql = "LOCK TABLES Region WRITE, Grid READ;\n";
+            string sql = "";	
+			sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
+            sql += "LOCK TABLES Region WRITE, Grid READ;";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n"; // clean my lockids
-            sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n"; //clean stale lockids
-            sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW()) ;\n"; //2 weeks?
-            sql += "INSERT INTO candidates SELECT * FROM Grid WHERE new='1';\n";
-			sql += "SELECT Grid FROM candidates; \n";
+            sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW());"; //clean stale lockids
+            sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW());"; //2 weeks?
+			sql += "INSERT INTO candidates (Grid) (SELECT PKey from Grid WHERE Grid.new='TRUE');";
+			sql += "SELECT Grid FROM candidates;";
            
             try
             {
@@ -186,7 +199,7 @@ namespace spider
                    
                     rdr.Close();
 
-                    sql = "DROP TABLE candidates;";
+                    sql = "DROP TEMPORARY TABLE candidates;";
                     sql += "UNLOCK TABLES; ";
                     cmd = new MySqlCommand(sql, conn);
                     cmd.ExecuteNonQuery();
@@ -196,6 +209,10 @@ namespace spider
             catch(Exception e)
             {
                 Logger.Log(e.Message, Helpers.LogLevel.Error);
+				 sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
+                 sql += "UNLOCK TABLES; ";
+                 MySqlCommand cmd = new MySqlCommand(sql, conn);
+                 cmd.ExecuteNonQuery();
 
             }
 
