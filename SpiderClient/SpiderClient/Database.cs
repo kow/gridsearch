@@ -147,18 +147,6 @@ namespace spider
                 }
             }
         }
-
-	/*	public List<int> getAnyNewGrids()
-		{
-			int grid = -1;
-            List<int> possiblegrids = new List<int>();
-			string sql = "";
-            sql = "LOCK TABLES Region WRITE;\n";
-            sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region,Grid WHERE LockID='0' AND Grid.PKey<>Region.Grid) ;\n"; //2 weeks?
-            sql += "SELECT Grid FROM candidates; \n";
-			
-		}
-	*/	
 		
         public List<int> getFirstRegionGrid()
         {
@@ -260,8 +248,6 @@ namespace spider
 
             }
             
-
-
             // Lock the Region table then grab a lock on a region we would like to work with
             string sql="";
             sql =  "LOCK TABLES Region WRITE;\n";
