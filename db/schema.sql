@@ -85,6 +85,7 @@ CREATE TABLE `Object` (
   `Name` text,
   `Description` text,
   `Flags` bit(8) DEFAULT NULL,
+  `Perms` int(11) NOT NULL DEFAULT '0' COMMENT 'Next Owner Permissions Mask { Transfer = 1 << 13, Modify = 1 << 14, Copy = 1 << 15, Move = 1 << 19, Damage = 1 << 20 }'
   `SalePrice` mediumint(11) DEFAULT NULL,
   `Prims` smallint(11) DEFAULT NULL,
   `Location` int(11) DEFAULT NULL,
