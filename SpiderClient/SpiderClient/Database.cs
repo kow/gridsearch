@@ -162,7 +162,7 @@ namespace spider
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n"; // clean my lockids
             sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW());"; //clean stale lockids
             sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW());"; //2 weeks?
-			sql += "INSERT INTO candidates (Grid) (SELECT PKey from Grid WHERE Grid.new='TRUE');";
+			sql += "INSERT INTO candidates (Grid) (SELECT PKey from Grid WHERE Grid.new='1');";
 			sql += "SELECT Grid FROM candidates;";
            
             try
