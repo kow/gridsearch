@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\OpenMetaverseTypes.dll
+C:\code\libopenmetaverse\bin\OpenMetaverseTypes.pdb
+C:\code\libopenmetaverse\OpenMetaverseTypes\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\OpenMetaverseTypes\obj\Debug\OpenMetaverseTypes.dll
+C:\code\libopenmetaverse\OpenMetaverseTypes\obj\Debug\OpenMetaverseTypes.pdb

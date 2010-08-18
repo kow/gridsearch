@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\VoiceTest.exe
+C:\code\libopenmetaverse\bin\VoiceTest.pdb
+C:\code\libopenmetaverse\Programs\VoiceTest\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\VoiceTest\obj\Debug\VoiceTest.exe
+C:\code\libopenmetaverse\Programs\VoiceTest\obj\Debug\VoiceTest.pdb

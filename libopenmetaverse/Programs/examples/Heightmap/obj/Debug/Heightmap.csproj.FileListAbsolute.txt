@@ -1,0 +1,8 @@
+C:\code\libopenmetaverse\bin\Heightmap.exe
+C:\code\libopenmetaverse\bin\Heightmap.pdb
+C:\code\libopenmetaverse\Programs\examples\Heightmap\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\examples\Heightmap\obj\Debug\Heightmap.frmHeightmap.resources
+C:\code\libopenmetaverse\Programs\examples\Heightmap\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\examples\Heightmap\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\examples\Heightmap\obj\Debug\Heightmap.exe
+C:\code\libopenmetaverse\Programs\examples\Heightmap\obj\Debug\Heightmap.pdb

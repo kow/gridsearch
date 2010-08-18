@@ -1,0 +1,8 @@
+C:\code\libopenmetaverse\bin\Baker.exe
+C:\code\libopenmetaverse\bin\Baker.pdb
+C:\code\libopenmetaverse\Programs\Baker\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\Baker\obj\Debug\Baker.frmBaker.resources
+C:\code\libopenmetaverse\Programs\Baker\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\Baker\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\Baker\obj\Debug\Baker.exe
+C:\code\libopenmetaverse\Programs\Baker\obj\Debug\Baker.pdb

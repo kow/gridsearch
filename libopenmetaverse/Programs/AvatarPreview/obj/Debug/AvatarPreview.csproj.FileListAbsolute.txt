@@ -1,0 +1,9 @@
+C:\code\libopenmetaverse\bin\AvatarPreview.exe
+C:\code\libopenmetaverse\bin\AvatarPreview.pdb
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\AvatarPreview.frmAvatar.resources
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\AvatarPreview.Properties.Resources.resources
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\AvatarPreview.exe
+C:\code\libopenmetaverse\Programs\AvatarPreview\obj\Debug\AvatarPreview.pdb

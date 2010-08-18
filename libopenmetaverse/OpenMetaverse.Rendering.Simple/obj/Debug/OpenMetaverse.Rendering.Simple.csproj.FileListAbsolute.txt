@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\OpenMetaverse.Rendering.Simple.dll
+C:\code\libopenmetaverse\bin\OpenMetaverse.Rendering.Simple.pdb
+C:\code\libopenmetaverse\OpenMetaverse.Rendering.Simple\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\OpenMetaverse.Rendering.Simple\obj\Debug\OpenMetaverse.Rendering.Simple.dll
+C:\code\libopenmetaverse\OpenMetaverse.Rendering.Simple\obj\Debug\OpenMetaverse.Rendering.Simple.pdb

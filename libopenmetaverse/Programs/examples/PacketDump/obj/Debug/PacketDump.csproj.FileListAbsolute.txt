@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\PacketDump.exe
+C:\code\libopenmetaverse\bin\PacketDump.pdb
+C:\code\libopenmetaverse\Programs\examples\PacketDump\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\examples\PacketDump\obj\Debug\PacketDump.exe
+C:\code\libopenmetaverse\Programs\examples\PacketDump\obj\Debug\PacketDump.pdb

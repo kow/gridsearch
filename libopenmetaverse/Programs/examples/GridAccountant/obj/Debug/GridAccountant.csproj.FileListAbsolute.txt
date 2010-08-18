@@ -1,0 +1,8 @@
+C:\code\libopenmetaverse\bin\GridAccountant.exe
+C:\code\libopenmetaverse\bin\GridAccountant.pdb
+C:\code\libopenmetaverse\Programs\examples\GridAccountant\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\examples\GridAccountant\obj\Debug\GridAccountant.frmGridAccountant.resources
+C:\code\libopenmetaverse\Programs\examples\GridAccountant\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\examples\GridAccountant\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\examples\GridAccountant\obj\Debug\GridAccountant.exe
+C:\code\libopenmetaverse\Programs\examples\GridAccountant\obj\Debug\GridAccountant.pdb

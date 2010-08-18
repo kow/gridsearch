@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\IRCGateway.exe
+C:\code\libopenmetaverse\bin\IRCGateway.pdb
+C:\code\libopenmetaverse\Programs\examples\IRCGateway\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\examples\IRCGateway\obj\Debug\IRCGateway.exe
+C:\code\libopenmetaverse\Programs\examples\IRCGateway\obj\Debug\IRCGateway.pdb

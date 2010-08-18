@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\OpenMetaverse.GUI.dll
+C:\code\libopenmetaverse\bin\OpenMetaverse.GUI.pdb
+C:\code\libopenmetaverse\OpenMetaverse.GUI\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\OpenMetaverse.GUI\obj\Debug\OpenMetaverse.GUI.dll
+C:\code\libopenmetaverse\OpenMetaverse.GUI\obj\Debug\OpenMetaverse.GUI.pdb

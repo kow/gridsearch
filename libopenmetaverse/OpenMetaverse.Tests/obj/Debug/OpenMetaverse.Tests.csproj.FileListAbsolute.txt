@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\OpenMetaverse.Tests.dll
+C:\code\libopenmetaverse\bin\OpenMetaverse.Tests.pdb
+C:\code\libopenmetaverse\OpenMetaverse.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\OpenMetaverse.Tests\obj\Debug\OpenMetaverse.Tests.dll
+C:\code\libopenmetaverse\OpenMetaverse.Tests\obj\Debug\OpenMetaverse.Tests.pdb

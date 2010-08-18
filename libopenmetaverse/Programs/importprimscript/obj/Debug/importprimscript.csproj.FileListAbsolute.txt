@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\importprimscript.exe
+C:\code\libopenmetaverse\bin\importprimscript.pdb
+C:\code\libopenmetaverse\Programs\importprimscript\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\importprimscript\obj\Debug\importprimscript.exe
+C:\code\libopenmetaverse\Programs\importprimscript\obj\Debug\importprimscript.pdb

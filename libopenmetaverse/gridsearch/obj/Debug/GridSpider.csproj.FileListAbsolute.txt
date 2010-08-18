@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\gridsearch\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\bin\GridSpider.exe
+C:\code\libopenmetaverse\bin\GridSpider.pdb
+C:\code\libopenmetaverse\gridsearch\obj\Debug\GridSpider.exe
+C:\code\libopenmetaverse\gridsearch\obj\Debug\GridSpider.pdb

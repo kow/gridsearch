@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\VisualParamGenerator.exe
+C:\code\libopenmetaverse\bin\VisualParamGenerator.pdb
+C:\code\libopenmetaverse\Programs\VisualParamGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\VisualParamGenerator\obj\Debug\VisualParamGenerator.exe
+C:\code\libopenmetaverse\Programs\VisualParamGenerator\obj\Debug\VisualParamGenerator.pdb

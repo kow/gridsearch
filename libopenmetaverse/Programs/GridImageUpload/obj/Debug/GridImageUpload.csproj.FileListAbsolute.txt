@@ -1,0 +1,9 @@
+C:\code\libopenmetaverse\bin\GridImageUpload.exe
+C:\code\libopenmetaverse\bin\GridImageUpload.pdb
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\GridImageUpload.frmGridImageUpload.resources
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\GridImageUpload.Properties.Resources.resources
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\GridImageUpload.exe
+C:\code\libopenmetaverse\Programs\GridImageUpload\obj\Debug\GridImageUpload.pdb

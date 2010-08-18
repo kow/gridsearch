@@ -1,0 +1,8 @@
+C:\code\libopenmetaverse\bin\Dashboard.exe
+C:\code\libopenmetaverse\bin\Dashboard.pdb
+C:\code\libopenmetaverse\Programs\examples\Dashboard\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\examples\Dashboard\obj\Debug\Dashboard.Dashboard.resources
+C:\code\libopenmetaverse\Programs\examples\Dashboard\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\examples\Dashboard\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\examples\Dashboard\obj\Debug\Dashboard.exe
+C:\code\libopenmetaverse\Programs\examples\Dashboard\obj\Debug\Dashboard.pdb

@@ -1,0 +1,5 @@
+C:\code\libopenmetaverse\bin\OpenMetaverse.StructuredData.dll
+C:\code\libopenmetaverse\bin\OpenMetaverse.StructuredData.pdb
+C:\code\libopenmetaverse\OpenMetaverse.StructuredData\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\OpenMetaverse.StructuredData\obj\Debug\OpenMetaverse.StructuredData.dll
+C:\code\libopenmetaverse\OpenMetaverse.StructuredData\obj\Debug\OpenMetaverse.StructuredData.pdb

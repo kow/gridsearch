@@ -1,0 +1,10 @@
+C:\code\libopenmetaverse\bin\PrimWorkshop.exe
+C:\code\libopenmetaverse\bin\PrimWorkshop.pdb
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\ResolveAssemblyReference.cache
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\PrimWorkshop.frmBrowser.resources
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\PrimWorkshop.Render.resources
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\PrimWorkshop.Properties.Resources.resources
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\ResGen.read.1.tlog
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\ResGen.write.1.tlog
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\PrimWorkshop.exe
+C:\code\libopenmetaverse\Programs\PrimWorkshop\obj\Debug\PrimWorkshop.pdb
