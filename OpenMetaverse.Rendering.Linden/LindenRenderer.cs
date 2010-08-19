@@ -1239,7 +1239,7 @@ namespace OpenMetaverse.Rendering
             int components = (sculptTexture.PixelFormat == (sculptTexture.PixelFormat | PixelFormat.Alpha)) ? 4 : 3;
             //int offset = bmpData.Stride - sculptWidth * components;
 
-            for (int s = 0; s < sizeS; s++)
+            for (int s = sizeS - 1; s >= 0; s--)
             {
                 // Run along the profile
                 for (int t = 0; t < sizeT; t++)
@@ -1285,7 +1285,7 @@ namespace OpenMetaverse.Rendering
                     unsafe
                     {
                         byte* ptr = (byte*)bmpData.Scan0 + (y * bmpData.Stride) + (x * components);
-                        pos = SculptRGBToVector(*(ptr), *(ptr + 1), *(ptr + 2));
+                        pos = SculptRGBToVector(*(ptr + 2), *(ptr + 1), *(ptr + 0));
                     }
 
                     if (mirror)
