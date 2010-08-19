@@ -844,7 +844,7 @@ namespace OpenMetaverse.Rendering
                                 Utils.Lerp(0, prim.PathShearX, t),
                                 Utils.Lerp(0, prim.PathShearY, t),
                                 t - 0.5f);
-                            point.Rotation = Quaternion.CreateFromAxisAngle(Utils.Lerp(F_PI * prim.PathTwistBegin, F_PI * prim.PathTwist, t), 0f, 0f, 1f);
+                            point.Rotation = Quaternion.CreateFromAxisAngle(0f, 0f, 1f, Utils.Lerp(F_PI * prim.PathTwistBegin, F_PI * prim.PathTwist, t));
                             point.Scale.X = Utils.Lerp(startScale.X, endScale.X, t);
                             point.Scale.Y = Utils.Lerp(startScale.Y, endScale.Y, t);
                             point.TexT = t;
@@ -1105,7 +1105,7 @@ namespace OpenMetaverse.Rendering
             point.TexT = t;
 
             // Twist rotates the path along the x,y plane
-            twist = Quaternion.CreateFromAxisAngle(Utils.Lerp(twistBegin, twistEnd, t) * 2f * F_PI - F_PI, 0f, 0f, 1f);
+            twist = Quaternion.CreateFromAxisAngle(0f, 0f, 1f, Utils.Lerp(twistBegin, twistEnd, t) * 2f * F_PI - F_PI);
             // Rotate the point around the circle's center
             qang = Quaternion.CreateFromAxisAngle(pathAxis, ang);
             point.Rotation = twist * qang;
@@ -1136,7 +1136,7 @@ namespace OpenMetaverse.Rendering
                 point.TexT = t;
 
                 // Twist rotates the path along the x,y plane
-                twist = Quaternion.CreateFromAxisAngle(Utils.Lerp(twistBegin, twistEnd, t) * 2f * F_PI - F_PI, 0f, 0f, 1f);
+                twist = Quaternion.CreateFromAxisAngle(0f, 0f, 1f, Utils.Lerp(twistBegin, twistEnd, t) * 2f * F_PI - F_PI);
                 // Rotate the point around the circle's center
                 qang = Quaternion.CreateFromAxisAngle(pathAxis, ang);
                 point.Rotation = twist * qang;
@@ -1161,7 +1161,7 @@ namespace OpenMetaverse.Rendering
             point.TexT = t;
 
             // Twist rotates the path along the x,y plane
-            twist = Quaternion.CreateFromAxisAngle(Utils.Lerp(twistBegin, twistEnd, t) * 2f * F_PI - F_PI, 0f, 0f, 1f);
+            twist = Quaternion.CreateFromAxisAngle(0f, 0f, 1f, Utils.Lerp(twistBegin, twistEnd, t) * 2f * F_PI - F_PI);
             qang = Quaternion.CreateFromAxisAngle(pathAxis, ang);
             point.Rotation = twist * qang;
 
