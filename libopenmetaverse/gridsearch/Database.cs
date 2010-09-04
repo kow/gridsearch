@@ -25,52 +25,52 @@ namespace spider
 
         public bool OpenDatabase(string dbhost,string dbuser,string dbdatabase,string dbport,string dbpass)
         {
-            
-            if(dbhost==null)
-            {
-                Logger.Log("Host cannout be null for database",Helpers.LogLevel.Error);
-                return false;
-            }
+			
+			if(dbhost==null)
+			{
+				Logger.Log("Host cannout be null for database",Helpers.LogLevel.Error);
+				return false;
+			}
 
-            if(dbuser==null)
-            {
-                Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
-                return false;
-            }
+			if(dbuser==null)
+			{
+				Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
+				return false;
+			}
 
-            if(dbuser==null)
-            {
-                Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
-                return false;
-            }
-            
-            if(dbpass==null)
-            {
-                dbpass=""; //empty password	
-            }
-            
-            if(dbport==null)
-            {
-                dbport="3306"; //mysql default	
-            }
-            
-            connStr=string.Format("server={0};user={1};database={2};port={3};password={4};Allow Zero Datetime=True;",dbhost,dbuser,dbdatabase,dbport,dbpass);
-            
+			if(dbuser==null)
+			{
+				Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
+				return false;
+			}
+			
+			if(dbpass==null)
+			{
+				dbpass=""; //empty password	
+			}
+			
+			if(dbport==null)
+			{
+				dbport="3306"; //mysql default	
+			}
+			
+			connStr=string.Format("server={0};user={1};database={2};port={3};password={4};Allow Zero Datetime=True;",dbhost,dbuser,dbdatabase,dbport,dbpass);
+			
             Random random = new Random();
             myid = random.Next();
 
             conn = new MySqlConnection(connStr);
         
             try
-            {
+		    {
                 Logger.Log("Connecting to MySQL..", Helpers.LogLevel.Info);
-                conn.Open();
-            }
-            catch (Exception e)
-            {
+		        conn.Open();
+		    }
+		    catch (Exception e)
+		    {
                 Logger.Log(e.ToString(), Helpers.LogLevel.Error);
                 return false;
-            }
+		    }
 
             Logger.Log("Connection open",Helpers.LogLevel.Info);
             return true;
@@ -147,7 +147,7 @@ namespace spider
                 }
             }
         }
-        
+		
         public List<int> getFirstRegionGrid()
         {
             int grid = -1;
@@ -157,13 +157,13 @@ namespace spider
             // what ever grid this returns will be used for the spider operation
 
             string sql = "";	
-            sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
+			sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
             sql += "LOCK TABLES Region WRITE, Grid READ;";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n"; // clean my lockids
             sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW());"; //clean stale lockids
             sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW());"; //2 weeks?
-            sql += "INSERT INTO candidates (Grid) (SELECT PKey from Grid WHERE Grid.new='1');";
-            sql += "SELECT Grid FROM candidates;";
+			sql += "INSERT INTO candidates (Grid) (SELECT PKey from Grid WHERE Grid.new='1');";
+			sql += "SELECT Grid FROM candidates;";
            
             try
             {
@@ -197,7 +197,7 @@ namespace spider
             catch(Exception e)
             {
                 Logger.Log(e.Message, Helpers.LogLevel.Error);
-                 sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
+				 sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
                  sql += "UNLOCK TABLES; ";
                  MySqlCommand cmd = new MySqlCommand(sql, conn);
                  cmd.ExecuteNonQuery();
@@ -218,9 +218,8 @@ namespace spider
 
             if (gridhasregions == false)
             {
-                string sqlt = "SELECT Name,handle FROM Region WHERE Grid='" + gridKey.ToString() + "';";
-                Logger.Log(sqlt, Helpers.LogLevel.Info);
-    
+
+                string sqlt = "SELECT Name FROM Region WHERE Grid='" + gridKey.ToString() + "';";
                 try
                 {
                     lock (thelock)
@@ -230,9 +229,7 @@ namespace spider
                         if (rdr.Read())
                         {
                             gridhasregions = true;
-                            region=(string)rdr[0];
-                            handle=(Int64)rdr[1];
-                        }	
+                        }
                         else
                         {
                             gridhasregions = false;
@@ -243,12 +240,12 @@ namespace spider
                 }
                 catch (Exception e)
                 {
-                    Logger.Log("SQL FAILED -> " + e.Message, Helpers.LogLevel.Error);
                     gridhasregions = false;
                 }
 
                 if (gridhasregions == false)
                     return "";
+
             }
             
             // Lock the Region table then grab a lock on a region we would like to work with
@@ -459,44 +456,44 @@ namespace spider
 
         public bool ExecuteSQL(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints)
         {	
-            lock(thelock)
-            {
-                try
-                {
-                    MySqlCommand cmd = buildsql(sql, parameters, constraints);
-                    lock (conn)
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    return true;
-    
-                }
-                catch (Exception e)
-                {
-                    dumpErrMsg(e, sql, parameters);
-                    return false;
-                }
-            }
+			lock(thelock)
+			{
+	            try
+	            {
+	                MySqlCommand cmd = buildsql(sql, parameters, constraints);
+	                lock (conn)
+	                {
+	                    cmd.ExecuteNonQuery();
+	                }
+	                return true;
+	
+	            }
+	            catch (Exception e)
+	            {
+	                dumpErrMsg(e, sql, parameters);
+	                return false;
+	            }
+			}
 
         }
 
         public bool ExecuteQuersy(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints, out MySqlDataReader rdr)
         {
-            lock(thelock)
-            {
-                try
-                {
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    rdr = cmd.ExecuteReader();
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    rdr = null;
-                    dumpErrMsg(e, sql, parameters);
-                    return false;
-                }
-            }
+			lock(thelock)
+			{
+	            try
+	            {
+	                MySqlCommand cmd = new MySqlCommand(sql, conn);
+	                rdr = cmd.ExecuteReader();
+	                return true;
+	            }
+	            catch (Exception e)
+	            {
+	                rdr = null;
+	                dumpErrMsg(e, sql, parameters);
+	                return false;
+	            }
+			}
         }
 
         public string compressUUID(UUID input)

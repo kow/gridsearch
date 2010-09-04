@@ -9,21 +9,21 @@ namespace spider
     class CommandLine
     {
         Dictionary<string, string> optionargs = new Dictionary<string, string>();
-        List<string> required_parameters = new List<string>();
+		List<string> required_parameters = new List<string>();
 
-        public void addRequiredCLP(string name)
-        {
-            if(!required_parameters.Contains(name))
-            {
-                required_parameters.Add(name);
-            }
-        }
-        
+		public void addRequiredCLP(string name)
+		{
+			if(!required_parameters.Contains(name))
+			{
+				required_parameters.Add(name);
+			}
+		}
+		
         public bool parsecommandline()
         {
             string[] allargs = Environment.GetCommandLineArgs();
-            List<string> required_parameters_notfound = required_parameters;
-            
+			List<string> required_parameters_notfound = required_parameters;
+			
             int x = 0;
             foreach (string args in allargs)
             {
@@ -46,41 +46,41 @@ namespace spider
                     {
                         optionargs[thearg] = "TRUE";
                     }
-                    
-                    if(required_parameters_notfound.Contains(thearg))
-                    {
-                        required_parameters_notfound.Remove(thearg);	
-                    }
+					
+					if(required_parameters_notfound.Contains(thearg))
+					{
+						required_parameters_notfound.Remove(thearg);	
+					}
                 }
             }
-            
-            if(required_parameters_notfound.Count>0)
-            {
-                
-                foreach(string missing in required_parameters_notfound)
-                {
-                    Logger.Log("Required command line parameter not found : "+missing,Helpers.LogLevel.Error);
-                }
-                return false;
-            }
-            
-            return true;
+			
+			if(required_parameters_notfound.Count>0)
+			{
+				
+				foreach(string missing in required_parameters_notfound)
+				{
+					Logger.Log("Required command line parameter not found : "+missing,Helpers.LogLevel.Error);
+				}
+				return false;
+			}
+			
+			return true;
         }
-        
-        public string getopt(string name)
-        {
-            string val;
-            
-            if(optionargs.TryGetValue(name,out val))
-            {
-                return val;	
-            }
-            else
-            {
-                return null;	
-            }
-            
-            
-        }
+		
+		public string getopt(string name)
+		{
+			string val;
+			
+			if(optionargs.TryGetValue(name,out val))
+			{
+				return val;	
+			}
+			else
+			{
+				return null;	
+			}
+			
+			
+		}
     }
 }

@@ -19,17 +19,17 @@ namespace spider
         {
             while (true)
             {
-                
-                CommandLine cl= new CommandLine();
-                cl.addRequiredCLP("host");
-                cl.addRequiredCLP("user");
-                cl.addRequiredCLP("database");
+				
+				CommandLine cl= new CommandLine();
+				cl.addRequiredCLP("host");
+				cl.addRequiredCLP("user");
+				cl.addRequiredCLP("database");
 
-                if(!cl.parsecommandline())
-                {
-                    return;	
-                }
-                
+				if(!cl.parsecommandline())
+				{
+					return;	
+				}
+				
                 db = new Database();
                 bool dbopen = db.OpenDatabase(cl.getopt("host"),cl.getopt("user"),cl.getopt("database"),cl.getopt("port"),cl.getopt("password"));
                 if (!dbopen)
@@ -39,6 +39,8 @@ namespace spider
                
                 while (dbopen)
                 {
+
+                    Logger.Log("Starting a new master scrape loop", Helpers.LogLevel.Info);
 
                     //Find the inital grid
                     List<int> logingrids = db.getFirstRegionGrid(); //this locks a bunch of target regions, unique on grid
@@ -52,18 +54,37 @@ namespace spider
 
                     while (logingrids.Count != 0)
                     {
+                        Logger.Log("Current login list has "+logingrids.Count.ToString()+" entries", Helpers.LogLevel.Info);
+
                         logingrid = logingrids[0];
                         logingrids.Remove(logingrid);
 
-                        Logger.Log("We got inital login grid of " + logingrid.ToString(), Helpers.LogLevel.Info);
+                        Logger.Log("Trying login on grid # " + logingrid.ToString(), Helpers.LogLevel.Info);
 
                         // Get a free login slot for this grid
-
+                        
                         LoginParams login = db.getlogin(logingrid);
                         if (login == null)
                         {
                             // no free login slots for this grid
+                            Logger.Log("No free login slots on grid # " + logingrid.ToString(), Helpers.LogLevel.Info);
                             continue;
+                        }
+
+                        long handle;
+                        String name = db.getNextRegionForGrid(out handle);
+                        
+                        //Chcek if there are valid regions
+                        if (db.gridhasregions==true && db.regionsremaining == false)
+                        {
+                            // Well thats a bad start no regions on this grid worth checking currently ???
+                            Logger.Log("Grid has no regions valid for spidering right now, why are we here? skipping login ", Helpers.LogLevel.Warning);
+                            continue;
+                        }
+
+                        if(db.gridhasregions==false)
+                        {
+                            Logger.Log("This dam well better be a new grid with no regions yet in the db", Helpers.LogLevel.Warning);
                         }
 
                         conn = new GridConn(login);
@@ -94,6 +115,7 @@ namespace spider
                     }
 
                     db.clearlocks();
+                    Logger.Log("Post logout, backing off for 60 seconds", Helpers.LogLevel.Info);
                     System.Threading.Thread.Sleep(60000);
                 }
                 db.CloseDatabase();
@@ -107,9 +129,9 @@ namespace spider
 
 
 
-        while(true)
-        {
-            
+		while(true)
+		{
+			
         LoginParams login = db.getlogin("Agni");
 
         if (login == null)
@@ -148,15 +170,15 @@ namespace spider
 
         // Back off for 1 minute
         System.Threading.Thread.Sleep(60000);
-        }
+		}
       
         
         
-        }
+	    }
 
       
-        
-        
-    }
+	    
+	    
+	}
   */
 }
