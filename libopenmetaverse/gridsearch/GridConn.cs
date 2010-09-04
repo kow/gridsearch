@@ -42,7 +42,7 @@ namespace spider
             client.Settings.PARCEL_TRACKING = true;
             client.Settings.ALWAYS_REQUEST_OBJECTS = false;
             client.Settings.SEND_AGENT_UPDATES = true;
-            client.Settings.MULTIPLE_SIMS = false; // <-------------- very important
+            client.Settings.MULTIPLE_SIMS = false; // <-------------- very important to be false!
 
             client.Network.SimConnected += new EventHandler<SimConnectedEventArgs>(Network_SimConnected);
             client.Parcels.SimParcelsDownloaded += new EventHandler<SimParcelsDownloadedEventArgs>(Parcels_SimParcelsDownloaded);
@@ -54,10 +54,13 @@ namespace spider
 			client.Self.ChatFromSimulator += HandleClientSelfChatFromSimulator;	
 			client.Self.IM += HandleClientSelfIM;
 
+			client.Self.Movement.Camera.Far = 1024;
+            
             client.Network.Login(login);
 
-            client.Self.Movement.Camera.Far = 512;
+            client.Self.Movement.Camera.Far = 1024;
             client.Self.Movement.SendUpdate(true);
+
 
             if (client.Network.LoginStatusCode == LoginStatus.Success)
             {
@@ -78,6 +81,20 @@ namespace spider
         {
      		 	
         }
+		
+		void doLogout()
+		{
+				try
+				{
+				    Logger.Log("Trying to logout", Helpers.LogLevel.Info);
+					client.Network.Logout(); //force logout to clean up libomv
+				}
+				catch(Exception e)
+				{
+				     Logger.Log("Logout exploded in a heap :"+e.Message, Helpers.LogLevel.Error);					 
+				}
+		
+		}
 
         void Network_Disconnected(object sender, DisconnectedEventArgs e)
         {
@@ -88,7 +105,7 @@ namespace spider
 			if (connected == true)
             {
             	connected = false;
-            	client.Network.Logout(); //force logout to clean up libomv
+				doLogout();
 			}
         }
 		
@@ -102,7 +119,7 @@ namespace spider
                 if (connected == true)
                 {
 					connected = false;
-                    client.Network.Logout(); //force logout to clean up libomv
+                    doLogout(); //force logout to clean up libomv
                 }
             }	
 		}
@@ -196,7 +213,7 @@ namespace spider
 
         public void Logout()
         {
-            client.Network.Logout();
+			doLogout();
         }
 
         public int getObjectCount()

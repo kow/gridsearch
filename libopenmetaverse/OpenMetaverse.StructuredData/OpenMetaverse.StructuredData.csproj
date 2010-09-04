@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{85EEC4D3-B546-4167-A622-755D58B624A6}</ProjectGuid>
+    <ProjectGuid>{1D82E01C-81D2-45BB-BF47-C7956BC05C69}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -69,38 +69,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
+    <ProjectReference Include="../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{EDC11087-2550-4640-9B22-ACF18B533A6D}</Project>
+      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="StructuredData.cs">
     </Compile>
-    <Compile Include="JSON\IJsonWrapper.cs">
+    <Compile Include="JSON/IJsonWrapper.cs">
     </Compile>
-    <Compile Include="JSON\JsonData.cs">
+    <Compile Include="JSON/JsonData.cs">
     </Compile>
-    <Compile Include="JSON\JsonException.cs">
+    <Compile Include="JSON/JsonException.cs">
     </Compile>
-    <Compile Include="JSON\JsonMapper.cs">
+    <Compile Include="JSON/JsonMapper.cs">
     </Compile>
-    <Compile Include="JSON\JsonReader.cs">
+    <Compile Include="JSON/JsonReader.cs">
     </Compile>
-    <Compile Include="JSON\JsonWriter.cs">
+    <Compile Include="JSON/JsonWriter.cs">
     </Compile>
-    <Compile Include="JSON\Lexer.cs">
+    <Compile Include="JSON/Lexer.cs">
     </Compile>
-    <Compile Include="JSON\OSDJson.cs">
+    <Compile Include="JSON/OSDJson.cs">
     </Compile>
-    <Compile Include="JSON\ParserToken.cs">
+    <Compile Include="JSON/ParserToken.cs">
     </Compile>
-    <Compile Include="LLSD\BinaryLLSD.cs">
+    <Compile Include="LLSD/BinaryLLSD.cs">
     </Compile>
-    <Compile Include="LLSD\NotationLLSD.cs">
+    <Compile Include="LLSD/NotationLLSD.cs">
     </Compile>
-    <Compile Include="LLSD\XmlLLSD.cs">
+    <Compile Include="LLSD/XmlLLSD.cs">
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EDC11087-2550-4640-9B22-ACF18B533A6D}</ProjectGuid>
+    <ProjectGuid>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -73,11 +73,11 @@
   <ItemGroup>
     <Compile Include="BlockingQueue.cs">
     </Compile>
+    <Compile Include="CRC32.cs">
+    </Compile>
     <Compile Include="CircularQueue.cs">
     </Compile>
     <Compile Include="Color4.cs">
-    </Compile>
-    <Compile Include="CRC32.cs">
     </Compile>
     <Compile Include="DoubleDictionary.cs">
     </Compile>
@@ -105,11 +105,11 @@
     </Compile>
     <Compile Include="TokenBucket.cs">
     </Compile>
+    <Compile Include="UUID.cs">
+    </Compile>
     <Compile Include="Utils.cs">
     </Compile>
     <Compile Include="UtilsConversions.cs">
-    </Compile>
-    <Compile Include="UUID.cs">
     </Compile>
     <Compile Include="Vector2.cs">
     </Compile>

@@ -146,14 +146,14 @@ namespace spider
 			
 		}
 		
-		void mark_region_bad(string region)
+		void mark_region_bad(ulong handle)
 		{
 			
 			 Dictionary<string, string> parameters = new Dictionary<string, string>();
              Dictionary<string, string> conditions = new Dictionary<string, string>();
 
              conditions.Add("Grid", MainClass.db.gridKey.ToString());
-             conditions.Add("Name", region);
+             conditions.Add("Handle", handle.ToString());
              parameters.Add("Status", (-1).ToString());
              MainClass.db.genericUpdate("Region", parameters, conditions);
 		}
@@ -162,7 +162,8 @@ namespace spider
         void scraperlogic()
         {
             //Get a region from the top of the stack for this grid
-
+			int graceperiod=5;
+			
             while (MainClass.db.regionsremaining && MainClass.conn.connected)
             {
 
@@ -171,12 +172,16 @@ namespace spider
 				ulong handle;
 				string region=getNextRegion(out handle);
 				
-				if(region=="" && handle==0)
+				if(region=="" && handle==0) 
 				{
                     Logger.Log("Got bad region from database", Helpers.LogLevel.Error);
-					continue;
+					if(graceperiod<=0)
+					{
+						graceperiod=5;
+						continue;
+					}
 				}
-
+				
                 Logger.Log("Starting scrape loop for region " + region, Helpers.LogLevel.Info);
 				
 				bool anyok=false;
@@ -211,7 +216,7 @@ namespace spider
 				
 				if(anyok==false)
 				{
-					mark_region_bad(region);
+					mark_region_bad(handle);
 					continue;
 				}
 				
@@ -250,6 +255,10 @@ namespace spider
                 conditions.Add("LockID",MainClass.db.myid.ToString());
                 MainClass.db.genericUpdate("Logins", parameters, conditions);
             }
+			
+			Logger.Log("Scrape loop finished? nothing to do?", Helpers.LogLevel.Info);
         }
+			
+		
     }
 }

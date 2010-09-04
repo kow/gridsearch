@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EABCC08F-1AB2-4C80-A98E-1CC445D459EA}</ProjectGuid>
+    <ProjectGuid>{AE4A7FC1-A265-4A7C-ACC3-DEE9144A5D05}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -78,22 +78,22 @@
     </Reference>
     <Reference Include="log4net">
         <Name>log4net</Name>
-      <HintPath>C:\code\libopenmetaverse\bin\log4net.dll</HintPath>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/log4net.dll</HintPath>
     </Reference>
     <Reference Include="XMLRPC">
         <Name>XMLRPC</Name>
-      <HintPath>C:\code\libopenmetaverse\bin\XMLRPC.dll</HintPath>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/XMLRPC.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
+    <ProjectReference Include="../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{EDC11087-2550-4640-9B22-ACF18B533A6D}</Project>
+      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OpenMetaverse.StructuredData\OpenMetaverse.StructuredData.csproj">
+    <ProjectReference Include="../OpenMetaverse.StructuredData/OpenMetaverse.StructuredData.csproj">
       <Name>OpenMetaverse.StructuredData</Name>
-      <Project>{85EEC4D3-B546-4167-A622-755D58B624A6}</Project>
+      <Project>{1D82E01C-81D2-45BB-BF47-C7956BC05C69}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -120,9 +120,9 @@
     </Compile>
     <Compile Include="AvatarManager.cs">
     </Compile>
-    <Compile Include="BitPack.cs">
-    </Compile>
     <Compile Include="BVHDecoder.cs">
+    </Compile>
+    <Compile Include="BitPack.cs">
     </Compile>
     <Compile Include="Caps.cs">
     </Compile>
@@ -204,95 +204,95 @@
     </Compile>
     <Compile Include="_VisualParam_.cs">
     </Compile>
-    <Compile Include="Assets\Asset.cs">
+    <Compile Include="Assets/Asset.cs">
     </Compile>
-    <Compile Include="Assets\Archiving\ArchiveConstants.cs">
+    <Compile Include="Assets/Archiving/ArchiveConstants.cs">
     </Compile>
-    <Compile Include="Assets\Archiving\AssetsArchiver.cs">
+    <Compile Include="Assets/Archiving/AssetsArchiver.cs">
     </Compile>
-    <Compile Include="Assets\Archiving\OarFile.cs">
+    <Compile Include="Assets/Archiving/OarFile.cs">
     </Compile>
-    <Compile Include="Assets\Archiving\TarArchiveReader.cs">
+    <Compile Include="Assets/Archiving/TarArchiveReader.cs">
     </Compile>
-    <Compile Include="Assets\Archiving\TarArchiveWriter.cs">
+    <Compile Include="Assets/Archiving/TarArchiveWriter.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetAnimation.cs">
+    <Compile Include="Assets/AssetTypes/AssetAnimation.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetBodypart.cs">
+    <Compile Include="Assets/AssetTypes/AssetBodypart.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetClothing.cs">
+    <Compile Include="Assets/AssetTypes/AssetClothing.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetGesture.cs">
+    <Compile Include="Assets/AssetTypes/AssetGesture.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetLandmark.cs">
+    <Compile Include="Assets/AssetTypes/AssetLandmark.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetNotecard.cs">
+    <Compile Include="Assets/AssetTypes/AssetNotecard.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetPrim.cs">
+    <Compile Include="Assets/AssetTypes/AssetPrim.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetScriptBinary.cs">
+    <Compile Include="Assets/AssetTypes/AssetScriptBinary.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetScriptText.cs">
+    <Compile Include="Assets/AssetTypes/AssetScriptText.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetSound.cs">
+    <Compile Include="Assets/AssetTypes/AssetSound.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetTexture.cs">
+    <Compile Include="Assets/AssetTypes/AssetTexture.cs">
     </Compile>
-    <Compile Include="Assets\AssetTypes\AssetWearable.cs">
+    <Compile Include="Assets/AssetTypes/AssetWearable.cs">
     </Compile>
-    <Compile Include="Capabilities\CapsBase.cs">
+    <Compile Include="Capabilities/CapsBase.cs">
     </Compile>
-    <Compile Include="Capabilities\CapsClient.cs">
+    <Compile Include="Capabilities/CapsClient.cs">
     </Compile>
-    <Compile Include="Capabilities\EventQueueClient.cs">
+    <Compile Include="Capabilities/EventQueueClient.cs">
     </Compile>
-    <Compile Include="Imaging\BakeLayer.cs">
+    <Compile Include="Imaging/BakeLayer.cs">
     </Compile>
-    <Compile Include="Imaging\ManagedImage.cs">
+    <Compile Include="Imaging/ManagedImage.cs">
     </Compile>
-    <Compile Include="Imaging\OpenJPEG.cs">
+    <Compile Include="Imaging/OpenJPEG.cs">
     </Compile>
-    <Compile Include="Imaging\TGALoader.cs">
+    <Compile Include="Imaging/TGALoader.cs">
     </Compile>
-    <Compile Include="Interfaces\IMessage.cs">
+    <Compile Include="Interfaces/IMessage.cs">
     </Compile>
-    <Compile Include="Interfaces\IRendering.cs">
+    <Compile Include="Interfaces/IRendering.cs">
     </Compile>
-    <Compile Include="Messages\LindenMessages.cs">
+    <Compile Include="Messages/LindenMessages.cs">
     </Compile>
-    <Compile Include="Messages\MessageEventDecoder.cs">
+    <Compile Include="Messages/MessageEventDecoder.cs">
     </Compile>
-    <Compile Include="Messages\Messages.cs">
+    <Compile Include="Messages/Messages.cs">
     </Compile>
-    <Compile Include="Primitives\ObjectMedia.cs">
+    <Compile Include="Primitives/ObjectMedia.cs">
     </Compile>
-    <Compile Include="Primitives\ParticleSystem.cs">
+    <Compile Include="Primitives/ParticleSystem.cs">
     </Compile>
-    <Compile Include="Primitives\Primitive.cs">
+    <Compile Include="Primitives/Primitive.cs">
     </Compile>
-    <Compile Include="Primitives\TextureEntry.cs">
+    <Compile Include="Primitives/TextureEntry.cs">
     </Compile>
-    <Compile Include="Rendering\LindenMesh.cs">
+    <Compile Include="Rendering/LindenMesh.cs">
     </Compile>
-    <Compile Include="Rendering\Rendering.cs">
+    <Compile Include="Rendering/Rendering.cs">
     </Compile>
-    <Compile Include="Voice\TCPPipe.cs">
+    <Compile Include="Voice/TCPPipe.cs">
     </Compile>
-    <Compile Include="Voice\VoiceAccount.cs">
+    <Compile Include="Voice/VoiceAccount.cs">
     </Compile>
-    <Compile Include="Voice\VoiceAux.cs">
+    <Compile Include="Voice/VoiceAux.cs">
     </Compile>
-    <Compile Include="Voice\VoiceConnector.cs">
+    <Compile Include="Voice/VoiceConnector.cs">
     </Compile>
-    <Compile Include="Voice\VoiceControl.cs">
+    <Compile Include="Voice/VoiceControl.cs">
     </Compile>
-    <Compile Include="Voice\VoiceDefinitions.cs">
+    <Compile Include="Voice/VoiceDefinitions.cs">
     </Compile>
-    <Compile Include="Voice\VoiceGateway.cs">
+    <Compile Include="Voice/VoiceGateway.cs">
     </Compile>
-    <Compile Include="Voice\VoiceParticipant.cs">
+    <Compile Include="Voice/VoiceParticipant.cs">
     </Compile>
-    <Compile Include="Voice\VoiceSession.cs">
+    <Compile Include="Voice/VoiceSession.cs">
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

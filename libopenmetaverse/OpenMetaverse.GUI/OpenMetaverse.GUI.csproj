@@ -1,14 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F9FA00BA-C8F5-4120-9A9B-53245335CB7D}</ProjectGuid>
+    <ProjectGuid>{F77DCD85-DC63-4D33-80CB-5053D9414915}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>OpenMetaverse.GUI</AssemblyName>
@@ -18,11 +16,9 @@
     <DelaySign>false</DelaySign>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>
-    </AppDesignerFolder>
+    <AppDesignerFolder></AppDesignerFolder>
     <RootNamespace>OpenMetaverse.GUI</RootNamespace>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject></StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
   </PropertyGroup>
@@ -37,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,12 +48,11 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;VISUAL_STUDIO</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -67,59 +62,50 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <Name>System</Name>
+        <Name>System</Name>
     </Reference>
     <Reference Include="System.Data">
-      <Name>System.Data</Name>
+        <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Drawing">
-      <Name>System.Drawing</Name>
+        <Name>System.Drawing</Name>
     </Reference>
     <Reference Include="System.Windows.Forms">
-      <Name>System.Windows.Forms</Name>
+        <Name>System.Windows.Forms</Name>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenMetaverse\OpenMetaverse.csproj">
+    <ProjectReference Include="../OpenMetaverse/OpenMetaverse.csproj">
       <Name>OpenMetaverse</Name>
-      <Project>{EABCC08F-1AB2-4C80-A98E-1CC445D459EA}</Project>
+      <Project>{AE4A7FC1-A265-4A7C-ACC3-DEE9144A5D05}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
+    <ProjectReference Include="../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{EDC11087-2550-4640-9B22-ACF18B533A6D}</Project>
+      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AvatarList.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="FriendList.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="GroupList.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="InventoryTree.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ListColumnSorter.cs">
     </Compile>
     <Compile Include="LocalChat.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="LoginPanel.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MessageBar.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="MiniMap.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="StatusOutput.cs">
-      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

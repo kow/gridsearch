@@ -1,14 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9870B5A3-30FF-4F4A-B97A-4CDA181439EC}</ProjectGuid>
+    <ProjectGuid>{DDBE0397-8F5A-46A5-9D41-631A312F26E6}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>WinGridProxy</AssemblyName>
@@ -18,11 +16,9 @@
     <DelaySign>false</DelaySign>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>
-    </AppDesignerFolder>
+    <AppDesignerFolder></AppDesignerFolder>
     <RootNamespace>WinGridProxy</RootNamespace>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject></StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
   </PropertyGroup>
@@ -33,12 +29,11 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;VISUAL_STUDIO</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>../../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -53,12 +48,11 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;VISUAL_STUDIO</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>../../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -68,87 +62,82 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <Name>System</Name>
+        <Name>System</Name>
     </Reference>
     <Reference Include="System.Core">
-      <Name>System.Core</Name>
+        <Name>System.Core</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.Xml</Name>
+        <Name>System.Xml</Name>
     </Reference>
     <Reference Include="System.Data">
-      <Name>System.Data</Name>
+        <Name>System.Data</Name>
     </Reference>
     <Reference Include="System.Drawing">
-      <Name>System.Drawing</Name>
+        <Name>System.Drawing</Name>
     </Reference>
     <Reference Include="System.Windows.Forms">
-      <Name>System.Windows.Forms</Name>
+        <Name>System.Windows.Forms</Name>
     </Reference>
     <Reference Include="XMLRPC">
-      <Name>XMLRPC</Name>
-      <HintPath>C:\code\libopenmetaverse\bin\XMLRPC.dll</HintPath>
+        <Name>XMLRPC</Name>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/XMLRPC.dll</HintPath>
     </Reference>
     <Reference Include="Be.Windows.Forms.HexBox">
-      <Name>Be.Windows.Forms.HexBox</Name>
-      <HintPath>C:\code\libopenmetaverse\bin\Be.Windows.Forms.HexBox.dll</HintPath>
+        <Name>Be.Windows.Forms.HexBox</Name>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/Be.Windows.Forms.HexBox.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
-      <Name>log4net</Name>
-      <HintPath>C:\code\libopenmetaverse\bin\log4net.dll</HintPath>
+        <Name>log4net</Name>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/log4net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\OpenMetaverse\OpenMetaverse.csproj">
+    <ProjectReference Include="../../OpenMetaverse/OpenMetaverse.csproj">
       <Name>OpenMetaverse</Name>
-      <Project>{EABCC08F-1AB2-4C80-A98E-1CC445D459EA}</Project>
+      <Project>{AE4A7FC1-A265-4A7C-ACC3-DEE9144A5D05}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
+    <ProjectReference Include="../../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{EDC11087-2550-4640-9B22-ACF18B533A6D}</Project>
+      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\..\OpenMetaverse.StructuredData\OpenMetaverse.StructuredData.csproj">
+    <ProjectReference Include="../../OpenMetaverse.StructuredData/OpenMetaverse.StructuredData.csproj">
       <Name>OpenMetaverse.StructuredData</Name>
-      <Project>{85EEC4D3-B546-4167-A622-755D58B624A6}</Project>
+      <Project>{1D82E01C-81D2-45BB-BF47-C7956BC05C69}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\GridProxy\GridProxy.csproj">
+    <ProjectReference Include="../GridProxy/GridProxy.csproj">
       <Name>GridProxy</Name>
-      <Project>{805B610C-8E08-4A0E-B991-635EACFC0577}</Project>
+      <Project>{30594883-3E00-43DB-AEE8-EE4675F445BA}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FireEventAppender.cs">
+    <Compile Include="AboutBox1.cs">
     </Compile>
-    <Compile Include="FormPluginManager.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FireEventAppender.cs">
     </Compile>
     <Compile Include="FormPluginManager.Designer.cs">
       <DependentUpon>FormPluginManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSessionSearch.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormPluginManager.cs">
     </Compile>
     <Compile Include="FormSessionSearch.Designer.cs">
       <DependentUpon>FormSessionSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWinGridProxy.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormSessionSearch.cs">
     </Compile>
     <Compile Include="FormWinGridProxy.Designer.cs">
       <DependentUpon>FormWinGridProxy.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormWinGridProxy.cs">
+    </Compile>
     <Compile Include="ListViewNoFlicker.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs">
     </Compile>
@@ -158,7 +147,7 @@
     </Compile>
     <Compile Include="SettingsStore.cs">
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs">
+    <Compile Include="Properties/AssemblyInfo.cs">
     </Compile>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>

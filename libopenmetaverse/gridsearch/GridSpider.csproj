@@ -1,14 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{14D908FA-FA26-417B-A2BB-1E9FCF52D4B3}</ProjectGuid>
+    <ProjectGuid>{B620F79F-4725-4503-AED6-8FF8746CAF5B}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon></ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>GridSpider</AssemblyName>
@@ -17,12 +15,10 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>
-    </AppDesignerFolder>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder></AppDesignerFolder>
     <RootNamespace>GridSpider</RootNamespace>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject></StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
   </PropertyGroup>
@@ -33,12 +29,11 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;VISUAL_STUDIO</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -53,12 +48,11 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE;DEBUG;VISUAL_STUDIO</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -68,36 +62,37 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <Name>System</Name>
+        <Name>System</Name>
     </Reference>
     <Reference Include="System.Xml">
-      <Name>System.Xml</Name>
+        <Name>System.Xml</Name>
     </Reference>
     <Reference Include="System.Data">
-      <Name>System.Data</Name>
-    </Reference>
-    <Reference Include="nunit.framework.dll">
-      <Name>nunit.framework.dll</Name>
+        <Name>System.Data</Name>
     </Reference>
     <Reference Include="MySql.Data">
-      <Name>MySql.Data</Name>
-      <HintPath>C:\code\libopenmetaverse\bin\MySql.Data.dll</HintPath>
+        <Name>MySql.Data</Name>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+        <Name>log4net</Name>
+      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/log4net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenMetaverse\OpenMetaverse.csproj">
+    <ProjectReference Include="../OpenMetaverse/OpenMetaverse.csproj">
       <Name>OpenMetaverse</Name>
-      <Project>{EABCC08F-1AB2-4C80-A98E-1CC445D459EA}</Project>
+      <Project>{AE4A7FC1-A265-4A7C-ACC3-DEE9144A5D05}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
+    <ProjectReference Include="../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{EDC11087-2550-4640-9B22-ACF18B533A6D}</Project>
+      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\OpenMetaverse.StructuredData\OpenMetaverse.StructuredData.csproj">
+    <ProjectReference Include="../OpenMetaverse.StructuredData/OpenMetaverse.StructuredData.csproj">
       <Name>OpenMetaverse.StructuredData</Name>
-      <Project>{85EEC4D3-B546-4167-A622-755D58B624A6}</Project>
+      <Project>{1D82E01C-81D2-45BB-BF47-C7956BC05C69}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -108,13 +103,13 @@
     </Compile>
     <Compile Include="GridConn.cs">
     </Compile>
-    <Compile Include="main.cs">
-    </Compile>
     <Compile Include="NameTracker.cs">
     </Compile>
     <Compile Include="ObjectPropTracker.cs">
     </Compile>
     <Compile Include="Scraper.cs">
+    </Compile>
+    <Compile Include="main.cs">
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

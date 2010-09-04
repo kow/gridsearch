@@ -218,9 +218,10 @@ namespace spider
 
             if (gridhasregions == false)
             {
-
-                string sqlt = "SELECT Name FROM Region WHERE Grid='" + gridKey.ToString() + "';";
-                try
+                string sqlt = "SELECT Name,handle FROM Region WHERE Grid='" + gridKey.ToString() + "';";
+				Logger.Log(sqlt, Helpers.LogLevel.Info);
+	
+				try
                 {
                     lock (thelock)
                     {
@@ -229,7 +230,9 @@ namespace spider
                         if (rdr.Read())
                         {
                             gridhasregions = true;
-                        }
+							region=(string)rdr[0];
+							handle=(Int64)rdr[1];
+                        }	
                         else
                         {
                             gridhasregions = false;
@@ -240,12 +243,12 @@ namespace spider
                 }
                 catch (Exception e)
                 {
+					Logger.Log("SQL FAILED -> " + e.Message, Helpers.LogLevel.Error);
                     gridhasregions = false;
                 }
 
                 if (gridhasregions == false)
                     return "";
-
             }
             
             // Lock the Region table then grab a lock on a region we would like to work with

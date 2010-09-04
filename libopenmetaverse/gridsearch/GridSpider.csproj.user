@@ -1,15 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ReferencePath>C:\code\libopenmetaverse\bin\</ReferencePath>
+    <ReferencePath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/</ReferencePath>
     <LastOpenVersion>10.0.20506</LastOpenVersion>
     <ProjectView>ProjectFiles</ProjectView>
     <ProjectTrust>0</ProjectTrust>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>--host 192.168.0.2 --user spiderer  --database spider --password louise42</StartArguments>
-  </PropertyGroup>
+  <PropertyGroup Condition = " '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
+  <PropertyGroup Condition = " '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " />
 </Project>

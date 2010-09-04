@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FA489D7F-BE00-46FB-B0A4-CB12847A4D8E}</ProjectGuid>
+    <ProjectGuid>{E4AA4E26-518B-4C40-AB83-0E1CF782C584}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>..\..\..\bin\</OutputPath>
+    <OutputPath>../../../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>..\..\..\bin\</OutputPath>
+    <OutputPath>../../../bin/</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -75,24 +75,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\OpenMetaverse\OpenMetaverse.csproj">
+    <ProjectReference Include="../../../OpenMetaverse/OpenMetaverse.csproj">
       <Name>OpenMetaverse</Name>
-      <Project>{EABCC08F-1AB2-4C80-A98E-1CC445D459EA}</Project>
+      <Project>{AE4A7FC1-A265-4A7C-ACC3-DEE9144A5D05}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
+    <ProjectReference Include="../../../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{EDC11087-2550-4640-9B22-ACF18B533A6D}</Project>
+      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\OpenMetaverse.Utilities\OpenMetaverse.Utilities.csproj">
+    <ProjectReference Include="../../../OpenMetaverse.Utilities/OpenMetaverse.Utilities.csproj">
       <Name>OpenMetaverse.Utilities</Name>
-      <Project>{C35107F5-BD55-4128-8DA7-9EE041CA8A0C}</Project>
+      <Project>{69C059BE-91DE-4143-815E-50BFB7C54E79}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\OpenMetaverse.StructuredData\OpenMetaverse.StructuredData.csproj">
+    <ProjectReference Include="../../../OpenMetaverse.StructuredData/OpenMetaverse.StructuredData.csproj">
       <Name>OpenMetaverse.StructuredData</Name>
-      <Project>{85EEC4D3-B546-4167-A622-755D58B624A6}</Project>
+      <Project>{1D82E01C-81D2-45BB-BF47-C7956BC05C69}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -109,241 +109,241 @@
     </Compile>
     <Compile Include="TestClient.cs">
     </Compile>
-    <Compile Include="Commands\Agent\BotsCommand.cs">
+    <Compile Include="Commands/Agent/BotsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Agent\CloneProfileCommand.cs">
+    <Compile Include="Commands/Agent/CloneProfileCommand.cs">
     </Compile>
-    <Compile Include="Commands\Agent\PlayAnimationCommand.cs">
+    <Compile Include="Commands/Agent/PlayAnimationCommand.cs">
     </Compile>
-    <Compile Include="Commands\Agent\TouchCommand.cs">
+    <Compile Include="Commands/Agent/TouchCommand.cs">
     </Compile>
-    <Compile Include="Commands\Agent\WhoCommand.cs">
+    <Compile Include="Commands/Agent/WhoCommand.cs">
     </Compile>
-    <Compile Include="Commands\Appearance\AppearanceCommand.cs">
+    <Compile Include="Commands/Appearance/AppearanceCommand.cs">
     </Compile>
-    <Compile Include="Commands\Appearance\AttachmentsCommand.cs">
+    <Compile Include="Commands/Appearance/AttachmentsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Appearance\AvatarInfoCommand.cs">
+    <Compile Include="Commands/Appearance/AvatarInfoCommand.cs">
     </Compile>
-    <Compile Include="Commands\Appearance\CloneCommand.cs">
+    <Compile Include="Commands/Appearance/CloneCommand.cs">
     </Compile>
-    <Compile Include="Commands\Appearance\WearCommand.cs">
+    <Compile Include="Commands/Appearance/WearCommand.cs">
     </Compile>
-    <Compile Include="Commands\Communication\EchoMasterCommand.cs">
+    <Compile Include="Commands/Communication/EchoMasterCommand.cs">
     </Compile>
-    <Compile Include="Commands\Communication\IMCommand.cs">
+    <Compile Include="Commands/Communication/IMCommand.cs">
     </Compile>
-    <Compile Include="Commands\Communication\IMGroupCommand.cs">
+    <Compile Include="Commands/Communication/IMGroupCommand.cs">
     </Compile>
-    <Compile Include="Commands\Communication\SayCommand.cs">
+    <Compile Include="Commands/Communication/SayCommand.cs">
     </Compile>
-    <Compile Include="Commands\Communication\ShoutCommand.cs">
+    <Compile Include="Commands/Communication/ShoutCommand.cs">
     </Compile>
-    <Compile Include="Commands\Communication\WhisperCommand.cs">
+    <Compile Include="Commands/Communication/WhisperCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\Key2NameCommand.cs">
+    <Compile Include="Commands/Directory/Key2NameCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\SearchClassifiedsCommand.cs">
+    <Compile Include="Commands/Directory/SearchClassifiedsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\SearchEventsCommand.cs">
+    <Compile Include="Commands/Directory/SearchEventsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\SearchGroupsCommand.cs">
+    <Compile Include="Commands/Directory/SearchGroupsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\SearchLandCommand.cs">
+    <Compile Include="Commands/Directory/SearchLandCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\SearchPeopleCommand.cs">
+    <Compile Include="Commands/Directory/SearchPeopleCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\SearchPlacesCommand.cs">
+    <Compile Include="Commands/Directory/SearchPlacesCommand.cs">
     </Compile>
-    <Compile Include="Commands\Directory\ShowEventDetailsCommand.cs">
+    <Compile Include="Commands/Directory/ShowEventDetailsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Estate\DownloadTerrainCommand.cs">
+    <Compile Include="Commands/Estate/DownloadTerrainCommand.cs">
     </Compile>
-    <Compile Include="Commands\Estate\UploadRawTerrainCommand.cs">
+    <Compile Include="Commands/Estate/UploadRawTerrainCommand.cs">
     </Compile>
-    <Compile Include="Commands\Friends\FriendsCommand.cs">
+    <Compile Include="Commands/Friends/FriendsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Friends\MapFriendCommand.cs">
+    <Compile Include="Commands/Friends/MapFriendCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\ActivateGroupCommand.cs">
+    <Compile Include="Commands/Groups/ActivateGroupCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\GroupMembersCommand.cs">
+    <Compile Include="Commands/Groups/GroupMembersCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\GroupRolesCommand.cs">
+    <Compile Include="Commands/Groups/GroupRolesCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\GroupsCommand.cs">
+    <Compile Include="Commands/Groups/GroupsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\InviteGroupCommand.cs">
+    <Compile Include="Commands/Groups/InviteGroupCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\JoinGroupCommand.cs">
+    <Compile Include="Commands/Groups/JoinGroupCommand.cs">
     </Compile>
-    <Compile Include="Commands\Groups\LeaveGroupCommand.cs">
+    <Compile Include="Commands/Groups/LeaveGroupCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\BackupCommand.cs">
+    <Compile Include="Commands/Inventory/BackupCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\BalanceCommand.cs">
+    <Compile Include="Commands/Inventory/BalanceCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\ChangeDirectoryCommand.cs">
+    <Compile Include="Commands/Inventory/ChangeDirectoryCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\CreateNotecardCommand.cs">
+    <Compile Include="Commands/Inventory/CreateNotecardCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\DeleteFolderCommand.cs">
+    <Compile Include="Commands/Inventory/DeleteFolderCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\DownloadCommand.cs">
+    <Compile Include="Commands/Inventory/DownloadCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\DumpOutfitCommand.cs">
+    <Compile Include="Commands/Inventory/DumpOutfitCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\EmptyLostAndFound.cs">
+    <Compile Include="Commands/Inventory/EmptyLostAndFound.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\EmptyTrashCommand.cs">
+    <Compile Include="Commands/Inventory/EmptyTrashCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\GiveAllCommand.cs">
+    <Compile Include="Commands/Inventory/GiveAllCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\GiveItemCommand.cs">
+    <Compile Include="Commands/Inventory/GiveItemCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\InventoryCommand.cs">
+    <Compile Include="Commands/Inventory/InventoryCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\ListContentsCommand.cs">
+    <Compile Include="Commands/Inventory/ListContentsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\ObjectInventoryCommand.cs">
+    <Compile Include="Commands/Inventory/ObjectInventoryCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\ScriptCommand.cs">
+    <Compile Include="Commands/Inventory/ScriptCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\TaskRunningCommand.cs">
+    <Compile Include="Commands/Inventory/TaskRunningCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\TreeCommand.cs">
+    <Compile Include="Commands/Inventory/TreeCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\UploadImageCommand.cs">
+    <Compile Include="Commands/Inventory/UploadImageCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\UploadScriptCommand.cs">
+    <Compile Include="Commands/Inventory/UploadScriptCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\ViewNotecardCommand.cs">
+    <Compile Include="Commands/Inventory/ViewNotecardCommand.cs">
     </Compile>
-    <Compile Include="Commands\Inventory\XferCommand.cs">
+    <Compile Include="Commands/Inventory/XferCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\AgentLocationsCommand.cs">
+    <Compile Include="Commands/Land/AgentLocationsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\FindSimCommand.cs">
+    <Compile Include="Commands/Land/FindSimCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\GridLayerCommand.cs">
+    <Compile Include="Commands/Land/GridLayerCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\GridMapCommand.cs">
+    <Compile Include="Commands/Land/GridMapCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\ParcelDetailsCommand.cs">
+    <Compile Include="Commands/Land/ParcelDetailsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\ParcelInfoCommand.cs">
+    <Compile Include="Commands/Land/ParcelInfoCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\ParcelPrimOwnersCommand.cs">
+    <Compile Include="Commands/Land/ParcelPrimOwnersCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\ParcelSelectObjectsCommand.cs">
+    <Compile Include="Commands/Land/ParcelSelectObjectsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Land\WindCommand.cs">
+    <Compile Include="Commands/Land/WindCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\BackCommand.cs">
+    <Compile Include="Commands/Movement/BackCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\CrouchCommand.cs">
+    <Compile Include="Commands/Movement/CrouchCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\FlyCommand.cs">
+    <Compile Include="Commands/Movement/FlyCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\FlyToCommand.cs">
+    <Compile Include="Commands/Movement/FlyToCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\FollowCommand.cs">
+    <Compile Include="Commands/Movement/FollowCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\ForwardCommand.cs">
+    <Compile Include="Commands/Movement/ForwardCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\GoHome.cs">
+    <Compile Include="Commands/Movement/GoHome.cs">
     </Compile>
-    <Compile Include="Commands\Movement\GotoCommand.cs">
+    <Compile Include="Commands/Movement/GotoCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\GotoLandmark.cs">
+    <Compile Include="Commands/Movement/GotoLandmark.cs">
     </Compile>
-    <Compile Include="Commands\Movement\JumpCommand.cs">
+    <Compile Include="Commands/Movement/JumpCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\LeftCommand.cs">
+    <Compile Include="Commands/Movement/LeftCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\LocationCommand.cs">
+    <Compile Include="Commands/Movement/LocationCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\MoveToCommand.cs">
+    <Compile Include="Commands/Movement/MoveToCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\RightCommand.cs">
+    <Compile Include="Commands/Movement/RightCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\SetHome.cs">
+    <Compile Include="Commands/Movement/SetHome.cs">
     </Compile>
-    <Compile Include="Commands\Movement\SitCommand.cs">
+    <Compile Include="Commands/Movement/SitCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\SitOnCommand.cs">
+    <Compile Include="Commands/Movement/SitOnCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\StandCommand.cs">
+    <Compile Include="Commands/Movement/StandCommand.cs">
     </Compile>
-    <Compile Include="Commands\Movement\TurnToCommand.cs">
+    <Compile Include="Commands/Movement/TurnToCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\ChangePermsCommand.cs">
+    <Compile Include="Commands/Prims/ChangePermsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\DeRezObjectCommand.cs">
+    <Compile Include="Commands/Prims/DeRezObjectCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\DownloadTextureCommand.cs">
+    <Compile Include="Commands/Prims/DownloadTextureCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\ExportCommand.cs">
+    <Compile Include="Commands/Prims/ExportCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\ExportParticlesCommand.cs">
+    <Compile Include="Commands/Prims/ExportParticlesCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\FindObjectsCommand.cs">
+    <Compile Include="Commands/Prims/FindObjectsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\FindTextureCommand.cs">
+    <Compile Include="Commands/Prims/FindTextureCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\ImportCommand.cs">
+    <Compile Include="Commands/Prims/ImportCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\PrimCountCommand.cs">
+    <Compile Include="Commands/Prims/PrimCountCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\PrimInfoCommand.cs">
+    <Compile Include="Commands/Prims/PrimInfoCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\PrimRegexCommand.cs">
+    <Compile Include="Commands/Prims/PrimRegexCommand.cs">
     </Compile>
-    <Compile Include="Commands\Prims\TexturesCommand.cs">
+    <Compile Include="Commands/Prims/TexturesCommand.cs">
     </Compile>
-    <Compile Include="Commands\Stats\DilationCommand.cs">
+    <Compile Include="Commands/Stats/DilationCommand.cs">
     </Compile>
-    <Compile Include="Commands\Stats\NetstatsCommand.cs">
+    <Compile Include="Commands/Stats/NetstatsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Stats\RegionInfoCommand.cs">
+    <Compile Include="Commands/Stats/RegionInfoCommand.cs">
     </Compile>
-    <Compile Include="Commands\Stats\StatsCommand.cs">
+    <Compile Include="Commands/Stats/StatsCommand.cs">
     </Compile>
-    <Compile Include="Commands\Stats\UptimeCommand.cs">
+    <Compile Include="Commands/Stats/UptimeCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\AtCommand.cs">
+    <Compile Include="Commands/System/AtCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\DebugCommand.cs">
+    <Compile Include="Commands/System/DebugCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\HelpCommand.cs">
+    <Compile Include="Commands/System/HelpCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\LoadCommand.cs">
+    <Compile Include="Commands/System/LoadCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\LoginCommand.cs">
+    <Compile Include="Commands/System/LoginCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\LogoutCommand.cs">
+    <Compile Include="Commands/System/LogoutCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\MD5Command.cs">
+    <Compile Include="Commands/System/MD5Command.cs">
     </Compile>
-    <Compile Include="Commands\System\PacketLogCommand.cs">
+    <Compile Include="Commands/System/PacketLogCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\QuitCommand.cs">
+    <Compile Include="Commands/System/QuitCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\SetMasterCommand.cs">
+    <Compile Include="Commands/System/SetMasterCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\SetMasterKeyCommand.cs">
+    <Compile Include="Commands/System/SetMasterKeyCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\ShowEffectsCommand.cs">
+    <Compile Include="Commands/System/ShowEffectsCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\SleepCommand.cs">
+    <Compile Include="Commands/System/SleepCommand.cs">
     </Compile>
-    <Compile Include="Commands\System\WaitForLoginCommand.cs">
+    <Compile Include="Commands/System/WaitForLoginCommand.cs">
     </Compile>
-    <Compile Include="Commands\Voice\ParcelVoiceInfo.cs">
+    <Compile Include="Commands/Voice/ParcelVoiceInfo.cs">
     </Compile>
-    <Compile Include="Commands\Voice\VoiceAcountCommand.cs">
+    <Compile Include="Commands/Voice/VoiceAcountCommand.cs">
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs">
+    <Compile Include="Properties/AssemblyInfo.cs">
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
