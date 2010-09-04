@@ -9,12 +9,12 @@ namespace spider
 {
     class Scraper
     {
-		GridClient client;
+        GridClient client;
        
         public Scraper(GridClient theclient)
         {		
-			client=theclient;
-		    
+            client=theclient;
+            
             Console.WriteLine("Starting scrape");
             scraperlogic();
         }
@@ -28,8 +28,8 @@ namespace spider
         {
             string region = "";
             Int64 handle;
-			regionhandle=0;
-			
+            regionhandle=0;
+            
             region = MainClass.db.getNextRegionForGrid(out handle);
             Logger.Log("Get Next Region returned \"" + region + "\"", Helpers.LogLevel.Info);
 
@@ -47,9 +47,9 @@ namespace spider
 
                 MainClass.db.genericReplaceInto("Region", parameters, false);
                 region = MainClass.conn.getRegion().Name;
-				
+                
                 MainClass.db.regionsremaining = true;
-				regionhandle=(ulong)handle;
+                regionhandle=(ulong)handle;
                 return client.Network.CurrentSim.Name;
             }
             
@@ -68,176 +68,176 @@ namespace spider
                     MainClass.db.genericUpdate("Region", parameters, conditions);
 
             }
-			
-			regionhandle=(ulong)handle;
-			
-			if (region != "")
+            
+            regionhandle=(ulong)handle;
+            
+            if (region != "")
             {
-				return region;                
+                return region;                
             }
-			
-			return "";
+            
+            return "";
 
 
         }
 
-		bool doscrapeloop(string simname,ulong handle, Vector3 position)
-		{
-			
-			TimeSpan wait=new TimeSpan(0);	
-			DateTime start=DateTime.Now;
-			
-			bool result;
-			
+        bool doscrapeloop(string simname,ulong handle, Vector3 position)
+        {
+            
+            TimeSpan wait=new TimeSpan(0);	
+            DateTime start=DateTime.Now;
+            
+            bool result;
+            
             Logger.Log(String.Format("Trying to teleport to {0} {1}", simname, handle), Helpers.LogLevel.Info);
 
-			if(handle==0)
-			{
+            if(handle==0)
+            {
                 Logger.Log("Handle is 0 using simname", Helpers.LogLevel.Info);
-				result=client.Self.Teleport(simname,position);
-			}
-			else
-			{
-				result=client.Self.Teleport(handle,position);
-			}
-			
-			if(!result)
-			{
+                result=client.Self.Teleport(simname,position);
+            }
+            else
+            {
+                result=client.Self.Teleport(handle,position);
+            }
+            
+            if(!result)
+            {
                 Logger.Log("Teleport to " + simname + " failed", Helpers.LogLevel.Warning);
-				MainClass.NameTrack.active=false;
-				MainClass.ObjTrack.active=false;
-			
-				//Sleep 7 seconds to cool off
-				System.Threading.Thread.Sleep(15000);
-				return false;
-			}
-			
-			// Ok we are in position
+                MainClass.NameTrack.active=false;
+                MainClass.ObjTrack.active=false;
+            
+                //Sleep 7 seconds to cool off
+                System.Threading.Thread.Sleep(15000);
+                return false;
+            }
+            
+            // Ok we are in position
 
             MainClass.conn.client.Parcels.RequestAllSimParcels(MainClass.conn.client.Network.CurrentSim);
-			
-			while(true)
-			{
-				wait=DateTime.Now- start;
-				if(MainClass.conn.connected==false)
-				{
-					Console.WriteLine();
+            
+            while(true)
+            {
+                wait=DateTime.Now- start;
+                if(MainClass.conn.connected==false)
+                {
+                    Console.WriteLine();
                     Logger.Log("Breaking scrape loop disconnected", Helpers.LogLevel.Warning);
 
-					return false;
-					break;
-				}
+                    return false;
+                    break;
+                }
 
                 Logger.Log("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString(), Helpers.LogLevel.Warning);
 
-				//Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
-				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && (wait.Minutes >=1 ||wait.Seconds >= 20 )&& MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
-				{
+                //Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
+                if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && (wait.Minutes >=1 ||wait.Seconds >= 20 )&& MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
+                {
                     Logger.Log("Object track, and wait time satisified breaking loop",Helpers.LogLevel.Info);
-					return true;
-					break;	
-				}
-				
-				System.Threading.Thread.Sleep(5000);
+                    return true;
+                    break;	
+                }
+                
+                System.Threading.Thread.Sleep(5000);
                 MainClass.conn.rotate();
-			}
-			
-			return true;
-			
-		}
-		
-		void mark_region_bad(ulong handle)
-		{
-			
-			 Dictionary<string, string> parameters = new Dictionary<string, string>();
+            }
+            
+            return true;
+            
+        }
+        
+        void mark_region_bad(ulong handle)
+        {
+            
+             Dictionary<string, string> parameters = new Dictionary<string, string>();
              Dictionary<string, string> conditions = new Dictionary<string, string>();
 
              conditions.Add("Grid", MainClass.db.gridKey.ToString());
              conditions.Add("Handle", handle.ToString());
              parameters.Add("Status", (-1).ToString());
              MainClass.db.genericUpdate("Region", parameters, conditions);
-		}
-		
-		
+        }
+        
+        
         void scraperlogic()
         {
             //Get a region from the top of the stack for this grid
-			int graceperiod=5;
-			
+            int graceperiod=5;
+            
             while (MainClass.db.regionsremaining && MainClass.conn.connected)
             {
 
-				// Are we still connected
+                // Are we still connected
                 
-				ulong handle;
-				string region=getNextRegion(out handle);
-				
-				if(region=="" && handle==0) 
-				{
+                ulong handle;
+                string region=getNextRegion(out handle);
+                
+                if(region=="" && handle==0) 
+                {
                     Logger.Log("Got bad region from database", Helpers.LogLevel.Error);
-					if(graceperiod<=0)
-					{
-						graceperiod=5;
-						continue;
-					}
-				}
-				
+                    if(graceperiod<=0)
+                    {
+                        graceperiod=5;
+                        continue;
+                    }
+                }
+                
                 Logger.Log("Starting scrape loop for region " + region, Helpers.LogLevel.Info);
-				
-				bool anyok=false;
-				
-				MainClass.ObjTrack.flush_for_new_sim();
-			    MainClass.conn.gotallparcels = false;
-			    MainClass.NameTrack.active=true;
-			    MainClass.ObjTrack.active=true;
-				
-				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(340,170, 25));
-				
-				if (MainClass.conn.connected == false)
-                    break;
-				
                 
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(340, 340, 25));
-				
-				if (MainClass.conn.connected == false)
-                    break;
-				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 170, 25));
-				
-				if (MainClass.conn.connected == false)
-                    break;
-				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 340, 25));
-				
+                bool anyok=false;
                 
-				if (MainClass.conn.connected == false)
+                MainClass.ObjTrack.flush_for_new_sim();
+                MainClass.conn.gotallparcels = false;
+                MainClass.NameTrack.active=true;
+                MainClass.ObjTrack.active=true;
+                
+                
+                anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(340,170, 25));
+                
+                if (MainClass.conn.connected == false)
                     break;
-				
-				if(anyok==false)
-				{
-					mark_region_bad(handle);
-					continue;
-				}
-				
+                
+                
+                anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(340, 340, 25));
+                
+                if (MainClass.conn.connected == false)
+                    break;
+                
+                anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 170, 25));
+                
+                if (MainClass.conn.connected == false)
+                    break;
+                
+                anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 340, 25));
+                
+                
+                if (MainClass.conn.connected == false)
+                    break;
+                
+                if(anyok==false)
+                {
+                    mark_region_bad(handle);
+                    continue;
+                }
+                
                 Console.WriteLine();
                 Logger.Log("Scan complete waiting parcel update before saving", Helpers.LogLevel.Info);
 
-				DateTime start=DateTime.Now;
-				TimeSpan timeout=new TimeSpan(0);
-				
+                DateTime start=DateTime.Now;
+                TimeSpan timeout=new TimeSpan(0);
+                
                 while (!MainClass.conn.client.Network.CurrentSim.IsParcelMapFull() && !MainClass.ObjTrack.complete() && timeout.Minutes<2  )                
-				{
+                {
                     System.Threading.Thread.Sleep(100);
-					timeout=DateTime.Now-start;
+                    timeout=DateTime.Now-start;
                 }
 
                 Logger.Log("All Properties recieved, saving data", Helpers.LogLevel.Info);
 
-				MainClass.NameTrack.active=false;
-				MainClass.ObjTrack.active=false;
+                MainClass.NameTrack.active=false;
+                MainClass.ObjTrack.active=false;
                 MainClass.ObjTrack.saveallprims();
-				MainClass.NameTrack.savenamestodb();
+                MainClass.NameTrack.savenamestodb();
 
                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                 Dictionary<string, string> conditions = new Dictionary<string, string>();
@@ -255,10 +255,10 @@ namespace spider
                 conditions.Add("LockID",MainClass.db.myid.ToString());
                 MainClass.db.genericUpdate("Logins", parameters, conditions);
             }
-			
-			Logger.Log("Scrape loop finished? nothing to do?", Helpers.LogLevel.Info);
+            
+            Logger.Log("Scrape loop finished? nothing to do?", Helpers.LogLevel.Info);
         }
-			
-		
+            
+        
     }
 }

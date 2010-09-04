@@ -16,71 +16,71 @@ namespace spider
          GridClient client;
 
          public List<UUID> intereset_list;
-		
-		 public List<UUID> requested_propsfamily;
-		 public List<UUID> requested_props;
-		 public bool active=false;
-		
-		 DateTime start;
+        
+         public List<UUID> requested_propsfamily;
+         public List<UUID> requested_props;
+         public bool active=false;
+        
+         DateTime start;
 
          public ObjectPropTracker(GridClient tclient)
          {
              client = tclient;
 
              intereset_list=new List<UUID>();
-			
-			 requested_props=new List<UUID>();
-			 requested_propsfamily=new List<UUID>();
+            
+             requested_props=new List<UUID>();
+             requested_propsfamily=new List<UUID>();
 
-			 client.Objects.ObjectPropertiesFamily += new EventHandler<ObjectPropertiesFamilyEventArgs>(Objects_ObjectPropertiesFamily);
+             client.Objects.ObjectPropertiesFamily += new EventHandler<ObjectPropertiesFamilyEventArgs>(Objects_ObjectPropertiesFamily);
              client.Objects.ObjectProperties += new EventHandler<ObjectPropertiesEventArgs>(Objects_ObjectProperties);
              client.Objects.ObjectUpdate += new EventHandler<PrimEventArgs>(Objects_ObjectUpdate);
          }
-		
+        
          public void flush_for_new_sim()
          {
             requested_props.Clear();
             requested_propsfamily.Clear(); 
-			intereset_list.Clear();
-			start=DateTime.Now;
+            intereset_list.Clear();
+            start=DateTime.Now;
          }
 
-		
-		
+        
+        
          void Objects_ObjectUpdate(object sender, PrimEventArgs e)
          {
-			if(active==false)
-				return;
-			
-	
+            if(active==false)
+                return;
+            
+    
              if(e.IsAttachment)
                  return;
 
              // we only care about new objects from now
              if (!e.IsNew)
                  return;
-			
-			 if(e.Simulator!=client.Network.CurrentSim)
-				return;
+            
+             if(e.Simulator!=client.Network.CurrentSim)
+                return;
 
              if (e.Prim.ParentID == 0)
              {
                  intereset_list.Add(e.Prim.ID);
                  lock(requested_props)
-				    requested_props.Add(e.Prim.ID);
-				
+                    requested_props.Add(e.Prim.ID);
+                
                  lock(requested_propsfamily)
-				    requested_propsfamily.Add(e.Prim.ID);
-				
-				 client.Objects.RequestObjectPropertiesFamily(e.Simulator,e.Prim.ID);
-				 client.Objects.SelectObject(e.Simulator,e.Prim.LocalID);
-			}
+                    requested_propsfamily.Add(e.Prim.ID);
+                
+                 client.Objects.RequestObjectPropertiesFamily(e.Simulator,e.Prim.ID);
+                 client.Objects.SelectObject(e.Simulator,e.Prim.LocalID);
+            }
          }
 
         void Objects_ObjectProperties(object sender, ObjectPropertiesEventArgs e)
         {
-			if(active==false)
-				return;
+            if(active==false)
+                return;
 
             lock (requested_props)
             {
@@ -95,9 +95,9 @@ namespace spider
 
          void Objects_ObjectPropertiesFamily(object sender, ObjectPropertiesFamilyEventArgs e)
          {
-			
-			if(active==false)
-				return;
+            
+            if(active==false)
+                return;
 
             lock (requested_propsfamily)
             {
@@ -108,7 +108,7 @@ namespace spider
             }
          }
          
-		public void saveallprims()
+        public void saveallprims()
          {
              client.Network.Simulators.ForEach(delegate(Simulator sim)
              {
@@ -170,8 +170,8 @@ namespace spider
 
          public bool complete()
          {
-			TimeSpan span=DateTime.Now-start;
-			
+            TimeSpan span=DateTime.Now-start;
+            
             if (requested_props.Count==0 || requested_propsfamily.Count==0 && span.Seconds > 10)
                 return true;
 
