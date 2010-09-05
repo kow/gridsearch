@@ -200,23 +200,23 @@ namespace spider
 			    MainClass.ObjTrack.active=true;
 				
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(5,5, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(50,50, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
                 
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(5, 250, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(50, 200, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(250, 250, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(200, 200, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(250, 5, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(200, 50, 25));
 				
                 
 				if (MainClass.conn.connected == false)

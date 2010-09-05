@@ -42,7 +42,7 @@ namespace spider
             client.Settings.PARCEL_TRACKING = true;
             client.Settings.ALWAYS_REQUEST_OBJECTS = false;
             client.Settings.SEND_AGENT_UPDATES = true;
-            client.Settings.MULTIPLE_SIMS = true; // <-------------- very important indeed
+            client.Settings.MULTIPLE_SIMS = false; // <-------------- very important indeed
 
             client.Network.SimDiscovered += new EventHandler<SimDiscoveredEventArgs>(Network_SimDiscovered);
             client.Network.SimConnected += new EventHandler<SimConnectedEventArgs>(Network_SimConnected);
@@ -52,13 +52,19 @@ namespace spider
             client.Network.Disconnected += new EventHandler<DisconnectedEventArgs>(Network_Disconnected);
 			client.Network.LoggedOut +=	new EventHandler<LoggedOutEventArgs>(Network_LoggedOut);
 			client.Network.SimDisconnected += new EventHandler<SimDisconnectedEventArgs>(Network_SimDisconnected);
-			
+            client.Grid.GridLayer += new EventHandler<GridLayerEventArgs>(Grid_GridLayer);
+
+
+            client.Grid.GridRegion += new EventHandler<GridRegionEventArgs>(Grid_GridRegion);
+
+
+         			
 			client.Self.ChatFromSimulator += HandleClientSelfChatFromSimulator;	
 			client.Self.IM += HandleClientSelfIM;
 
             client.Network.Login(login);
 
-            client.Self.Movement.Camera.Far = 512;
+            client.Self.Movement.Camera.Far = 1024;
             client.Self.Movement.SendUpdate(true);
 
             if (client.Network.LoginStatusCode == LoginStatus.Success)
@@ -69,6 +75,18 @@ namespace spider
             Logger.Log("Status is " + client.Network.LoginStatusCode.ToString(), Helpers.LogLevel.Info);
             Logger.Log(client.Network.LoginMessage, Helpers.LogLevel.Info);
 
+        }
+
+        void Grid_GridRegion(object sender, GridRegionEventArgs e)
+        {
+            Logger.Log(" *** New grid region data ",Helpers.LogLevel.Info);
+            
+        }
+
+        void Grid_GridLayer(object sender, GridLayerEventArgs e)
+        {
+
+            Logger.Log(" *** New grid layer data "+e.Layer.Left.ToString()+","+e.Layer.Right.ToString(), Helpers.LogLevel.Info);
         }
 
         void Network_SimDiscovered(object sender, SimDiscoveredEventArgs e)
@@ -141,6 +159,50 @@ namespace spider
         void Network_SimConnected(object sender, SimConnectedEventArgs e)
         {
              Logger.Log("New sim connection from " + e.Simulator.Name, Helpers.LogLevel.Info);
+
+            
+
+
+             if (client.Network.CurrentSim.Handle == e.Simulator.Handle)
+             {
+                 
+                 ThreadPool.QueueUserWorkItem(sync =>
+                 {
+
+                     Logger.Log("*** requesting neighbour blocks", Helpers.LogLevel.Info);
+
+
+                     uint X, Y;
+                     //X = 1000;
+                     //Y = 1000;
+                     Utils.LongToUInts(e.Simulator.Handle, out X, out Y);
+                     List<MapItem> map = new List<MapItem>();
+
+                     int x, y;
+
+                     for (x = -5; x < 5; x++)
+                         for (y = -5; y < 5; y++)
+                         {
+                             if (x == 0 && y == 0)
+                                 continue;
+
+                             map = client.Grid.MapItems(Utils.UIntsToLong((uint)(X + x), (uint)(Y + x)), GridItemType.AgentLocations, GridLayerType.Objects, 1000);
+
+                             if (map != null)
+                             {
+                                 Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back " + map.Count(), Helpers.LogLevel.Info);
+                             }
+                             else
+                             {
+                                 Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back a null map ", Helpers.LogLevel.Info);
+
+                             }
+                         }
+
+                 });
+                  
+             }
+
         }
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
