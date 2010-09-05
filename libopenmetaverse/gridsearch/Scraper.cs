@@ -151,15 +151,18 @@ namespace spider
 			return true;
 			
 		}
-		
-		void mark_region_bad(string region)
+
+        void mark_region_bad(ulong handle)
 		{
-			
+
+
+            Logger.Log("Trying to mark region bad " + handle.ToString(), Helpers.LogLevel.Warning);
+
 			 Dictionary<string, string> parameters = new Dictionary<string, string>();
              Dictionary<string, string> conditions = new Dictionary<string, string>();
 
              conditions.Add("Grid", MainClass.db.gridKey.ToString());
-             conditions.Add("Name", region);
+             conditions.Add("Handle", handle.ToString());
              parameters.Add("Status", (-1).ToString());
              MainClass.db.genericUpdate("Region", parameters, conditions);
 		}
@@ -206,7 +209,6 @@ namespace spider
 				if (MainClass.conn.connected == false)
                     break;
 				
-                
 				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(10, 245, 25));
 				
 				if (MainClass.conn.connected == false)
@@ -225,7 +227,7 @@ namespace spider
 				
 				if(anyok==false)
 				{
-					mark_region_bad(region);
+                    mark_region_bad(handle);
 					continue;
 				}
 				
