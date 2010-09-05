@@ -200,23 +200,23 @@ namespace spider
 			    MainClass.ObjTrack.active=true;
 				
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(85,170, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(5,5, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
                 
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(85, 85, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(5, 250, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 170, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(250, 250, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(170, 85, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(250, 5, 25));
 				
                 
 				if (MainClass.conn.connected == false)
@@ -252,6 +252,7 @@ namespace spider
 
                 conditions.Add("Grid", MainClass.db.gridKey.ToString());
                 conditions.Add("Handle", MainClass.conn.client.Network.CurrentSim.Handle.ToString());
+                parameters.Add("Name", MainClass.conn.client.Network.CurrentSim.Name);
                 parameters.Add("Owner", MainClass.db.compressUUID(MainClass.conn.client.Network.CurrentSim.SimOwner));
                 parameters.Add("Status", (0).ToString());
 

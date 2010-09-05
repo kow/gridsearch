@@ -186,6 +186,34 @@ namespace OpenMetaverse
             remove { lock (m_SimConnectingLock) { m_SimConnecting -= value; } }
         }
 
+        //*********************************************************************
+
+        /// <summary>The event subscribers, null of no subscribers</summary>
+        private EventHandler<SimDiscoveredEventArgs> m_SimDiscovered;
+
+        ///<summary>Raises the SimConnected Event</summary>
+        /// <param name="e">A SimConnectedEventArgs object containing
+        /// the data sent from the simulator</param>
+        protected virtual void OnSimDiscovered(SimDiscoveredEventArgs e)
+        {
+            EventHandler<SimDiscoveredEventArgs> handler = m_SimDiscovered;
+            if (handler != null)
+                handler(this, e);
+        }
+
+        /// <summary>Thread sync lock object</summary>
+        private readonly object m_SimDiscoveredLock = new object();
+
+        /// <summary>Raised when the simulator sends us data containing
+        /// ...</summary>
+        public event EventHandler<SimDiscoveredEventArgs> SimDiscovered
+        {
+            add { lock (m_SimDiscoveredLock) { m_SimDiscovered += value; } }
+            remove { lock (m_SimDiscoveredLock) { m_SimDiscovered -= value; } }
+        }
+
+
+        //*********************************************************************
         /// <summary>The event subscribers, null of no subscribers</summary>
         private EventHandler<SimConnectedEventArgs> m_SimConnected;
 
@@ -524,6 +552,7 @@ namespace OpenMetaverse
         /// <returns>A Simulator object on success, otherwise null</returns>
         public Simulator Connect(IPEndPoint endPoint, ulong handle, bool setDefault, string seedcaps)
         {
+
             Simulator simulator = FindSimulator(endPoint);
 
             if (simulator == null)
@@ -535,6 +564,8 @@ namespace OpenMetaverse
                 // connection fails
                 lock (Simulators) Simulators.Add(simulator);
             }
+
+            OnSimDiscovered(new SimDiscoveredEventArgs(simulator));
 
             if (!simulator.Connected)
             {
@@ -1284,6 +1315,17 @@ namespace OpenMetaverse
         public Simulator Simulator { get { return m_Simulator; } }
 
         public SimConnectedEventArgs(Simulator simulator)
+        {
+            this.m_Simulator = simulator;
+        }
+    }
+
+    public class SimDiscoveredEventArgs : EventArgs
+    {
+        private readonly Simulator m_Simulator;
+        public Simulator Simulator { get { return m_Simulator; } }
+
+        public SimDiscoveredEventArgs(Simulator simulator)
         {
             this.m_Simulator = simulator;
         }

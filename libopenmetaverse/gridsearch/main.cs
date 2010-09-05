@@ -43,7 +43,8 @@ namespace spider
                     Logger.Log("Starting a new master scrape loop", Helpers.LogLevel.Info);
 
                     //Find the inital grid
-                    List<int> logingrids = db.getFirstRegionGrid(); //this locks a bunch of target regions, unique on grid
+                    List<int> logingrids = db.getFirstRegionGrid(); //this locks a bunch of target regions, unique on grid;
+                    
                     int logingrid;
 
                     if (logingrids.Count == 0)

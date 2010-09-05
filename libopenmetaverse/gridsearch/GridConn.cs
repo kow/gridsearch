@@ -42,9 +42,11 @@ namespace spider
             client.Settings.PARCEL_TRACKING = true;
             client.Settings.ALWAYS_REQUEST_OBJECTS = false;
             client.Settings.SEND_AGENT_UPDATES = true;
-            client.Settings.MULTIPLE_SIMS = false; // <-------------- very important indeed
-            
+            client.Settings.MULTIPLE_SIMS = true; // <-------------- very important indeed
+
+            client.Network.SimDiscovered += new EventHandler<SimDiscoveredEventArgs>(Network_SimDiscovered);
             client.Network.SimConnected += new EventHandler<SimConnectedEventArgs>(Network_SimConnected);
+            client.Network.SimConnecting += new EventHandler<SimConnectingEventArgs>(Network_SimConnecting);
             client.Parcels.SimParcelsDownloaded += new EventHandler<SimParcelsDownloadedEventArgs>(Parcels_SimParcelsDownloaded);
             client.Self.TeleportProgress += new EventHandler<TeleportEventArgs>(Self_TeleportProgress);
             client.Network.Disconnected += new EventHandler<DisconnectedEventArgs>(Network_Disconnected);
@@ -67,6 +69,29 @@ namespace spider
             Logger.Log("Status is " + client.Network.LoginStatusCode.ToString(), Helpers.LogLevel.Info);
             Logger.Log(client.Network.LoginMessage, Helpers.LogLevel.Info);
 
+        }
+
+        void Network_SimDiscovered(object sender, SimDiscoveredEventArgs e)
+        {
+            Logger.Log("*** Sim Discovered " + e.Simulator.Handle + " " + e.Simulator.Name, Helpers.LogLevel.Info);
+
+            ThreadPool.QueueUserWorkItem(sync =>
+            {
+                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                Dictionary<string, string> conditions = new Dictionary<string, string>();
+                parameters.Add("Grid", MainClass.db.gridKey.ToString());
+                parameters.Add("Handle", e.Simulator.Handle.ToString());
+                parameters.Add("Name", e.Simulator.Name);
+                parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
+
+                MainClass.db.genericInsertIgnore("Region", parameters);
+            });
+
+        }
+
+        void Network_SimConnecting(object sender, SimConnectingEventArgs e)
+        {
+            Logger.Log("Sim connecting " + e.Simulator.Handle+" "+e.Simulator.Name, Helpers.LogLevel.Info);
         }
 		
         void HandleClientSelfIM (object sender, InstantMessageEventArgs e)
@@ -116,18 +141,6 @@ namespace spider
         void Network_SimConnected(object sender, SimConnectedEventArgs e)
         {
              Logger.Log("New sim connection from " + e.Simulator.Name, Helpers.LogLevel.Info);
-					
-			ThreadPool.QueueUserWorkItem(sync =>
-            {
-	            Dictionary<string, string> parameters = new Dictionary<string, string>();
-			    Dictionary<string, string> conditions = new Dictionary<string, string>();
-	            conditions.Add("Grid", MainClass.db.gridKey.ToString());
-	            conditions.Add("Handle", e.Simulator.Handle.ToString());
-	            parameters.Add("Name", e.Simulator.Name);
-	            parameters.Add("Owner", MainClass.db.compressUUID(e.Simulator.SimOwner));
-				    
-                MainClass.db.genericUpdate("Region", parameters,conditions);
-            });
         }
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
