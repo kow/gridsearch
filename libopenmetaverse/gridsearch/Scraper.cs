@@ -124,7 +124,7 @@ namespace spider
 			
 			while(true)
 			{
-				wait=DateTime.Now- start;
+				wait=DateTime.Now - start;
 				if(MainClass.conn.connected==false)
 				{
 					Console.WriteLine();
@@ -144,7 +144,7 @@ namespace spider
 					break;	
 				}
 				
-				System.Threading.Thread.Sleep(5000);
+				System.Threading.Thread.Sleep(250);
                 MainClass.conn.rotate();
 			}
 			
@@ -198,25 +198,26 @@ namespace spider
 			    MainClass.conn.gotallparcels = false;
 			    MainClass.NameTrack.active=true;
 			    MainClass.ObjTrack.active=true;
+
+                MainClass.conn.mapwalk();
 				
-				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(50,50, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(10,10, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
                 
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(50, 200, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(10, 245, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(200, 200, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(245, 245, 25));
 				
 				if (MainClass.conn.connected == false)
                     break;
 				
-				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(200, 50, 25));
+				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(245, 10, 25));
 				
                 
 				if (MainClass.conn.connected == false)

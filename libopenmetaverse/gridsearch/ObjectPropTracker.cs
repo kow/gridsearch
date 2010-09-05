@@ -110,9 +110,9 @@ namespace spider
          
 		public void saveallprims()
          {
-             client.Network.Simulators.ForEach(delegate(Simulator sim)
-             {
-                     sim.ObjectsPrimitives.ForEach(delegate(KeyValuePair<uint, Primitive> kvp)
+             //client.Network.Simulators.ForEach(delegate(Simulator sim)
+             //{
+                     MainClass.conn.client.Network.CurrentSim.ObjectsPrimitives.ForEach(delegate(KeyValuePair<uint, Primitive> kvp)
                      {
                          if (kvp.Value.ParentID == 0)
                          {
@@ -164,8 +164,6 @@ namespace spider
                              }
                          }
                      });
-                 });
-
          }
 
          public bool complete()

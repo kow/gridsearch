@@ -34,6 +34,8 @@ namespace spider
 
             LoginParams login = new LoginParams();
             login = client.Network.DefaultLoginParams(data.FirstName,data.LastName,data.Password,"GridSpider","1.0");
+            login.AgreeToTos = true;
+           // login.Start = "home";
             login.URI = data.URI;
             login.Channel = "Test Grid Spider";
             login.Version = "1.0";
@@ -52,19 +54,19 @@ namespace spider
             client.Network.Disconnected += new EventHandler<DisconnectedEventArgs>(Network_Disconnected);
 			client.Network.LoggedOut +=	new EventHandler<LoggedOutEventArgs>(Network_LoggedOut);
 			client.Network.SimDisconnected += new EventHandler<SimDisconnectedEventArgs>(Network_SimDisconnected);
-            client.Grid.GridLayer += new EventHandler<GridLayerEventArgs>(Grid_GridLayer);
+            //client.Grid.GridLayer += new EventHandler<GridLayerEventArgs>(Grid_GridLayer);
+            //client.Grid.GridRegion += new EventHandler<GridRegionEventArgs>(Grid_GridRegion);
 
-
-            client.Grid.GridRegion += new EventHandler<GridRegionEventArgs>(Grid_GridRegion);
-
-
-         			
+ 
 			client.Self.ChatFromSimulator += HandleClientSelfChatFromSimulator;	
 			client.Self.IM += HandleClientSelfIM;
+            
+            client.Self.Movement.Camera.Far = 512;
 
             client.Network.Login(login);
 
-            client.Self.Movement.Camera.Far = 1024;
+            client.Self.Movement.Camera.Far = 512;
+ 
             client.Self.Movement.SendUpdate(true);
 
             if (client.Network.LoginStatusCode == LoginStatus.Success)
@@ -161,47 +163,12 @@ namespace spider
              Logger.Log("New sim connection from " + e.Simulator.Name, Helpers.LogLevel.Info);
 
             
-
-
              if (client.Network.CurrentSim.Handle == e.Simulator.Handle)
              {
-                 
-                 ThreadPool.QueueUserWorkItem(sync =>
-                 {
-
-                     Logger.Log("*** requesting neighbour blocks", Helpers.LogLevel.Info);
-
-
-                     uint X, Y;
-                     //X = 1000;
-                     //Y = 1000;
-                     Utils.LongToUInts(e.Simulator.Handle, out X, out Y);
-                     List<MapItem> map = new List<MapItem>();
-
-                     int x, y;
-
-                     for (x = -5; x < 5; x++)
-                         for (y = -5; y < 5; y++)
-                         {
-                             if (x == 0 && y == 0)
-                                 continue;
-
-                             map = client.Grid.MapItems(Utils.UIntsToLong((uint)(X + x), (uint)(Y + x)), GridItemType.AgentLocations, GridLayerType.Objects, 1000);
-
-                             if (map != null)
-                             {
-                                 Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back " + map.Count(), Helpers.LogLevel.Info);
-                             }
-                             else
-                             {
-                                 Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back a null map ", Helpers.LogLevel.Info);
-
-                             }
-                         }
-
-                 });
+                 Logger.Log("Current sim connection, we are now in " + e.Simulator.Name, Helpers.LogLevel.Info);
                   
              }
+             
 
         }
 
@@ -251,7 +218,7 @@ namespace spider
 
         public void rotate()
         {		
-            angle = angle + (3.1415926 / 4);
+            angle = angle + (3.1415926 / 16);
 
             if (angle > 2.0 * 3.1415926)
                 angle = 0;
@@ -312,6 +279,58 @@ namespace spider
         {
             gotallparcels = false;
             return client.Self.Teleport((ulong)handle, pos);
+        }
+
+        public void mapwalk()
+        {
+
+            ThreadPool.QueueUserWorkItem(sync =>
+            {
+
+                Logger.Log("*** Starting map walk for sim on 5x5 grid", Helpers.LogLevel.Info);
+   
+                List<MapItem> map = null;
+
+                int x, y;
+
+                Vector3d gpos = MainClass.conn.client.Self.GlobalPosition;
+
+                for (x = -5; x < 5; x++)
+                    for (y = -5; y < 5; y++)
+                    {
+                        if (x == 0 && y == 0)
+                            continue;
+
+                        map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 1000);
+
+                        if (map != null)
+                        {
+                            Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back " + map.Count(), Helpers.LogLevel.Info);
+
+                            float localX, localY;
+                            ulong region = Helpers.GlobalPosToRegionHandle((float)gpos.X + x * 256, (float)gpos.Y + y * 256, out localX, out localY);
+
+                            Dictionary<string, string> parameters = new Dictionary<string, string>();
+                            Dictionary<string, string> conditions = new Dictionary<string, string>();
+                            parameters.Add("Grid", MainClass.db.gridKey.ToString());
+                            parameters.Add("Handle", region.ToString());
+                            MainClass.db.genericInsertIgnore("Region", parameters);
+
+                        }
+                        else
+                        {
+                            Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back a null map ", Helpers.LogLevel.Info);
+
+                        }
+                    }
+
+
+                Logger.Log("*** Map walk complete ", Helpers.LogLevel.Info);
+            });
+           
+        
+
+
         }
 
     }
