@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{275A0FF0-5171-4CC1-8DDC-208441E836F2}</ProjectGuid>
+    <ProjectGuid>{C852BAD5-BE07-4D8B-B7DD-F13F20D0ED20}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>../../bin/</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>../../bin/</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -69,14 +69,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../GridProxy/GridProxy.csproj">
+    <ProjectReference Include="..\GridProxy\GridProxy.csproj">
       <Name>GridProxy</Name>
-      <Project>{30594883-3E00-43DB-AEE8-EE4675F445BA}</Project>
+      <Project>{2288D0F1-D757-4328-97E7-9437B7D7124E}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="../../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
+    <ProjectReference Include="..\..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
+      <Project>{DC6EB9B3-3581-44EA-8044-52DFB1A4E463}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>

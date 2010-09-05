@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{30594883-3E00-43DB-AEE8-EE4675F445BA}</ProjectGuid>
+    <ProjectGuid>{2288D0F1-D757-4328-97E7-9437B7D7124E}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>../../bin/</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>../../bin/</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -69,27 +69,27 @@
     </Reference>
     <Reference Include="XMLRPC">
         <Name>XMLRPC</Name>
-      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/XMLRPC.dll</HintPath>
+      <HintPath>C:\code\libopenmetaverse\bin\XMLRPC.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
         <Name>log4net</Name>
-      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/log4net.dll</HintPath>
+      <HintPath>C:\code\libopenmetaverse\bin\log4net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../OpenMetaverse/OpenMetaverse.csproj">
+    <ProjectReference Include="..\..\OpenMetaverse\OpenMetaverse.csproj">
       <Name>OpenMetaverse</Name>
-      <Project>{AE4A7FC1-A265-4A7C-ACC3-DEE9144A5D05}</Project>
+      <Project>{617ECA7C-0EFF-4187-9620-E2D9055D6796}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="../../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
+    <ProjectReference Include="..\..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{B54E9BE8-46A0-490A-83F1-BAED46E8B3E5}</Project>
+      <Project>{DC6EB9B3-3581-44EA-8044-52DFB1A4E463}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="../../OpenMetaverse.StructuredData/OpenMetaverse.StructuredData.csproj">
+    <ProjectReference Include="..\..\OpenMetaverse.StructuredData\OpenMetaverse.StructuredData.csproj">
       <Name>OpenMetaverse.StructuredData</Name>
-      <Project>{1D82E01C-81D2-45BB-BF47-C7956BC05C69}</Project>
+      <Project>{132AC9A6-2307-4FB5-B793-45C4CD59FC09}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -98,9 +98,9 @@
     </Compile>
     <Compile Include="GridProxyLoader.cs">
     </Compile>
-    <Compile Include="Plugins/Analyst.cs">
+    <Compile Include="Plugins\Analyst.cs">
     </Compile>
-    <Compile Include="Plugins/ClientAO.cs">
+    <Compile Include="Plugins\ClientAO.cs">
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
