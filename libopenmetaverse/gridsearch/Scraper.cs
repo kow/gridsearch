@@ -134,7 +134,7 @@ namespace spider
 					break;
 				}
 
-                Logger.Log("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString(), Helpers.LogLevel.Warning);
+                //Logger.Log("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString(), Helpers.LogLevel.Warning);
 
 				//Make sure we are all completed and have waited at least 1 mins, 5 mins and we are bored though
 				if((MainClass.ObjTrack.complete() && MainClass.NameTrack.complete() && (wait.Minutes >=1 ||wait.Seconds >= 20 )&& MainClass.conn.gotallparcels==true) || wait.Minutes>=2 )
