@@ -283,11 +283,12 @@ namespace spider
 
         public void mapwalk()
         {
+	   return;
 
             ThreadPool.QueueUserWorkItem(sync =>
             {
 
-                Logger.Log("*** Starting map walk for sim on 5x5 grid", Helpers.LogLevel.Info);
+                Logger.Log("*** Starting map walk for sim on 6x6 grid", Helpers.LogLevel.Info);
    
                 List<MapItem> map = null;
 
@@ -295,13 +296,13 @@ namespace spider
 
                 Vector3d gpos = MainClass.conn.client.Self.GlobalPosition;
 
-                for (x = -5; x < 5; x++)
-                    for (y = -5; y < 5; y++)
+                for (x = -3; x < 3; x++)
+                    for (y = -3; y < 3; y++)
                     {
                         if (x == 0 && y == 0)
                             continue;
 
-                        map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 1000);
+                        map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 500);
 
                         if (map != null)
                         {
