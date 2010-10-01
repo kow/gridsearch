@@ -439,7 +439,7 @@ namespace OpenMetaverse.Rendering
                         if (use_tri_1a2(profile, pt1, pt2))
                         {
                             indices.Add((ushort)(pt1 + i));
-                            indices.Add((ushort)(pt2 + 1 + i));
+                            indices.Add((ushort)(pt1 + 1 + i));
                             indices.Add((ushort)(pt2 + i));
                             pt1++;
                         }
@@ -1367,13 +1367,13 @@ namespace OpenMetaverse.Rendering
             bool tri_1a2 = true;
             bool tri_21b = true;
 
-            if (area_1a2 < 0)
+            if (area_1a2 < 0f)
                 tri_1a2 = false;
-            if (area_2ab < 0)
+            if (area_2ab < 0f)
                 tri_1a2 = false; // Can't use, because it contains point b
-            if (area_21b < 0)
+            if (area_21b < 0f)
                 tri_21b = false;
-            if (area_1ba < 0)
+            if (area_1ba < 0f)
                 tri_21b = false; // Can't use, because it contains point b
 
             if (!tri_1a2)
