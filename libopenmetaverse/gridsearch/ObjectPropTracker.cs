@@ -110,6 +110,7 @@ namespace spider
          
 		public void saveallprims()
          {
+		int count=0;
              //client.Network.Simulators.ForEach(delegate(Simulator sim)
              //{
                      MainClass.conn.client.Network.CurrentSim.ObjectsPrimitives.ForEach(delegate(KeyValuePair<uint, Primitive> kvp)
@@ -150,7 +151,7 @@ namespace spider
                                      });
 
                                      parameters.Add("Prims", children.ToString());
-
+				     count++;
                                      MainClass.db.genericReplaceInto("Object", parameters, true);
                                  }
                                  else
@@ -163,7 +164,12 @@ namespace spider
                                  // Console.WriteLine("WTF NULL PROPERTIES!");
                              }
                          }
+
+			
                      });
+
+		Logger.Log("We have recorded "+count.ToString()+" prims",Helpers.LogLevel.Info);
+
          }
 
          public bool complete()

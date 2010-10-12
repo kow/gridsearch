@@ -44,7 +44,7 @@ namespace spider
             client.Settings.PARCEL_TRACKING = true;
             client.Settings.ALWAYS_REQUEST_OBJECTS = false;
             client.Settings.SEND_AGENT_UPDATES = true;
-            client.Settings.MULTIPLE_SIMS = false; // <-------------- very important indeed
+            client.Settings.MULTIPLE_SIMS = true; // <-------------- very important indeed
 
             client.Network.SimDiscovered += new EventHandler<SimDiscoveredEventArgs>(Network_SimDiscovered);
             client.Network.SimConnected += new EventHandler<SimConnectedEventArgs>(Network_SimConnected);
@@ -238,8 +238,15 @@ namespace spider
 
         public void Logout()
         {
-            client.Network.Logout();
-        }
+	    try
+	    {
+            	client.Network.Logout();
+            }	
+	    catch(Exception e)
+	    {
+		Logger.Log("Logout exploded.. again ..",Helpers.LogLevel.Error);
+	    }
+	}
 
         public int getObjectCount()
         {
@@ -283,8 +290,8 @@ namespace spider
 
         public void mapwalk()
         {
-	   return;
-
+	    speculateregions();
+	  
             ThreadPool.QueueUserWorkItem(sync =>
             {
 
@@ -296,13 +303,14 @@ namespace spider
 
                 Vector3d gpos = MainClass.conn.client.Self.GlobalPosition;
 
-                for (x = -3; x < 3; x++)
-                    for (y = -3; y < 3; y++)
+                for (x = -5; x < 5; x++)
+                    for (y = -5; y < 5; y++)
                     {
                         if (x == 0 && y == 0)
                             continue;
 
-                        map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 500);
+			map = null;
+                        map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 250);
 
                         if (map != null)
                         {
@@ -316,23 +324,46 @@ namespace spider
                             parameters.Add("Grid", MainClass.db.gridKey.ToString());
                             parameters.Add("Handle", region.ToString());
                             MainClass.db.genericInsertIgnore("Region", parameters);
-
                         }
                         else
                         {
                             Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back a null map ", Helpers.LogLevel.Info);
-
                         }
                     }
-
-
                 Logger.Log("*** Map walk complete ", Helpers.LogLevel.Info);
             });
-           
-        
-
-
         }
+
+	public void speculateregions()
+	{
+	    ThreadPool.QueueUserWorkItem(sync =>
+            {
+
+		//*sigh* opensim fails to report neighbours correctly via standard sim connects unless you are very close to a region
+		// and the mapitems does not work either so just add the 8 neighbout blocks to the spider list
+	        // worst case is that we get some extra cruff in the region database
+		
+		Vector3d gpos = MainClass.conn.client.Self.GlobalPosition;
+ 		int x;
+		int y;
+
+		for (x = -1; x <= 1; x++)
+                for (y = -1; y <= 1; y++)
+                {
+                	if (x == 0 && y == 0)
+                        	continue;
+			 Dictionary<string, string> parameters = new Dictionary<string, string>();
+
+		  	float localX, localY;
+                        ulong region = Helpers.GlobalPosToRegionHandle((float)gpos.X + x * 256, (float)gpos.Y + y * 256, out localX, out localY);
+			parameters.Add("Grid", MainClass.db.gridKey.ToString());
+                        parameters.Add("Handle", region.ToString());
+                        MainClass.db.genericInsertIgnore("Region", parameters);
+		}
+
+		});
+				
+	}
 
     }
 }

@@ -253,7 +253,8 @@ namespace spider
             sql =  "LOCK TABLES Region WRITE;\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n";
-            sql += "UPDATE Region SET LockID='" + myid.ToString() + "' WHERE LockID='0' AND Grid='" + gridKey.ToString() + "' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC LIMIT 1;\n";            
+            sql += "UPDATE Region SET LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND Grid='" + gridKey.ToString() 
+		+ "' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC LIMIT 1;\n";            
             sql += "SELECT Name, Handle FROM Region WHERE LockID='" + myid.ToString()+"';\n";
             sql += "UNLOCK TABLES; ";
 

@@ -117,7 +117,14 @@ namespace spider
 				System.Threading.Thread.Sleep(15000);
 				return false;
 			}
-			
+
+			// Check the handle to see if we got redirected
+
+			if(client.Network.CurrentSim.Handle!=handle)
+			{
+				Logger.Log("We are not where we should be after teleport success??",Helpers.LogLevel.Warning);
+				return false;
+			}
 			// Ok we are in position
 
             MainClass.conn.client.Parcels.RequestAllSimParcels(MainClass.conn.client.Network.CurrentSim);
@@ -178,6 +185,7 @@ namespace spider
 				// Are we still connected
                 
 				ulong handle;
+				bool lastbad=false;
 				string region=getNextRegion(out handle);
 
                 if (MainClass.db.regionsremaining == false)
@@ -198,12 +206,14 @@ namespace spider
 				bool anyok=false;
 				
 				MainClass.ObjTrack.flush_for_new_sim();
-			    MainClass.conn.gotallparcels = false;
-			    MainClass.NameTrack.active=true;
-			    MainClass.ObjTrack.active=true;
-
-                MainClass.conn.mapwalk();
-				
+			        MainClass.conn.gotallparcels = false;
+			        if(lastbad==false)
+			        {
+			            MainClass.NameTrack.active=true;
+			            MainClass.ObjTrack.active=true;
+                  		    MainClass.conn.mapwalk();
+			        }
+	
 				anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(10,10, 25));
 				
 				if (MainClass.conn.connected == false)
@@ -227,9 +237,11 @@ namespace spider
 				
 				if(anyok==false)
 				{
-                    mark_region_bad(handle);
-					continue;
+                                        mark_region_bad(handle);
+					lastbad=true;
+                                        continue;
 				}
+				lastbad=false;
 				
                 Console.WriteLine();
                 Logger.Log("Scan complete waiting parcel update before saving", Helpers.LogLevel.Info);
