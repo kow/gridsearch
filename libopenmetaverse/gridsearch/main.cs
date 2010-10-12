@@ -40,6 +40,52 @@ namespace spider
                 while (dbopen)
                 {
 
+                    if (cl.getopt("region_list")!=null && cl.getopt("for_grid")!=null)
+                    {
+                        string region_list = cl.getopt("region_list");
+                        string grid = cl.getopt("for_grid");
+                        long key = db.getgridkey(grid);
+
+                        System.IO.StreamReader SR;
+                        string line;
+                        SR = System.IO.File.OpenText(region_list);
+
+
+                        line = SR.ReadLine();
+                        while (line !=null)
+                        {
+                            // Format is name/tregionX/tRegionY
+                            try
+                            {
+                                string[] parts = line.Split('\t');
+
+                                string region_name = parts[0];
+
+                                int X = int.Parse(parts[1]);
+                                int Y = int.Parse(parts[2]);
+
+                                float localX, localY;
+                                ulong regionhandle = Helpers.GlobalPosToRegionHandle((X*256) + 128, (Y*256) + 128,out localX, out localY);
+
+                                Dictionary<string, string> parameters = new Dictionary<string, string>();
+                                Dictionary<string, string> conditions = new Dictionary<string, string>();
+                                parameters.Add("Grid", key.ToString());
+                                parameters.Add("Handle", regionhandle.ToString());
+                                parameters.Add("Name", region_name);
+                                MainClass.db.genericInsertIgnore("Region", parameters);
+                            }
+                            catch
+                            {
+                                Logger.Log("Failed to parse " + line, Helpers.LogLevel.Warning);
+
+                            }
+                            line = SR.ReadLine();
+                        }
+
+                        SR.Close();
+                       
+                    }
+
                     Logger.Log("Starting a new master scrape loop", Helpers.LogLevel.Info);
 
                     //Find the inital grid

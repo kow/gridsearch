@@ -168,14 +168,17 @@ namespace spider
                  Logger.Log("Current sim connection, we are now in " + e.Simulator.Name, Helpers.LogLevel.Info);
                   
              }
-             
-
         }
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
 	           Console.WriteLine();
 	           Logger.Log("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString(),Helpers.LogLevel.Info);
+
+               if (e.Status == TeleportStatus.Finished)
+               {
+                   Logger.Log("TP Finished we are now in " + client.Network.CurrentSim.Name, Helpers.LogLevel.Info);
+               }
         }
 
         void Parcels_SimParcelsDownloaded(object sender, SimParcelsDownloadedEventArgs e)
@@ -290,8 +293,8 @@ namespace spider
 
         public void mapwalk()
         {
+	    return;
 	    speculateregions();
-	  
             ThreadPool.QueueUserWorkItem(sync =>
             {
 
