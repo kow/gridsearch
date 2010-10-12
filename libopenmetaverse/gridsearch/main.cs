@@ -83,7 +83,8 @@ namespace spider
                         }
 
                         SR.Close();
-                       
+			Logger.Log("Finished importing region list to "+grid,Helpers.LogLevel.Info);
+                        return;
                     }
 
                     Logger.Log("Starting a new master scrape loop", Helpers.LogLevel.Info);
