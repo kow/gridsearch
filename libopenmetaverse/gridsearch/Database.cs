@@ -207,9 +207,35 @@ namespace spider
             return possiblegrids;
         }
 
+        
+        public int getgridkey(string gridname)
+        {
+            int grid = 0;
+            string sqlt = "SELECT PKey FROM Grid WHERE name='" + gridname + "';";
+            MySqlDataReader rdr = null;
+            try
+            {
+                lock (thelock)
+                {
+                    MySqlCommand cmd = new MySqlCommand(sqlt, conn);
+                    rdr = cmd.ExecuteReader();
+                    if (rdr.Read())
+                    {
+                        grid = (int)rdr[0];  
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                 Logger.Log("Unable to find grid" + gridname, Helpers.LogLevel.Error);
+            }
 
+            rdr.Close();
 
-  
+            return grid;
+        }
+
+   
         public string getNextRegionForGrid(out Int64 handle)
         {
             

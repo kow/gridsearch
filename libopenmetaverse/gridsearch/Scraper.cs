@@ -107,7 +107,9 @@ namespace spider
 				result=client.Self.Teleport(handle,position);
 			}
 			
-			if(!result)
+            // did TP fail?
+            // Are we where we should be, or did we get redirected?
+			if(!result || handle != client.Network.CurrentSim.Handle)
 			{
                 Logger.Log("Teleport to " + simname + " failed", Helpers.LogLevel.Warning);
 				MainClass.NameTrack.active=false;
@@ -118,6 +120,9 @@ namespace spider
 				return false;
 			}
 			
+         
+
+
 			// Ok we are in position
 
             MainClass.conn.client.Parcels.RequestAllSimParcels(MainClass.conn.client.Network.CurrentSim);
