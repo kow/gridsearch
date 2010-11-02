@@ -956,8 +956,8 @@ namespace OpenMetaverse
             // Check if this packet came from the server we expected it to come from
             if (!remoteEndPoint.Address.Equals(((IPEndPoint)buffer.RemoteEndPoint).Address))
             {
-                Logger.Log("Received " + buffer.DataLength + " bytes of data from unrecognized source " +
-                    ((IPEndPoint)buffer.RemoteEndPoint).ToString(), Helpers.LogLevel.Warning, Client);
+                //Logger.Log("Received " + buffer.DataLength + " bytes of data from unrecognized source " +
+                //    ((IPEndPoint)buffer.RemoteEndPoint).ToString(), Helpers.LogLevel.Warning, Client);
                 return;
             }
 
