@@ -317,7 +317,7 @@ namespace spider
 
                         if (map != null)
                         {
-                            Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back " + map.Count(), Helpers.LogLevel.Info);
+                            //Logger.Log("*** Block request for " + x.ToString() + " " + y.ToString() + " gave back " + map.Count(), Helpers.LogLevel.Info);
 
                             float localX, localY;
                             ulong region = Helpers.GlobalPosToRegionHandle((float)gpos.X + x * 256, (float)gpos.Y + y * 256, out localX, out localY);
