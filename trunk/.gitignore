@@ -146,3 +146,4 @@ gridsearch/GridSpider.csproj.user
 gridsearch/GridSpider.exe.build
 gridsearch/GridSpider.mdp
 	
+bin/GridSpider.exe
