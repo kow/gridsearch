@@ -20,7 +20,10 @@ namespace spider
 		 public List<UUID> requested_propsfamily;
 		 public List<UUID> requested_props;
 		 public bool active=false;
-		
+		 int total_objects;
+                 int total_linksets;
+		 int ignored_objects;		
+
 		 DateTime start;
 
          public ObjectPropTracker(GridClient tclient)
@@ -41,18 +44,19 @@ namespace spider
          {
             requested_props.Clear();
             requested_propsfamily.Clear(); 
-			intereset_list.Clear();
-			start=DateTime.Now;
+	    intereset_list.Clear();
+	    start=DateTime.Now;
+	    total_objects = 0;
+            total_linksets = 0;
          }
 
 		
 		
          void Objects_ObjectUpdate(object sender, PrimEventArgs e)
          {
-			if(active==false)
-				return;
+	    if(active==false)
+	        return;
 			
-	
              if(e.IsAttachment)
                  return;
 
@@ -60,21 +64,24 @@ namespace spider
              if (!e.IsNew)
                  return;
 			
-			 if(e.Simulator!=client.Network.CurrentSim)
-				return;
+	     if(e.Simulator!=client.Network.CurrentSim)
+	         return;
+
+	     total_objects++;
 
              if (e.Prim.ParentID == 0)
              {
+                 total_linksets++;
                  intereset_list.Add(e.Prim.ID);
                  lock(requested_props)
-				    requested_props.Add(e.Prim.ID);
+		     requested_props.Add(e.Prim.ID);
 				
                  lock(requested_propsfamily)
-				    requested_propsfamily.Add(e.Prim.ID);
+		     requested_propsfamily.Add(e.Prim.ID);
 				
-				 client.Objects.RequestObjectPropertiesFamily(e.Simulator,e.Prim.ID);
-				 client.Objects.SelectObject(e.Simulator,e.Prim.LocalID);
-			}
+		  client.Objects.RequestObjectPropertiesFamily(e.Simulator,e.Prim.ID);
+		  client.Objects.SelectObject(e.Simulator,e.Prim.LocalID);
+	     }
          }
 
         void Objects_ObjectProperties(object sender, ObjectPropertiesEventArgs e)
@@ -168,8 +175,8 @@ namespace spider
 			
                      });
 
-		Logger.Log("We have recorded "+count.ToString()+" prims",Helpers.LogLevel.Info);
-
+		Logger.Log("We have recorded "+count.ToString()+" linksets out of "+total_linksets.ToString()+" seen",Helpers.LogLevel.Info);
+		Logger.Log("We processed "+total_objects.ToString()+" out of a possible "+client.Network.CurrentSim.Stats.Objects.ToString(),Helpers.LogLevel.Info);
          }
 
          public bool complete()
