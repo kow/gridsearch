@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Diagnostics;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using OpenMetaverse;
@@ -86,11 +87,15 @@ namespace spider
             LoginParams data = new LoginParams();
            
             // Remove any stale login locks, any over 30 minutes are quite dead
+		
+	    Console.WriteLine(MainClass.ProcessID.ToString());
+   	    int ProcessID = Process.GetCurrentProcess().Id;
+
 
             string sql;
             sql = "LOCK TABLES Logins WRITE, Grid READ; ";
-            sql += "UPDATE Logins SET LockID='0' WHERE (UNIX_TIMESTAMP(LastScrape)+1800) < UNIX_TIMESTAMP(NOW()); ";
-            sql += "UPDATE Logins SET LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
+            sql += "UPDATE Logins SET LockID='0', PID='0' WHERE (UNIX_TIMESTAMP(LastScrape)+1800) < UNIX_TIMESTAMP(NOW()); ";
+            sql += "UPDATE Logins SET PID='"+ProcessID.ToString()+"', LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
             sql += "SELECT LoginURI, First, Last, Password, grid from Grid,Logins where Grid.PKey=Logins.grid and LockID ='" + myid.ToString() + "';";
             sql += "UNLOCK TABLES; ";
 

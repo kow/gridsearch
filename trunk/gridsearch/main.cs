@@ -3,6 +3,7 @@ using System;
 using System.Threading;
 using System.Collections.Generic;
 using OpenMetaverse;
+using System.Diagnostics;
 
 namespace spider
 {
@@ -14,9 +15,14 @@ namespace spider
         public static GridConn conn;
         public static ObjectPropTracker ObjTrack;
         public static NameTracker NameTrack;
+	public static int ProcessID;
 
         static void Main()
         {
+
+	    ProcessID = Process.GetCurrentProcess().Id;
+            Console.WriteLine("Starting with PID of "+ProcessID.ToString());
+
             while (true)
             {
 				
