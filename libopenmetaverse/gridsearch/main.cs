@@ -19,17 +19,17 @@ namespace spider
         {
             while (true)
             {
-				
-				CommandLine cl= new CommandLine();
-				cl.addRequiredCLP("host");
-				cl.addRequiredCLP("user");
-				cl.addRequiredCLP("database");
+                
+                CommandLine cl= new CommandLine();
+                cl.addRequiredCLP("host");
+                cl.addRequiredCLP("user");
+                cl.addRequiredCLP("database");
 
-				if(!cl.parsecommandline())
-				{
-					return;	
-				}
-				
+                if(!cl.parsecommandline())
+                {
+                    return;	
+                }
+                
                 db = new Database();
                 bool dbopen = db.OpenDatabase(cl.getopt("host"),cl.getopt("user"),cl.getopt("database"),cl.getopt("port"),cl.getopt("password"));
                 if (!dbopen)
@@ -83,7 +83,7 @@ namespace spider
                         }
 
                         SR.Close();
-			Logger.Log("Finished importing region list to "+grid,Helpers.LogLevel.Info);
+            Logger.Log("Finished importing region list to "+grid,Helpers.LogLevel.Info);
                         return;
                     }
 
@@ -177,9 +177,9 @@ namespace spider
 
 
 
-		while(true)
-		{
-			
+        while(true)
+        {
+            
         LoginParams login = db.getlogin("Agni");
 
         if (login == null)
@@ -218,15 +218,15 @@ namespace spider
 
         // Back off for 1 minute
         System.Threading.Thread.Sleep(60000);
-		}
+        }
       
         
         
-	    }
+        }
 
       
-	    
-	    
-	}
+        
+        
+    }
   */
 }
