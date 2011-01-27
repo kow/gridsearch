@@ -111,7 +111,7 @@ namespace spider
             // Are we where we should be, or did we get redirected?
             if(!result || handle != client.Network.CurrentSim.Handle)
             {
-                                Logger.Log("Teleport to " + simname + " failed", Helpers.LogLevel.Warning);
+                Logger.Log("Teleport to " + simname + " failed", Helpers.LogLevel.Warning);
                 MainClass.NameTrack.active=false;
                 MainClass.ObjTrack.active=false;
             
@@ -153,8 +153,7 @@ namespace spider
         void mark_region_bad(ulong handle)
         {
 
-
-            Logger.Log("Trying to mark region bad " + handle.ToString(), Helpers.LogLevel.Warning);
+             Logger.Log("Trying to mark region bad " + handle.ToString(), Helpers.LogLevel.Warning);
 
              Dictionary<string, string> parameters = new Dictionary<string, string>();
              Dictionary<string, string> conditions = new Dictionary<string, string>();
@@ -197,13 +196,13 @@ namespace spider
                 bool anyok=false;
                 
                 MainClass.ObjTrack.flush_for_new_sim();
-                    MainClass.conn.gotallparcels = false;
-                    if(lastbad==false)
-                    {
-                        MainClass.NameTrack.active=true;
-                        MainClass.ObjTrack.active=true;
-                              MainClass.conn.mapwalk();
-                    }
+                MainClass.conn.gotallparcels = false;
+                if(lastbad==false)
+                {
+                    MainClass.NameTrack.active=true;
+                    MainClass.ObjTrack.active=true;
+                    MainClass.conn.mapwalk();
+                }
     
                 anyok |= doscrapeloop(region,handle,new OpenMetaverse.Vector3(10,10, 25));
                 
@@ -228,9 +227,9 @@ namespace spider
                 
                 if(anyok==false)
                 {
-                                        mark_region_bad(handle);
+                    mark_region_bad(handle);
                     lastbad=true;
-                                        continue;
+                    continue;
                 }
                 lastbad=false;
                 
