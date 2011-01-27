@@ -133,7 +133,6 @@ namespace spider
                     Logger.Log("Breaking scrape loop disconnected", Helpers.LogLevel.Warning);
 
                     return false;
-                    break;
                 }
 
                 //Logger.Log("dowork Objects : " + MainClass.ObjTrack.complete().ToString() + MainClass.ObjTrack.requested_props.Count.ToString() + "/" + MainClass.ObjTrack.requested_propsfamily.Count.ToString() + "/" + MainClass.ObjTrack.intereset_list.Count.ToString() + " Names :" + MainClass.NameTrack.complete().ToString() + " : " + MainClass.NameTrack.agent_names_requested.Count.ToString() + " time :" + wait.Minutes.ToString() + ":" + wait.Seconds.ToString(), Helpers.LogLevel.Warning);
@@ -143,14 +142,11 @@ namespace spider
                 {
                     Logger.Log("Object track, and wait time satisified breaking loop",Helpers.LogLevel.Info);
                     return true;
-                    break;	
                 }
                 
                 System.Threading.Thread.Sleep(250);
                 MainClass.conn.rotate();
             }
-            
-            return true;
             
         }
 

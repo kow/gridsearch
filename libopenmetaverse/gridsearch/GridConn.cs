@@ -247,7 +247,7 @@ namespace spider
             }	
         catch(Exception e)
         {
-        Logger.Log("Logout exploded.. again ..",Helpers.LogLevel.Error);
+            Logger.Log("Logout exploded.. again .. "+e.Message,Helpers.LogLevel.Error);
         }
     }
 
@@ -293,8 +293,8 @@ namespace spider
 
         public void mapwalk()
         {
-        return;
-        speculateregions();
+            /*
+            speculateregions();
             ThreadPool.QueueUserWorkItem(sync =>
             {
 
@@ -312,7 +312,7 @@ namespace spider
                         if (x == 0 && y == 0)
                             continue;
 
-            map = null;
+                        map = null;
                         map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 250);
 
                         if (map != null)
@@ -335,6 +335,7 @@ namespace spider
                     }
                 Logger.Log("*** Map walk complete ", Helpers.LogLevel.Info);
             });
+             */
         }
 
     public void speculateregions()

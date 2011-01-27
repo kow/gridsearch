@@ -3,7 +3,7 @@
     <ProjectType>Local</ProjectType>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08B674BE-920B-4384-B595-7FCD43ED7591}</ProjectGuid>
+    <ProjectGuid>{675A50C1-32C4-4D82-B673-735AB34BABD8}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon></ApplicationIcon>
@@ -33,7 +33,7 @@
     <DebugSymbols>False</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>True</Optimize>
-    <OutputPath>../bin/</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -52,7 +52,7 @@
     <DebugSymbols>True</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <Optimize>False</Optimize>
-    <OutputPath>../bin/</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <RegisterForComInterop>False</RegisterForComInterop>
     <RemoveIntegerChecks>False</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
@@ -72,27 +72,27 @@
     </Reference>
     <Reference Include="MySql.Data">
         <Name>MySql.Data</Name>
-      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/MySql.Data.dll</HintPath>
+      <HintPath>C:\code\gridsearch\libopenmetaverse\bin\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
         <Name>log4net</Name>
-      <HintPath>/root/gridspidergit/spidergit/gridsearch/libopenmetaverse/bin/log4net.dll</HintPath>
+      <HintPath>C:\code\gridsearch\libopenmetaverse\bin\log4net.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../OpenMetaverse/OpenMetaverse.csproj">
+    <ProjectReference Include="..\OpenMetaverse\OpenMetaverse.csproj">
       <Name>OpenMetaverse</Name>
-      <Project>{69E0A8E6-E7C7-4A6A-8850-45CA2CA88274}</Project>
+      <Project>{25DC767D-99E1-4359-B43B-E314C7275E35}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="../OpenMetaverseTypes/OpenMetaverseTypes.csproj">
+    <ProjectReference Include="..\OpenMetaverseTypes\OpenMetaverseTypes.csproj">
       <Name>OpenMetaverseTypes</Name>
-      <Project>{4EEE2BDD-C6FC-4F43-9823-E39F7E8AB5D7}</Project>
+      <Project>{BE7D8B30-14CC-4369-A19B-E88355E9D3D2}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-    <ProjectReference Include="../OpenMetaverse.StructuredData/OpenMetaverse.StructuredData.csproj">
+    <ProjectReference Include="..\OpenMetaverse.StructuredData\OpenMetaverse.StructuredData.csproj">
       <Name>OpenMetaverse.StructuredData</Name>
-      <Project>{46B1C296-EFE9-444F-B179-D3034ADC3501}</Project>
+      <Project>{35CF4DAF-1806-4BDD-AF82-2E4149F1DD56}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -103,13 +103,13 @@
     </Compile>
     <Compile Include="GridConn.cs">
     </Compile>
+    <Compile Include="main.cs">
+    </Compile>
     <Compile Include="NameTracker.cs">
     </Compile>
     <Compile Include="ObjectPropTracker.cs">
     </Compile>
     <Compile Include="Scraper.cs">
-    </Compile>
-    <Compile Include="main.cs">
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />

@@ -225,7 +225,7 @@ namespace spider
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
                  Logger.Log("Unable to find grid" + gridname, Helpers.LogLevel.Error);
             }
@@ -264,7 +264,7 @@ namespace spider
                         rdr.Close();
                     }
                 }
-                catch (Exception e)
+                catch
                 {
                     gridhasregions = false;
                 }
