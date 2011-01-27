@@ -35,7 +35,7 @@ namespace spider
             LoginParams login = new LoginParams();
             login = client.Network.DefaultLoginParams(data.FirstName,data.LastName,data.Password,"GridSpider","1.0");
             login.AgreeToTos = true;
-           // login.Start = "home";
+            // login.Start = "home";
             login.URI = data.URI;
             login.Channel = "Test Grid Spider";
             login.Version = "1.0";

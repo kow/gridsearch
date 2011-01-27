@@ -83,7 +83,7 @@ namespace spider
                         }
 
                         SR.Close();
-            Logger.Log("Finished importing region list to "+grid,Helpers.LogLevel.Info);
+                        Logger.Log("Finished importing region list to "+grid,Helpers.LogLevel.Info);
                         return;
                     }
 
