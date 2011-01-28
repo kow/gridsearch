@@ -1,0 +1,36 @@
+body
+{
+  margin-left: 10%; margin-right: 10%;
+  color: black; background: white;
+}
+em
+{
+	font-weight: bold;
+	font-style: normal;
+}
+.query
+{
+	font-size:xx-small;
+}
+.slurl
+{
+	color: #0e774a;
+	font-style: normal;
+}
+.result
+{
+	border:2px solid #999;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	padding: 11px;
+}
+.saleInfo
+{
+	color:#666;
+}
+.description
+{font-style:italic}
+.advancedSearch
+{
+display:none;
+}
