@@ -1,0 +1,24 @@
+CREATE OR REPLACE VIEW ObjectView AS
+SELECT
+  Agent.Name as CreatorName,
+  Agent.Name as OwnerName,
+  Grid.name as GridName,
+  Region.Name as RegionName,
+  Grid.LoginURI as GridLoginURI,
+  Object.Creator,
+  Object.Owner,
+  Object.Name as ObjectName,
+  SalePrice,
+  SaleType,
+  Object.Perms,
+  Object.ID as ObjectID,
+  Object.LocalID as OLocalID,
+  Object.Description,
+  Object.Location
+FROM
+  Agent, Object, Grid, Region
+WHERE
+  Agent.AgentID=Object.Creator
+  AND Agent.AgentID=Object.Owner
+  AND Grid.PKey=Object.Grid
+  AND Region.Handle=Object.Region;
