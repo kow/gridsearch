@@ -30,6 +30,7 @@ echo "Starting Spider # $ID"
 
 touch lock.$ID
 
+ulimit -v 150000
 /usr/local/bin/mono /home/robin/gridspidergit/git/gridsearch/trunk/bin/GridSpider.exe --user spiderer --password spider --host 127.0.0.1 --database gridspider > log.$ID &
 PID=$!
 
