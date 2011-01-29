@@ -15,38 +15,38 @@ namespace spider
         public static GridConn conn;
         public static ObjectPropTracker ObjTrack;
         public static NameTracker NameTrack;
-    public static int ProcessID;
+        public static int ProcessID;
 
         static void Main()
         {
 
             ProcessID = Process.GetCurrentProcess().Id;
-            Logger.Log("Starting with PID of "+ProcessID.ToString(),Helpers.LogLevel.Debug);
+            Logger.Log("Starting with PID of " + ProcessID.ToString(), Helpers.LogLevel.Debug);
 
             while (true)
             {
-                
-                CommandLine cl= new CommandLine();
+
+                CommandLine cl = new CommandLine();
                 cl.addRequiredCLP("host");
                 cl.addRequiredCLP("user");
                 cl.addRequiredCLP("database");
 
-                if(!cl.parsecommandline())
+                if (!cl.parsecommandline())
                 {
-                    return;	
+                    return;
                 }
-                
+
                 db = new Database();
-                bool dbopen = db.OpenDatabase(cl.getopt("host"),cl.getopt("user"),cl.getopt("database"),cl.getopt("port"),cl.getopt("password"));
+                bool dbopen = db.OpenDatabase(cl.getopt("host"), cl.getopt("user"), cl.getopt("database"), cl.getopt("port"), cl.getopt("password"));
                 if (!dbopen)
                 {
                     Logger.Log("Cannot connect to database, going to sleep and trying later", Helpers.LogLevel.Error);
                 }
-               
+
                 while (dbopen)
                 {
 
-                    if (cl.getopt("region_list")!=null && cl.getopt("for_grid")!=null)
+                    if (cl.getopt("region_list") != null && cl.getopt("for_grid") != null)
                     {
                         string region_list = cl.getopt("region_list");
                         string grid = cl.getopt("for_grid");
@@ -58,7 +58,7 @@ namespace spider
 
 
                         line = SR.ReadLine();
-                        while (line !=null)
+                        while (line != null)
                         {
                             // Format is name/tregionX/tRegionY
                             try
@@ -71,7 +71,7 @@ namespace spider
                                 int Y = int.Parse(parts[2]);
 
                                 float localX, localY;
-                                ulong regionhandle = Helpers.GlobalPosToRegionHandle((X*256) + 128, (Y*256) + 128,out localX, out localY);
+                                ulong regionhandle = Helpers.GlobalPosToRegionHandle((X * 256) + 128, (Y * 256) + 128, out localX, out localY);
 
                                 Dictionary<string, string> parameters = new Dictionary<string, string>();
                                 Dictionary<string, string> conditions = new Dictionary<string, string>();
@@ -89,7 +89,7 @@ namespace spider
                         }
 
                         SR.Close();
-            Logger.Log("Finished importing region list to "+grid,Helpers.LogLevel.Info);
+                        Logger.Log("Finished importing region list to " + grid, Helpers.LogLevel.Info);
                         return;
                     }
 
@@ -97,7 +97,7 @@ namespace spider
 
                     //Find the inital grid
                     List<int> logingrids = db.getFirstRegionGrid(); //this locks a bunch of target regions, unique on grid;
-                    
+
                     int logingrid;
 
                     if (logingrids.Count == 0)
@@ -108,7 +108,7 @@ namespace spider
 
                     while (logingrids.Count != 0)
                     {
-                        Logger.Log("Current login list has "+logingrids.Count.ToString()+" entries", Helpers.LogLevel.Info);
+                        Logger.Log("Current login list has " + logingrids.Count.ToString() + " entries", Helpers.LogLevel.Info);
 
                         logingrid = logingrids[0];
                         logingrids.Remove(logingrid);
@@ -116,7 +116,7 @@ namespace spider
                         Logger.Log("Trying login on grid # " + logingrid.ToString(), Helpers.LogLevel.Info);
 
                         // Get a free login slot for this grid
-                        
+
                         LoginParams login = db.getlogin(logingrid);
                         if (login == null)
                         {
@@ -127,16 +127,16 @@ namespace spider
 
                         long handle;
                         String name = db.getNextRegionForGrid(out handle);
-                        
+
                         //Chcek if there are valid regions
-                        if (db.gridhasregions==true && db.regionsremaining == false)
+                        if (db.gridhasregions == true && db.regionsremaining == false)
                         {
                             // Well thats a bad start no regions on this grid worth checking currently ???
                             Logger.Log("Grid has no regions valid for spidering right now, why are we here? skipping login ", Helpers.LogLevel.Warning);
                             continue;
                         }
 
-                        if(db.gridhasregions==false)
+                        if (db.gridhasregions == false)
                         {
                             Logger.Log("This dam well better be a new grid with no regions yet in the db", Helpers.LogLevel.Warning);
                         }
@@ -178,61 +178,61 @@ namespace spider
         }
     }
 
-/*
+    /*
 
 
 
 
-        while(true)
-        {
+            while(true)
+            {
             
-        LoginParams login = db.getlogin("Agni");
+            LoginParams login = db.getlogin("Agni");
 
-        if (login == null)
-            goto exitloop;
+            if (login == null)
+                goto exitloop;
 
-        conn = new GridConn(login);
+            conn = new GridConn(login);
 
-        if (conn.client.Network.LoginStatusCode==LoginStatus.Success)
-        {
-            Console.WriteLine("We are logged in ok, proceed to scrape");
-        }
-        else
-        {
-            System.Threading.Thread.Sleep(1000*60*5);
-            Console.WriteLine("Login failed, we should log this and move on");
+            if (conn.client.Network.LoginStatusCode==LoginStatus.Success)
+            {
+                Console.WriteLine("We are logged in ok, proceed to scrape");
+            }
+            else
+            {
+                System.Threading.Thread.Sleep(1000*60*5);
+                Console.WriteLine("Login failed, we should log this and move on");
+                db.CloseDatabase();
+                return;
+            }
+
+            ObjTrack = new ObjectPropTracker(conn.client);
+            NameTrack = new NameTracker(conn.client);
+            Scraper scrape = new Scraper(conn.client);
+            conn.Logout();
+
+        exitloop:
+
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            Dictionary<string, string> conditions = new Dictionary<string, string>();
+
+            MainClass.db.ExecuteSQL("UPDATE Logins SET LockID='0' WHERE LockID='" + db.myid.ToString() + "';", null, null);
+            MainClass.db.ExecuteSQL("UPDATE Region SET LockID='0' WHERE LockID='" + db.myid.ToString() + "';", null, null);
+
             db.CloseDatabase();
-            return;
-        }
 
-        ObjTrack = new ObjectPropTracker(conn.client);
-        NameTrack = new NameTracker(conn.client);
-        Scraper scrape = new Scraper(conn.client);
-        conn.Logout();
+            Console.WriteLine("We all go bye bye, backing off for 60 seconds");
 
-    exitloop:
+            // Back off for 1 minute
+            System.Threading.Thread.Sleep(60000);
+            }
+      
+        
+        
+            }
 
-        Dictionary<string, string> parameters = new Dictionary<string, string>();
-        Dictionary<string, string> conditions = new Dictionary<string, string>();
-
-        MainClass.db.ExecuteSQL("UPDATE Logins SET LockID='0' WHERE LockID='" + db.myid.ToString() + "';", null, null);
-        MainClass.db.ExecuteSQL("UPDATE Region SET LockID='0' WHERE LockID='" + db.myid.ToString() + "';", null, null);
-
-        db.CloseDatabase();
-
-        Console.WriteLine("We all go bye bye, backing off for 60 seconds");
-
-        // Back off for 1 minute
-        System.Threading.Thread.Sleep(60000);
-        }
       
         
         
         }
-
-      
-        
-        
-    }
-  */
+      */
 }

@@ -21,47 +21,47 @@ namespace spider
         object thelock = new Object();
 
         string connStr;
-         
+
         MySqlConnection conn;
 
-        public bool OpenDatabase(string dbhost,string dbuser,string dbdatabase,string dbport,string dbpass)
+        public bool OpenDatabase(string dbhost, string dbuser, string dbdatabase, string dbport, string dbpass)
         {
-            
-            if(dbhost==null)
+
+            if (dbhost == null)
             {
-                Logger.Log("Host cannout be null for database",Helpers.LogLevel.Error);
+                Logger.Log("Host cannout be null for database", Helpers.LogLevel.Error);
                 return false;
             }
 
-            if(dbuser==null)
+            if (dbuser == null)
             {
-                Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
+                Logger.Log("User cannout be null for database", Helpers.LogLevel.Error);
                 return false;
             }
 
-            if(dbuser==null)
+            if (dbuser == null)
             {
-                Logger.Log("User cannout be null for database",Helpers.LogLevel.Error);
+                Logger.Log("User cannout be null for database", Helpers.LogLevel.Error);
                 return false;
             }
-            
-            if(dbpass==null)
+
+            if (dbpass == null)
             {
-                dbpass=""; //empty password	
+                dbpass = ""; //empty password	
             }
-            
-            if(dbport==null)
+
+            if (dbport == null)
             {
-                dbport="3306"; //mysql default	
+                dbport = "3306"; //mysql default	
             }
-            
-            connStr=string.Format("server={0};user={1};database={2};port={3};password={4};Allow Zero Datetime=True;",dbhost,dbuser,dbdatabase,dbport,dbpass);
-            
+
+            connStr = string.Format("server={0};user={1};database={2};port={3};password={4};Allow Zero Datetime=True;", dbhost, dbuser, dbdatabase, dbport, dbpass);
+
             Random random = new Random();
             myid = random.Next();
 
             conn = new MySqlConnection(connStr);
-        
+
             try
             {
                 Logger.Log("Connecting to MySQL..", Helpers.LogLevel.Info);
@@ -73,31 +73,31 @@ namespace spider
                 return false;
             }
 
-            Logger.Log("Connection open",Helpers.LogLevel.Info);
+            Logger.Log("Connection open", Helpers.LogLevel.Info);
             return true;
         }
 
         public void CloseDatabase()
         {
-            conn.Close();	
+            conn.Close();
         }
 
         public LoginParams getlogin(int gridkey)
         {
             LoginParams data = new LoginParams();
-           
+
             // Remove any stale login locks, any over 30 minutes are quite dead
-        
-           int ProcessID = Process.GetCurrentProcess().Id;
+
+            int ProcessID = Process.GetCurrentProcess().Id;
 
             string sql;
             sql = "LOCK TABLES Logins WRITE, Grid READ; ";
             sql += "UPDATE Logins SET LockID='0', PID='0' WHERE (UNIX_TIMESTAMP(LastScrape)+1800) < UNIX_TIMESTAMP(NOW()); ";
-            sql += "UPDATE Logins SET PID='"+ProcessID.ToString()+"', LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='"+gridkey.ToString()+"' LIMIT 1;\n ";
+            sql += "UPDATE Logins SET PID='" + ProcessID.ToString() + "', LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND grid='" + gridkey.ToString() + "' LIMIT 1;\n ";
             sql += "SELECT LoginURI, First, Last, Password, grid from Grid,Logins where Grid.PKey=Logins.grid and LockID ='" + myid.ToString() + "';";
             sql += "UNLOCK TABLES; ";
 
-            MySqlDataReader rdr=null;
+            MySqlDataReader rdr = null;
 
             try
             {
@@ -122,8 +122,8 @@ namespace spider
             else
             {
                 // There are no free login slots to use on this grid
-                Logger.Log("No free login slots left on grid id " + gridkey.ToString(),Helpers.LogLevel.Warning);
-                data=null;
+                Logger.Log("No free login slots left on grid id " + gridkey.ToString(), Helpers.LogLevel.Warning);
+                data = null;
             }
 
             rdr.Close();
@@ -150,7 +150,7 @@ namespace spider
                 }
             }
         }
-        
+
         public List<int> getFirstRegionGrid()
         {
             int grid = -1;
@@ -159,7 +159,7 @@ namespace spider
             // This function needs to select a region that is older than the required threshold, the grid does not matter at this point because
             // what ever grid this returns will be used for the spider operation
 
-            string sql = "";	
+            string sql = "";
             sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
             sql += "LOCK TABLES Region WRITE, Grid READ;";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n"; // clean my lockids
@@ -167,7 +167,7 @@ namespace spider
             sql += "CREATE TEMPORARY TABLE candidates SELECT * FROM Region WHERE LockID='0' AND UNIX_TIMESTAMP(LastScrape)+172800 < UNIX_TIMESTAMP(NOW());"; //2 weeks?
             sql += "INSERT INTO candidates (Grid) (SELECT PKey from Grid WHERE Grid.new='1');";
             sql += "SELECT Grid FROM candidates;";
-           
+
             try
             {
                 lock (thelock)
@@ -175,19 +175,19 @@ namespace spider
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
 
-                    while(rdr.Read())
+                    while (rdr.Read())
                     {
-                        object data=rdr[0];
+                        object data = rdr[0];
                         if (data.GetType() != typeof(System.DBNull))
                         {
-                            grid=(int)data;
+                            grid = (int)data;
                             if (!possiblegrids.Contains(grid))
                             {
                                 possiblegrids.Add(grid);
                             }
                         }
                     }
-                   
+
                     rdr.Close();
 
                     sql = "DROP TEMPORARY TABLE candidates;";
@@ -197,20 +197,19 @@ namespace spider
 
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Logger.Log(e.Message, Helpers.LogLevel.Error);
-                 sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
-                 sql += "UNLOCK TABLES; ";
-                 MySqlCommand cmd = new MySqlCommand(sql, conn);
-                 cmd.ExecuteNonQuery();
-
+                sql = "DROP TEMPORARY TABLE IF EXISTS candidates;";
+                sql += "UNLOCK TABLES; ";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
             }
 
             return possiblegrids;
         }
 
-        
+
         public int getgridkey(string gridname)
         {
             int grid = 0;
@@ -224,13 +223,13 @@ namespace spider
                     rdr = cmd.ExecuteReader();
                     if (rdr.Read())
                     {
-                        grid = (int)rdr[0];  
+                        grid = (int)rdr[0];
                     }
                 }
             }
-            catch (Exception e)
+            catch
             {
-                 Logger.Log("Unable to find grid" + gridname, Helpers.LogLevel.Error);
+                Logger.Log("Unable to find grid" + gridname, Helpers.LogLevel.Error);
             }
 
             rdr.Close();
@@ -238,10 +237,10 @@ namespace spider
             return grid;
         }
 
-   
+
         public string getNextRegionForGrid(out Int64 handle)
         {
-            
+
             string region = "";
             handle = 0;
 
@@ -267,7 +266,7 @@ namespace spider
                         rdr.Close();
                     }
                 }
-                catch (Exception e)
+                catch
                 {
                     gridhasregions = false;
                 }
@@ -276,15 +275,14 @@ namespace spider
                     return "";
 
             }
-            
+
             // Lock the Region table then grab a lock on a region we would like to work with
-            string sql="";
-            sql =  "LOCK TABLES Region WRITE;\n";
+            string sql = "";
+            sql = "LOCK TABLES Region WRITE;\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID='" + myid.ToString() + "';\n";
             sql += "UPDATE Region SET LockID='0' WHERE LockID!='0' AND UNIX_TIMESTAMP(LastScrape)+3600 < UNIX_TIMESTAMP(NOW()) ;\n";
-            sql += "UPDATE Region SET LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND Grid='" + gridKey.ToString() 
-        + "' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC LIMIT 1;\n";            
-            sql += "SELECT Name, Handle FROM Region WHERE LockID='" + myid.ToString()+"';\n";
+            sql += "UPDATE Region SET LastScrape=NOW(), LockID='" + myid.ToString() + "' WHERE LockID='0' AND Grid='" + gridKey.ToString() + "' AND UNIX_TIMESTAMP(LastScrape)+604800 < UNIX_TIMESTAMP(NOW()) ORDER BY LastScrape ASC LIMIT 1;\n";
+            sql += "SELECT Name, Handle FROM Region WHERE LockID='" + myid.ToString() + "';\n";
             sql += "UNLOCK TABLES; ";
 
             try
@@ -293,39 +291,39 @@ namespace spider
                 {
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     MySqlDataReader rdr = cmd.ExecuteReader();
-                
 
-                if (rdr.Read())
-                {
-                    object name = rdr[0];
-                    if (name.GetType() == typeof(System.DBNull))
+
+                    if (rdr.Read())
                     {
-                        object rhandle = rdr[1];
-                        Logger.Log("Grid has unnamed regions -> found " + rhandle.ToString(), Helpers.LogLevel.Info);
-                        region = "";
+                        object name = rdr[0];
+                        if (name.GetType() == typeof(System.DBNull))
+                        {
+                            object rhandle = rdr[1];
+                            Logger.Log("Grid has unnamed regions -> found " + rhandle.ToString(), Helpers.LogLevel.Info);
+                            region = "";
+                        }
+                        else
+                        {
+                            Logger.Log("Grid has regions -> found " + (string)rdr[0], Helpers.LogLevel.Info);
+                            region = (string)rdr[0];
+                        }
+
+                        object x = rdr[1];
+
+                        handle = (Int64)x;
+                        regionsremaining = true;
+
                     }
                     else
                     {
-                        Logger.Log("Grid has regions -> found " + (string)rdr[0], Helpers.LogLevel.Info);
-                        region = (string)rdr[0];
+                        Logger.Log("Grid has no regions yet", Helpers.LogLevel.Info);
+                        regionsremaining = false;
                     }
 
-                    object x = rdr[1];
-
-                    handle = (Int64)x;
-                    regionsremaining = true;
-              
-                }
-                else
-                {
-                    Logger.Log("Grid has no regions yet", Helpers.LogLevel.Info);
-                    regionsremaining = false;
-                }
-
-                rdr.Close();
+                    rdr.Close();
 
                 }
-               
+
 
             }
             catch (Exception e)
@@ -348,10 +346,10 @@ namespace spider
             }
 
             sql = sql + addparams(parameters, ",");
-            sql=sql+" WHERE ";
+            sql = sql + " WHERE ";
             sql = sql + addparams(conditions, "AND");
-            sql=sql+";";
-            
+            sql = sql + ";";
+
             return ExecuteSQL(sql, parameters, conditions);
         }
 
@@ -360,7 +358,7 @@ namespace spider
             string sql = "";
 
             sql = String.Format("UPDATE " + table + " SET ");
-            
+
             sql = sql + addparams(parameters, ",");
             sql = sql + " WHERE ";
             sql = sql + addparams(conditions, "AND");
@@ -369,8 +367,8 @@ namespace spider
             return ExecuteSQL(sql, parameters, conditions);
         }
 
-        
-        public bool updatescrape(string table, Dictionary<String,String>conditions)
+
+        public bool updatescrape(string table, Dictionary<String, String> conditions)
         {
 
             string sql = String.Format("UPDATE " + table + " SET LastScrape=NOW() WHERE ");
@@ -378,13 +376,13 @@ namespace spider
             return ExecuteSQL(sql, null, conditions);
         }
 
-        public bool genericReplaceInto(string table,Dictionary<String,String>parameters,bool updatescrape)
+        public bool genericReplaceInto(string table, Dictionary<String, String> parameters, bool updatescrape)
         {
-            string sql="";
+            string sql = "";
 
-            sql = String.Format("REPLACE INTO "+table+" SET ");
+            sql = String.Format("REPLACE INTO " + table + " SET ");
             sql = sql + addparams(parameters, ",");
-        
+
             if (updatescrape)
             {
                 sql = sql + ", LastScrape=NOW();";
@@ -430,18 +428,18 @@ namespace spider
         }
 
 
-        public string addparams(Dictionary<String, String> parameters,string delimiter)
+        public string addparams(Dictionary<String, String> parameters, string delimiter)
         {
-            string sql="";
+            string sql = "";
 
             if (parameters.Count == 0)
                 return "";
 
             foreach (KeyValuePair<String, String> kvp in parameters)
             {
-                sql += kvp.Key + "=?" + kvp.Key + " "+delimiter+" ";
+                sql += kvp.Key + "=?" + kvp.Key + " " + delimiter + " ";
             }
-            sql = sql.Substring(0, sql.Length - (delimiter.Length+2));
+            sql = sql.Substring(0, sql.Length - (delimiter.Length + 2));
 
             return sql;
         }
@@ -485,8 +483,8 @@ namespace spider
         }
 
         public bool ExecuteSQL(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints)
-        {	
-            lock(thelock)
+        {
+            lock (thelock)
             {
                 try
                 {
@@ -496,7 +494,7 @@ namespace spider
                         cmd.ExecuteNonQuery();
                     }
                     return true;
-    
+
                 }
                 catch (Exception e)
                 {
@@ -509,7 +507,7 @@ namespace spider
 
         public bool ExecuteQuersy(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints, out MySqlDataReader rdr)
         {
-            lock(thelock)
+            lock (thelock)
             {
                 try
                 {
@@ -529,15 +527,15 @@ namespace spider
         public string compressUUID(UUID input)
         {
             byte[] compressed = new byte[16];
-            char[] compressedC = new char[16]; 
-            input.ToBytes(compressed,0);
+            char[] compressedC = new char[16];
+            input.ToBytes(compressed, 0);
 
             for (int x = 0; x < 16; x++)
             {
                 compressedC[x] = (char)compressed[x];
             }
 
-            return (new string(compressedC,0,16));
+            return (new string(compressedC, 0, 16));
         }
 
         public UUID decompressUUID(string input)
