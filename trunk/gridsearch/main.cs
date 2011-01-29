@@ -20,8 +20,8 @@ namespace spider
         static void Main()
         {
 
-        ProcessID = Process.GetCurrentProcess().Id;
-            Console.WriteLine("Starting with PID of "+ProcessID.ToString());
+            ProcessID = Process.GetCurrentProcess().Id;
+            Logger.Log("Starting with PID of "+ProcessID.ToString(),Helpers.LogLevel.Debug);
 
             while (true)
             {

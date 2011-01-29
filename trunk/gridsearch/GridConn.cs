@@ -172,7 +172,6 @@ namespace spider
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
-           Console.WriteLine();
            Logger.Log("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString()+" : "+e.Flags.ToString(),Helpers.LogLevel.Info);
 
                if (e.Status == TeleportStatus.Finished)
@@ -269,7 +268,6 @@ namespace spider
         public void localteleport(Vector3 pos)
         {
             Logger.Log("Trying to teleport intersim on " + client.Network.CurrentSim.Name + " to " + pos.ToString(), Helpers.LogLevel.Info);
-            Console.WriteLine();
             bool status=client.Self.Teleport(client.Network.CurrentSim.Handle, pos);
             Logger.Log("Teleport status is " + status.ToString(),Helpers.LogLevel.Info);
         }

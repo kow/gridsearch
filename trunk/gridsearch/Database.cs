@@ -88,9 +88,7 @@ namespace spider
            
             // Remove any stale login locks, any over 30 minutes are quite dead
         
-        Console.WriteLine(MainClass.ProcessID.ToString());
            int ProcessID = Process.GetCurrentProcess().Id;
-
 
             string sql;
             sql = "LOCK TABLES Logins WRITE, Grid READ; ";

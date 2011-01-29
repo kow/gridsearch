@@ -15,7 +15,7 @@ namespace spider
         {		
             client=theclient;
             
-            Console.WriteLine("Starting scrape");
+            Logger.Log("Starting scrape",Helpers.LogLevel.Info);
             scraperlogic();
         }
 
@@ -129,7 +129,6 @@ namespace spider
                 wait=DateTime.Now - start;
                 if(MainClass.conn.connected==false)
                 {
-                    Console.WriteLine();
                     Logger.Log("Breaking scrape loop disconnected", Helpers.LogLevel.Warning);
 
                     return false;
@@ -238,7 +237,6 @@ namespace spider
                 }
                 lastbad=false;
                 
-                Console.WriteLine();
                 Logger.Log("Scan complete waiting parcel update before saving", Helpers.LogLevel.Info);
 
                 DateTime start=DateTime.Now;
