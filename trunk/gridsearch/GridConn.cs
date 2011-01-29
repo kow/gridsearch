@@ -26,7 +26,7 @@ namespace spider
             client = new GridClient();
             prop_request = new List<UUID>();
 
-          	discovered_sims = new List<ulong>();
+              discovered_sims = new List<ulong>();
 
             agent_properties_recieved = new List<UUID>();
             agent_properties_queue = new Dictionary<UUID, DateTime>();
@@ -52,14 +52,14 @@ namespace spider
             client.Parcels.SimParcelsDownloaded += new EventHandler<SimParcelsDownloadedEventArgs>(Parcels_SimParcelsDownloaded);
             client.Self.TeleportProgress += new EventHandler<TeleportEventArgs>(Self_TeleportProgress);
             client.Network.Disconnected += new EventHandler<DisconnectedEventArgs>(Network_Disconnected);
-			client.Network.LoggedOut +=	new EventHandler<LoggedOutEventArgs>(Network_LoggedOut);
-			client.Network.SimDisconnected += new EventHandler<SimDisconnectedEventArgs>(Network_SimDisconnected);
+            client.Network.LoggedOut +=	new EventHandler<LoggedOutEventArgs>(Network_LoggedOut);
+            client.Network.SimDisconnected += new EventHandler<SimDisconnectedEventArgs>(Network_SimDisconnected);
             //client.Grid.GridLayer += new EventHandler<GridLayerEventArgs>(Grid_GridLayer);
             //client.Grid.GridRegion += new EventHandler<GridRegionEventArgs>(Grid_GridRegion);
 
  
-			client.Self.ChatFromSimulator += HandleClientSelfChatFromSimulator;	
-			client.Self.IM += HandleClientSelfIM;
+            client.Self.ChatFromSimulator += HandleClientSelfChatFromSimulator;	
+            client.Self.IM += HandleClientSelfIM;
             
             client.Self.Movement.Camera.Far = 512;
 
@@ -72,7 +72,7 @@ namespace spider
             if (client.Network.LoginStatusCode == LoginStatus.Success)
             {
                 Logger.Log("Login procedure completed", Helpers.LogLevel.Info);
-				connected=true;
+                connected=true;
             }
             Logger.Log("Status is " + client.Network.LoginStatusCode.ToString(), Helpers.LogLevel.Info);
             Logger.Log(client.Network.LoginMessage, Helpers.LogLevel.Info);
@@ -113,15 +113,15 @@ namespace spider
         {
             Logger.Log("Sim connecting " + e.Simulator.Handle+" "+e.Simulator.Name, Helpers.LogLevel.Info);
         }
-		
+        
         void HandleClientSelfIM (object sender, InstantMessageEventArgs e)
         {
-        	
+            
         }
 
         void HandleClientSelfChatFromSimulator (object sender, ChatEventArgs e)
         {
-     		 	
+                  
         }
 
         void Network_Disconnected(object sender, DisconnectedEventArgs e)
@@ -130,33 +130,33 @@ namespace spider
             Logger.Log(e.Message, Helpers.LogLevel.Error);
             Logger.Log(e.Reason, Helpers.LogLevel.Error);
 
-			if (connected == true)
+            if (connected == true)
             {
-            	connected = false;
-            	client.Network.Logout(); //force logout to clean up libomv
-			}
+                connected = false;
+                client.Network.Logout(); //force logout to clean up libomv
+            }
         }
-		
-		void Network_SimDisconnected(object sender, SimDisconnectedEventArgs e)
-		{
+        
+        void Network_SimDisconnected(object sender, SimDisconnectedEventArgs e)
+        {
             Logger.Log("Sim disconnected from " + e.Simulator.Name + " Reason " + e.Reason, Helpers.LogLevel.Info);
-			if(client.Network.CurrentSim==e.Simulator)
-			{
+            if(client.Network.CurrentSim==e.Simulator)
+            {
                 Logger.Log("*** BONED WE HAVE BEEN BOOTED ***", Helpers.LogLevel.Error);
 
                 if (connected == true)
                 {
-					connected = false;
+                    connected = false;
                     client.Network.Logout(); //force logout to clean up libomv
                 }
             }	
-		}
-		
-		void Network_LoggedOut(object sender, LoggedOutEventArgs e)
-		{
+        }
+        
+        void Network_LoggedOut(object sender, LoggedOutEventArgs e)
+        {
             Logger.Log("***** LOGOUT RECIEVED ITS ALL OVER ********", Helpers.LogLevel.Error);
-			connected=false;
-		}
+            connected=false;
+        }
 
         void Network_SimConnected(object sender, SimConnectedEventArgs e)
         {
@@ -172,8 +172,8 @@ namespace spider
 
         void Self_TeleportProgress(object sender, TeleportEventArgs e)
         {
-	       Console.WriteLine();
-	       Logger.Log("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString()+" : "+e.Flags.ToString(),Helpers.LogLevel.Info);
+           Console.WriteLine();
+           Logger.Log("TP Update --> "+e.Message.ToString()+" : "+e.Status.ToString()+" : "+e.Flags.ToString(),Helpers.LogLevel.Info);
 
                if (e.Status == TeleportStatus.Finished)
                {
@@ -204,16 +204,16 @@ namespace spider
                         parameters.Add("Owner", MainClass.db.compressUUID(kvp.Value.OwnerID));
                         parameters.Add("GroupID", MainClass.db.compressUUID(kvp.Value.GroupID));
                         parameters.Add("ParcelFlags", ((int)kvp.Value.Flags).ToString());
-				
-				        if(kvp.Value.AuthBuyerID==UUID.Zero)
-				        {
-					        parameters.Add("SalePrice",kvp.Value.SalePrice.ToString());
-				        }
-				        else
-				        {
-					        parameters.Add("SalePrice","-1");
-				        }
-				
+                
+                        if(kvp.Value.AuthBuyerID==UUID.Zero)
+                        {
+                            parameters.Add("SalePrice",kvp.Value.SalePrice.ToString());
+                        }
+                        else
+                        {
+                            parameters.Add("SalePrice","-1");
+                        }
+                
                         MainClass.db.genericReplaceInto("Parcel", parameters, true);
                     });
                 });
@@ -241,15 +241,15 @@ namespace spider
 
         public void Logout()
         {
-	    try
-	    {
-            	client.Network.Logout();
+        try
+        {
+                client.Network.Logout();
             }	
-	    catch(Exception e)
-	    {
-		Logger.Log("Logout exploded.. again ..",Helpers.LogLevel.Error);
-	    }
-	}
+        catch(Exception e)
+        {
+        Logger.Log("Logout exploded.. again ..",Helpers.LogLevel.Error);
+        }
+    }
 
         public int getObjectCount()
         {
@@ -293,8 +293,8 @@ namespace spider
 
         public void mapwalk()
         {
-	    return;
-	    speculateregions();
+        return;
+        speculateregions();
             ThreadPool.QueueUserWorkItem(sync =>
             {
 
@@ -312,7 +312,7 @@ namespace spider
                         if (x == 0 && y == 0)
                             continue;
 
-			map = null;
+            map = null;
                         map = client.Grid.MapItems(Utils.UIntsToLong((uint)(gpos.X + x * 256), (uint)(gpos.Y + y * 256)), GridItemType.AgentLocations, GridLayerType.Objects, 250);
 
                         if (map != null)
@@ -337,36 +337,36 @@ namespace spider
             });
         }
 
-	public void speculateregions()
-	{
-	    ThreadPool.QueueUserWorkItem(sync =>
+    public void speculateregions()
+    {
+        ThreadPool.QueueUserWorkItem(sync =>
             {
 
-		//*sigh* opensim fails to report neighbours correctly via standard sim connects unless you are very close to a region
-		// and the mapitems does not work either so just add the 8 neighbout blocks to the spider list
-	        // worst case is that we get some extra cruff in the region database
-		
-		Vector3d gpos = MainClass.conn.client.Self.GlobalPosition;
- 		int x;
-		int y;
+        //*sigh* opensim fails to report neighbours correctly via standard sim connects unless you are very close to a region
+        // and the mapitems does not work either so just add the 8 neighbout blocks to the spider list
+            // worst case is that we get some extra cruff in the region database
+        
+        Vector3d gpos = MainClass.conn.client.Self.GlobalPosition;
+         int x;
+        int y;
 
-		for (x = -1; x <= 1; x++)
+        for (x = -1; x <= 1; x++)
                 for (y = -1; y <= 1; y++)
                 {
-                	if (x == 0 && y == 0)
-                        	continue;
-			 Dictionary<string, string> parameters = new Dictionary<string, string>();
+                    if (x == 0 && y == 0)
+                            continue;
+             Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-		  	float localX, localY;
+              float localX, localY;
                         ulong region = Helpers.GlobalPosToRegionHandle((float)gpos.X + x * 256, (float)gpos.Y + y * 256, out localX, out localY);
-			parameters.Add("Grid", MainClass.db.gridKey.ToString());
+            parameters.Add("Grid", MainClass.db.gridKey.ToString());
                         parameters.Add("Handle", region.ToString());
                         MainClass.db.genericInsertIgnore("Region", parameters);
-		}
+        }
 
-		});
-				
-	}
+        });
+                
+    }
 
     }
 }
