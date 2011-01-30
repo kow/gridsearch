@@ -22,8 +22,7 @@ namespace spider
         public bool active = false;
         int total_objects;
         int total_linksets;
-        int ignored_objects;
-
+       
         DateTime start;
 
         public ObjectPropTracker(GridClient tclient)
