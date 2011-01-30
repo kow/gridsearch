@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using OpenMetaverse;
 using System.Threading;
+using System.Diagnostics;
+using System.IO;
 
 namespace spider
 {
@@ -21,6 +23,21 @@ namespace spider
 
         public void terminate()
         {
+
+        }
+
+        public void dumpmemoryusage()
+        {
+            int ProcessID = Process.GetCurrentProcess().Id;
+
+            StreamWriter writer = new StreamWriter("memlog."+ProcessID.ToString(),true);
+
+            writer.WriteLine(DateTime.Now.ToString()+"\t"+Process.GetCurrentProcess().VirtualMemorySize64.ToString()+"\t"+Process.GetCurrentProcess().PagedMemorySize64.ToString()+"\t"+Process.GetCurrentProcess().NonpagedSystemMemorySize64.ToString());
+            
+            writer.Close();
+    
+
+
 
         }
 
@@ -172,6 +189,7 @@ namespace spider
             while (MainClass.db.regionsremaining && MainClass.conn.connected)
             {
 
+                dumpmemoryusage();
                 // Are we still connected
 
                 ulong handle;
