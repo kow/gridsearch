@@ -478,8 +478,6 @@ namespace spider
                     Logger.Log(kvp.Key + " ==> " + kvp.Value, Helpers.LogLevel.Error);
                 }
             }
-
-            System.Threading.Thread.Sleep(500000);
         }
 
         public bool ExecuteSQL(string sql, Dictionary<String, String> parameters, Dictionary<String, String> constraints)
@@ -489,12 +487,8 @@ namespace spider
                 try
                 {
                     MySqlCommand cmd = buildsql(sql, parameters, constraints);
-                    lock (conn)
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                     return true;
-
                 }
                 catch (Exception e)
                 {
