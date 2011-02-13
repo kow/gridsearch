@@ -96,10 +96,11 @@ CREATE TABLE `Object` (
   `ParcelID` tinyint(4) DEFAULT NULL,
   `Perms` int(11) NOT NULL DEFAULT '0' COMMENT 'Next Owner Permissions Mask { Transfer = 1 << 13, Modify = 1 << 14, Copy = 1 << 15, Move = 1 << 19, Damage = 1 << 20 }',
   `uniquekey` int(11) NOT NULL AUTO_INCREMENT,
+  `Permseveryone` int(11) DEFAULT NULL,
   PRIMARY KEY (`Region`,`LocalID`),
   UNIQUE KEY `uniquekey` (`uniquekey`),
   FULLTEXT KEY `gText` (`Name`,`Description`)
-) ENGINE=MyISAM AUTO_INCREMENT=1094303 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1451372 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,6 +122,7 @@ SET character_set_client = utf8;
   `ObjectName` text,
   `SalePrice` mediumint(11),
   `SaleType` tinyint(4),
+  `Flags` bit(8),
   `Perms` int(11),
   `ObjectID` char(16),
   `OLocalID` int(11),
@@ -153,8 +155,31 @@ CREATE TABLE `Parcel` (
   `SalePrice` int(11) DEFAULT '-1',
   PRIMARY KEY (`PKey`,`Region`,`Grid`,`ParcelID`),
   FULLTEXT KEY `Name` (`Name`,`Description`)
-) ENGINE=MyISAM AUTO_INCREMENT=295922 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=356028 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Temporary table structure for view `ParcelView`
+--
+
+DROP TABLE IF EXISTS `ParcelView`;
+/*!50001 DROP VIEW IF EXISTS `ParcelView`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `ParcelView` (
+  `OwnerName` text,
+  `ParcelName` text,
+  `ParcelDescription` text,
+  `GridName` text,
+  `RegionName` text,
+  `GridLoginURI` text,
+  `Size` smallint(11),
+  `ParcelFlags` int(11),
+  `PLocalID` int(11),
+  `Rating` bit(8),
+  `SalePrice` int(11)
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `Region`
@@ -173,6 +198,7 @@ CREATE TABLE `Region` (
   `Status` tinyint(4) NOT NULL DEFAULT '0',
   `LockID` int(11) NOT NULL DEFAULT '0',
   `pkey` tinyint(4) NOT NULL DEFAULT '0',
+  `LastVerified` date DEFAULT NULL,
   PRIMARY KEY (`Grid`,`Handle`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -225,8 +251,27 @@ CREATE TABLE `Users` (
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_unicode_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `ObjectView` AS select `Agent`.`Name` AS `CreatorName`,`Agent`.`Name` AS `OwnerName`,`Grid`.`name` AS `GridName`,`Region`.`Name` AS `RegionName`,`Grid`.`LoginURI` AS `GridLoginURI`,`Object`.`Creator` AS `Creator`,`Object`.`Owner` AS `Owner`,`Object`.`Name` AS `ObjectName`,`Object`.`SalePrice` AS `SalePrice`,`Object`.`SaleType` AS `SaleType`,`Object`.`Perms` AS `Perms`,`Object`.`ID` AS `ObjectID`,`Object`.`LocalID` AS `OLocalID`,`Object`.`Description` AS `Description`,`Object`.`Location` AS `Location` from (((`Agent` join `Object`) join `Grid`) join `Region`) where ((`Agent`.`AgentID` = `Object`.`Creator`) and (`Agent`.`AgentID` = `Object`.`Owner`) and (`Grid`.`PKey` = `Object`.`Grid`) and (`Region`.`Handle` = `Object`.`Region`)) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `ObjectView` AS select `Agent`.`Name` AS `CreatorName`,`Agent`.`Name` AS `OwnerName`,`Grid`.`name` AS `GridName`,`Region`.`Name` AS `RegionName`,`Grid`.`LoginURI` AS `GridLoginURI`,`Object`.`Creator` AS `Creator`,`Object`.`Owner` AS `Owner`,`Object`.`Name` AS `ObjectName`,`Object`.`SalePrice` AS `SalePrice`,`Object`.`SaleType` AS `SaleType`,`Object`.`Flags` AS `Flags`,`Object`.`Perms` AS `Perms`,`Object`.`ID` AS `ObjectID`,`Object`.`uniquekey` AS `OLocalID`,`Object`.`Description` AS `Description`,`Object`.`Location` AS `Location` from (((`Agent` join `Object`) join `Grid`) join `Region`) where ((`Agent`.`AgentID` = `Object`.`Creator`) and (`Agent`.`AgentID` = `Object`.`Owner`) and (`Grid`.`PKey` = `Object`.`Grid`) and (`Region`.`Handle` = `Object`.`Region`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `ParcelView`
+--
+
+/*!50001 DROP TABLE IF EXISTS `ParcelView`*/;
+/*!50001 DROP VIEW IF EXISTS `ParcelView`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_unicode_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `ParcelView` AS select `Agent`.`Name` AS `OwnerName`,`Parcel`.`Name` AS `ParcelName`,`Parcel`.`Description` AS `ParcelDescription`,`Grid`.`name` AS `GridName`,`Region`.`Name` AS `RegionName`,`Grid`.`LoginURI` AS `GridLoginURI`,`Parcel`.`Size` AS `Size`,`Parcel`.`ParcelFlags` AS `ParcelFlags`,`Parcel`.`PKey` AS `PLocalID`,`Parcel`.`Rating` AS `Rating`,`Parcel`.`SalePrice` AS `SalePrice` from (((`Agent` join `Parcel`) join `Grid`) join `Region`) where ((`Agent`.`AgentID` = `Parcel`.`Owner`) and (`Grid`.`PKey` = `Parcel`.`Grid`) and (`Region`.`Handle` = `Parcel`.`Region`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -240,4 +285,4 @@ CREATE TABLE `Users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-27  7:57:00
+-- Dump completed on 2011-02-13  8:00:21
