@@ -141,7 +141,7 @@ namespace spider
                             parameters.Add("SaleType", ((int)kvp.Value.Properties.SaleType).ToString());
                             parameters.Add("ParcelID", client.Parcels.GetParcelLocalID(client.Network.CurrentSim, kvp.Value.Position).ToString());
                             parameters.Add("Perms", kvp.Value.Properties.Permissions.NextOwnerMask.ToString());
-                            parameters.Add("PermsEveryone", kvp.Value.Properties.Permissions.EveryoneMask.ToString());
+                            parameters.Add("Permseveryone", kvp.Value.Properties.Permissions.EveryoneMask.ToString());
 
                             int pos;
                             pos = (int)kvp.Value.Position.X + ((int)kvp.Value.Position.Y * 255) + ((int)kvp.Value.Position.Z * 65535);
