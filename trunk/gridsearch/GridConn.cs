@@ -203,6 +203,9 @@ namespace spider
                     parameters.Add("Owner", MainClass.db.compressUUID(kvp.Value.OwnerID));
                     parameters.Add("GroupID", MainClass.db.compressUUID(kvp.Value.GroupID));
                     parameters.Add("ParcelFlags", ((int)kvp.Value.Flags).ToString());
+                    parameters.Add("MusicURL", kvp.Value.MusicURL);
+                    parameters.Add("MediaURL", kvp.Value.Media.MediaURL);
+		
 
                     if (kvp.Value.AuthBuyerID == UUID.Zero)
                     {

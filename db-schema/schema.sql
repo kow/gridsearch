@@ -100,7 +100,7 @@ CREATE TABLE `Object` (
   PRIMARY KEY (`Region`,`LocalID`),
   UNIQUE KEY `uniquekey` (`uniquekey`),
   FULLTEXT KEY `gText` (`Name`,`Description`)
-) ENGINE=MyISAM AUTO_INCREMENT=1451372 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=1777298 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,9 +153,11 @@ CREATE TABLE `Parcel` (
   `GroupID` char(16) DEFAULT NULL,
   `ParcelID` tinyint(4) NOT NULL DEFAULT '0',
   `SalePrice` int(11) DEFAULT '-1',
+  `MediaURL` text,
+  `MusicURL` text,
   PRIMARY KEY (`PKey`,`Region`,`Grid`,`ParcelID`),
   FULLTEXT KEY `Name` (`Name`,`Description`)
-) ENGINE=MyISAM AUTO_INCREMENT=356028 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=395049 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -285,4 +287,4 @@ CREATE TABLE `Users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-02-13  8:00:21
+-- Dump completed on 2011-02-23  7:30:29
